@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzaria.View", "Pizzaria.View\Pizzaria.View.csproj", "{E50F374F-44CC-4F36-BD5F-93A06BC7D73F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzaria.Model", "Pizzaria.Model\Pizzaria.Model.csproj", "{FC38FEE2-F79D-43A4-85EB-8AB6AE114EC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzaria.Controller", "Pizzaria.Controller\Pizzaria.Controller.csproj", "{8E38DB4E-CDBE-485B-8438-A263E455EEF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E50F374F-44CC-4F36-BD5F-93A06BC7D73F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E50F374F-44CC-4F36-BD5F-93A06BC7D73F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E50F374F-44CC-4F36-BD5F-93A06BC7D73F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E50F374F-44CC-4F36-BD5F-93A06BC7D73F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC38FEE2-F79D-43A4-85EB-8AB6AE114EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC38FEE2-F79D-43A4-85EB-8AB6AE114EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC38FEE2-F79D-43A4-85EB-8AB6AE114EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC38FEE2-F79D-43A4-85EB-8AB6AE114EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E38DB4E-CDBE-485B-8438-A263E455EEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E38DB4E-CDBE-485B-8438-A263E455EEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E38DB4E-CDBE-485B-8438-A263E455EEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E38DB4E-CDBE-485B-8438-A263E455EEF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
