@@ -1,12 +1,8 @@
 ﻿using MySql.Data.Entity;
 using Pizzaria.Model.Entity;
-using System;
-using System.Collections.Generic;
+using Pizzaria.Model.Initializer;
 using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizzaria.Model.Data
 {
@@ -15,7 +11,7 @@ namespace Pizzaria.Model.Data
     {
         public _DbContext(): base(ConfigurationManager.ConnectionStrings["Pizzaria"].ConnectionString)
         {
-
+            Database.SetInitializer<_DbContext>(new DataInitializer());
         }
 
         public DbSet<Produto> Produto { get; set; }

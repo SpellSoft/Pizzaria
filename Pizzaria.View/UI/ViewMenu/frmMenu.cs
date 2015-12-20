@@ -16,6 +16,7 @@ namespace Pizzaria.View.UI.ViewMenu
         {          
 
             var db = new _DbContext();
+            //db.Database.Initialize(true);
             var p = db.Produto.ToList();
         }
     }
