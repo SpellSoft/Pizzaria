@@ -1,21 +1,18 @@
-﻿using Pizzaria.Model.Utilities;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pizzaria.Model.Entity
 {
+    [Table(name:nameof(Produto))]
     public class Produto
     {
        
         [Key]
-        [Range(type: typeof(ushort), minimum: "0", maximum: "65535",ErrorMessage = "{0} excedido, contate o administrador")]
+        [Range(type: typeof(int), minimum: "0", maximum: "10000",ErrorMessage = "{0} excedido, contate o administrador")]
         [DisplayName(displayName:"Produto ID")]
-        public ushort ProdutoID { get; set; }
+        public int ProdutoID { get; set; }
         [Required(ErrorMessage = "{0} é obrigatório.")]
         [StringLength(maximumLength:50,ErrorMessage = "{0} deve conter pelo menos 50 letras.")]
         [DisplayName(displayName: "Produto Nome")]
@@ -23,10 +20,7 @@ namespace Pizzaria.Model.Entity
         [Required(ErrorMessage = "{0} é obrigatório.")]
         [StringLength(maximumLength: 13, ErrorMessage = "{0} deve conter pelo menos 13 letras.")]
         [DisplayName(displayName: "Produto Código")]
-        public string Codigo { get; set; }
-        [DisplayName(displayName: "Gerenciar Estoque")]
-        public bool Gerenciar { get; set; }
-
+        public string Codigo { get; set; }      
 
         private double? precoCompra;
         [Range(type: typeof(double), minimum: "0", maximum: "1000", ErrorMessage = "{0} incorreto.")]
@@ -58,10 +52,10 @@ namespace Pizzaria.Model.Entity
             }
         }
 
-        [Range(type: typeof(ushort),minimum: "0",maximum: "65535", ErrorMessage = "{0} excedido, contate o administrador")]
+        [Range(type: typeof(int),minimum: "0",maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
         [DisplayName(displayName: "Categoria ID")]
         [Required(ErrorMessage = "{0} é obrigatório.")]
-        public ushort CategoriaID { get; set; }
+        public int CategoriaID { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual Estoque Estoque { get; set; }
 

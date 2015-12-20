@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -82,6 +83,16 @@
   <ItemGroup>
     <Folder Include="Enum\" />
     <Folder Include="Source\Img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pizzaria.Controller\Pizzaria.Controller.csproj">
+      <Project>{8e38db4e-cdbe-485b-8438-a263e455eef4}</Project>
+      <Name>Pizzaria.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pizzaria.Model\Pizzaria.Model.csproj">
+      <Project>{fc38fee2-f79d-43a4-85eb-8ab6ae114ec9}</Project>
+      <Name>Pizzaria.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
