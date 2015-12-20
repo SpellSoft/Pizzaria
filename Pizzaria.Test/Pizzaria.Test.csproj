@@ -35,7 +35,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -52,6 +61,24 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pizzaria.Controller\Pizzaria.Controller.csproj">
+      <Project>{8e38db4e-cdbe-485b-8438-a263e455eef4}</Project>
+      <Name>Pizzaria.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pizzaria.Model\Pizzaria.Model.csproj">
+      <Project>{fc38fee2-f79d-43a4-85eb-8ab6ae114ec9}</Project>
+      <Name>Pizzaria.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pizzaria.View\Pizzaria.View.csproj">
+      <Project>{e50f374f-44cc-4f36-bd5f-93a06bc7d73f}</Project>
+      <Name>Pizzaria.View</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
