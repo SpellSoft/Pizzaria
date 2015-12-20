@@ -13,10 +13,9 @@ namespace Pizzaria.Model.Data
         {
             Database.SetInitializer<_DbContext>(new DataInitializer());
         }
-
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Estoque> Estoque { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
-
+        public DbSet<Sabor> Sabor { get; set; }
     }
 }

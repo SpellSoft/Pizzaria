@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -51,13 +52,19 @@ namespace Pizzaria.Model.Entity
               
             }
         }
-
+        
         [Range(type: typeof(int),minimum: "0",maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
         [DisplayName(displayName: "Categoria ID")]
         [Required(ErrorMessage = "{0} é obrigatório.")]
         public int CategoriaID { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual Estoque Estoque { get; set; }
+        [StringLength(maximumLength: 100, ErrorMessage = "{0} deve conter pelo menos 100 letras.")]
+        [DisplayName(displayName: "Produto Descrição")]
+        public string Descricao { get; set; }
+        public virtual List<Complemento> Complemento { get; set; }
+
+
 
     }
 }

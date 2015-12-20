@@ -1,16 +1,21 @@
 ﻿using Pizzaria.Model.Data;
 using Pizzaria.Model.Entity;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace Pizzaria.Model.Initializer
 {
     public class DataInitializer : DropCreateDatabaseAlways<_DbContext>
-    {      
+    {
         protected override void Seed(_DbContext context)
         {
             context.Categoria.Add(new Categoria
             {
                 Nome = "Cerveja"
+            });
+            context.Sabor.Add(new Sabor
+            {
+                Nome = "Portuguesa"
             });
             context.Produto.Add(new Produto
             {
@@ -27,7 +32,17 @@ namespace Pizzaria.Model.Initializer
                     QuantidadeMinima = 5,
 
 
-                }
+                },
+                Descricao = "esse produto é feito de pizza",
+                Complemento = new List<Complemento>
+                  {
+                      new Complemento { Sabor= new List<Sabor>
+                      {
+                           new Sabor { Nome = "Marguerita" }                            
+                      }
+                  }
+
+
             });
             context.SaveChanges();
         }
