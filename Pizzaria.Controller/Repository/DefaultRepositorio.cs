@@ -9,15 +9,14 @@ namespace Pizzaria.Controller.Repository
 {
     public class DefaultRepositorio<T> where T : class
     {
-        private readonly _DbContext banco;
-        protected DbSet<T> entity { set; get; }
-        public DefaultRepositorio()
+        private _DbContext banco;
+        protected DbSet<T> entity { private set; get; }
+        protected DefaultRepositorio()
         {
             entity = (banco = new _DbContext()).Set<T>();
         }
-        protected virtual List<T> Listar()
+        public virtual List<T> Listar()
         {
-
             try
             {
                 return entity.ToList();
@@ -30,12 +29,9 @@ namespace Pizzaria.Controller.Repository
             {
                 throw new Exception(error.Message);
             }
-
-            
         }
-        protected virtual T GetPeloID(int id)
+        public virtual T GetPeloID(int id)
         {
-
             try
             {
                 return entity.Find(id);
@@ -48,12 +44,9 @@ namespace Pizzaria.Controller.Repository
             {
                 throw new Exception(error.Message);
             }
-
-          
         }
-        protected virtual bool Salvar(T entities)
+        public virtual bool Salvar(T entities)
         {
-
             try
             {
                 entity.Add(entities);
@@ -67,12 +60,9 @@ namespace Pizzaria.Controller.Repository
             {
                 throw new Exception(error.Message);
             }
-
-           
         }
-        protected virtual bool Editar(T entities)
+        public virtual bool Editar(T entities)
         {
-
             try
             {
                 banco.Entry<T>(entities).State = EntityState.Modified;
@@ -86,10 +76,8 @@ namespace Pizzaria.Controller.Repository
             {
                 throw new Exception(error.Message);
             }
-
-         
         }
-        protected virtual bool Deletar(int id)
+        public virtual bool Deletar(int id)
         {
             try
             {
@@ -104,10 +92,8 @@ namespace Pizzaria.Controller.Repository
             {
                 throw new Exception(error.Message);
             }
-
-          
         }
-        protected virtual int GetQuantidade()
+        public virtual int GetQuantidade()
         {
             try
             {
@@ -124,5 +110,7 @@ namespace Pizzaria.Controller.Repository
         }
         private bool Confirmar()
                 => (banco.SaveChanges() > 0);
+
+     
     }
 }

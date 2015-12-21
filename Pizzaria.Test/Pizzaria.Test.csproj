@@ -67,6 +67,7 @@
     <Compile Include="Model\Entity\ProdutoTDD.cs" />
     <Compile Include="Model\Entity\EstoqueTDD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\ProdutoControllerTDD.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pizzaria.Controller\Pizzaria.Controller.csproj">
