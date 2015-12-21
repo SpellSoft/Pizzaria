@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Initializer\DataInitializer.cs" />
     <Compile Include="Model\Entity\CategoriaTDD.cs" />
+    <Compile Include="Model\Entity\ComplementoTDD.cs" />
     <Compile Include="Model\Entity\ProdutoTDD.cs" />
     <Compile Include="Model\Entity\EstoqueTDD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
