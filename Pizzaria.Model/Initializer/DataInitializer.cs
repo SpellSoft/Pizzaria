@@ -13,7 +13,7 @@ namespace Pizzaria.Model.Initializer
             {
                 Nome = "Cerveja"
             });
-            context.SaveChanges();
+             context.SaveChanges();
             context.Sabor.Add(new Sabor
             {
                 Nome = "Portuguesa"
@@ -36,6 +36,7 @@ namespace Pizzaria.Model.Initializer
                 Nome = "Kaiser",
                 PrecoCompra = 10,
                 PrecoVenda = 20,
+                ComplementoID = 1,               
                 Estoque = new Estoque
                 {
                     Gerenciar = true,
@@ -46,13 +47,13 @@ namespace Pizzaria.Model.Initializer
 
                 },
                 Descricao = "esse produto é feito de pizza",
-                
-                
 
 
 
-        });
+
+
+            });
             context.SaveChanges();
         }
-}
+    }
 }
