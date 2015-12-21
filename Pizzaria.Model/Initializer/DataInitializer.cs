@@ -13,10 +13,22 @@ namespace Pizzaria.Model.Initializer
             {
                 Nome = "Cerveja"
             });
+            context.SaveChanges();
             context.Sabor.Add(new Sabor
             {
                 Nome = "Portuguesa"
             });
+            context.SaveChanges();
+            context.Complemento.Add(new Complemento
+            {
+
+                Descricao = "xxxxxxxxxxxxxxxx",
+                Preco = 8,
+                SaborID = 1
+
+
+            });
+            context.SaveChanges();
             context.Produto.Add(new Produto
             {
                 CategoriaID = 1,
@@ -34,17 +46,13 @@ namespace Pizzaria.Model.Initializer
 
                 },
                 Descricao = "esse produto é feito de pizza",
-                Complemento = new List<Complemento>
-                  {
-                      new Complemento { Sabor= new List<Sabor>
-                      {
-                           new Sabor { Nome = "Marguerita" }                            
-                      }
-                  }
+                
+                
 
 
-            });
+
+        });
             context.SaveChanges();
         }
-    }
+}
 }

@@ -17,5 +17,6 @@ namespace Pizzaria.Model.Data
         public DbSet<Estoque> Estoque { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Sabor> Sabor { get; set; }
+        public DbSet<Complemento> Complemento { get; set; }
     }
 }
