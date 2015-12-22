@@ -51,8 +51,7 @@ namespace Pizzaria.Model.Entity
                 }
               
             }
-        }
-        
+        }        
         [Range(type: typeof(int),minimum: "0",maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
         [DisplayName(displayName: "Categoria ID")]
         [Required(ErrorMessage = "{0} é obrigatório.")]
