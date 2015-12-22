@@ -68,12 +68,29 @@
     <Compile Include="Entity\Produto.cs" />
     <Compile Include="Entity\Sabor.cs" />
     <Compile Include="Initializer\DataInitializer.cs" />
+    <Compile Include="Migrations\201512221811041_InitialCreate.cs" />
+    <Compile Include="Migrations\201512221811041_InitialCreate.Designer.cs">
+      <DependentUpon>201512221811041_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512221823067_Complemento.cs" />
+    <Compile Include="Migrations\201512221823067_Complemento.Designer.cs">
+      <DependentUpon>201512221823067_Complemento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\CompareValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512221811041_InitialCreate.resx">
+      <DependentUpon>201512221811041_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512221823067_Complemento.resx">
+      <DependentUpon>201512221823067_Complemento.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -36,7 +36,7 @@ namespace Pizzaria.Model.Initializer
                 Nome = "Kaiser",
                 PrecoCompra = 10,
                 PrecoVenda = 20,
-                ComplementoID = 1,               
+                /*ComplementoID = 1,    */           
                 Estoque = new Estoque
                 {
                     Gerenciar = true,

@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Pizzaria.Controller.Controller;
+using Pizzaria.Controller;
 using Pizzaria.Controller.Repository;
 using Pizzaria.Model.Entity;
 using System.Collections.Generic;
@@ -12,12 +12,12 @@ namespace Pizzaria.Test.Repositorio
         [TestMethod]
         public void DefaultRepository_Test_Create()
         {
-            var repo = new ProdutoController();
+            var repo = new ProdutoRepositorio();
             var prod = new Produto
             {
                 Nome = "Skol beats",
                 Codigo = "200",
-                ComplementoID = 1,
+                /*ComplementoID = 1,*/
                 Descricao = "hshbsdhbhs hjbsdh hb  sbd hsbdh bshd hs hb",
                 PrecoCompra = 10,
                 PrecoVenda = 12,

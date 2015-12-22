@@ -13,5 +13,9 @@ namespace Pizzaria.Controller.Repository
         {
             return base.Listar();
         }
+        public override bool Salvar(Sabor entities)
+        {
+            return base.Salvar(entities);
+        }
     }
 }

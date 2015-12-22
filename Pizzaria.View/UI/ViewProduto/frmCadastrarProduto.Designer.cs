@@ -59,6 +59,9 @@
             this.lblDescricao = new System.Windows.Forms.Label();
             this.txtDescricaoComplemento = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnAddCategoria = new System.Windows.Forms.Button();
+            this.btnAddSabor = new System.Windows.Forms.Button();
+            this.btnAddComplementoSabor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNome
@@ -327,12 +330,43 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Descrição";
             // 
+            // btnAddCategoria
+            // 
+            this.btnAddCategoria.Location = new System.Drawing.Point(278, 325);
+            this.btnAddCategoria.Name = "btnAddCategoria";
+            this.btnAddCategoria.Size = new System.Drawing.Size(55, 23);
+            this.btnAddCategoria.TabIndex = 5;
+            this.btnAddCategoria.Text = "Add";
+            this.btnAddCategoria.UseVisualStyleBackColor = true;
+            // 
+            // btnAddSabor
+            // 
+            this.btnAddSabor.Location = new System.Drawing.Point(278, 381);
+            this.btnAddSabor.Name = "btnAddSabor";
+            this.btnAddSabor.Size = new System.Drawing.Size(55, 23);
+            this.btnAddSabor.TabIndex = 5;
+            this.btnAddSabor.Text = "Add";
+            this.btnAddSabor.UseVisualStyleBackColor = true;
+            this.btnAddSabor.Click += new System.EventHandler(this.btnAddSabor_Click);
+            // 
+            // btnAddComplementoSabor
+            // 
+            this.btnAddComplementoSabor.Location = new System.Drawing.Point(977, 105);
+            this.btnAddComplementoSabor.Name = "btnAddComplementoSabor";
+            this.btnAddComplementoSabor.Size = new System.Drawing.Size(55, 23);
+            this.btnAddComplementoSabor.TabIndex = 5;
+            this.btnAddComplementoSabor.Text = "Add";
+            this.btnAddComplementoSabor.UseVisualStyleBackColor = true;
+            // 
             // frmCadastrarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1036, 449);
+            this.Controls.Add(this.btnAddComplementoSabor);
+            this.Controls.Add(this.btnAddSabor);
+            this.Controls.Add(this.btnAddCategoria);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.ckbGerenciar);
             this.Controls.Add(this.cbbSaborComplemento);
@@ -407,5 +441,8 @@
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.TextBox txtDescricaoComplemento;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAddCategoria;
+        private System.Windows.Forms.Button btnAddSabor;
+        private System.Windows.Forms.Button btnAddComplementoSabor;
     }
 }

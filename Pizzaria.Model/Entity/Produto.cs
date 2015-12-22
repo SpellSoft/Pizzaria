@@ -61,7 +61,6 @@ namespace Pizzaria.Model.Entity
         [StringLength(maximumLength: 100, ErrorMessage = "{0} deve conter pelo menos 100 letras.")]
         [DisplayName(displayName: "Produto Descrição")]
         public string Descricao { get; set; }
-        public int ComplementoID { get; set; }
         public virtual List<Complemento> Complemento { get; set; }
 
 
