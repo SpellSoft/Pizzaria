@@ -338,6 +338,7 @@
             this.btnAddCategoria.TabIndex = 5;
             this.btnAddCategoria.Text = "Add";
             this.btnAddCategoria.UseVisualStyleBackColor = true;
+            this.btnAddCategoria.Click += new System.EventHandler(this.btnAddCategoria_Click);
             // 
             // btnAddSabor
             // 

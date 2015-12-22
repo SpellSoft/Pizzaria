@@ -1,6 +1,7 @@
 ﻿using Mike.Utilities.Desktop;
 using Pizzaria.Controller.Repository;
 using Pizzaria.Model.Entity;
+using Pizzaria.View.UI.ViewCategoria;
 using Pizzaria.View.UI.ViewSabor;
 using System;
 using System.Collections.Generic;
@@ -88,6 +89,17 @@ namespace Pizzaria.View.UI.ViewProduto
                 var sab = new SaborRepositorio();
                 cbbSabor.DisplayMember = "Nome";
                 cbbSabor.DataSource = sab.Listar();
+            }
+        }
+
+        private void btnAddCategoria_Click(object sender, EventArgs e)
+        {
+            var dia = OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCategoria());
+            if (dia == DialogResult.Yes)
+            {
+                var cat = new CategoriaRepositorio();
+                cbbCategoria.DisplayMember = "Nome";
+                cbbCategoria.DataSource = cat.Listar();
             }
         }
     }
