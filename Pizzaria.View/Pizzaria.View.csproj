@@ -67,6 +67,12 @@
     <Compile Include="UI\ViewCategoria\frmCadastrarCategoria.Designer.cs">
       <DependentUpon>frmCadastrarCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewComplemento\frmCadastrarComplemento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewComplemento\frmCadastrarComplemento.Designer.cs">
+      <DependentUpon>frmCadastrarComplemento.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewMenu\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="UI\ViewCategoria\frmCadastrarCategoria.resx">
       <DependentUpon>frmCadastrarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewComplemento\frmCadastrarComplemento.resx">
+      <DependentUpon>frmCadastrarComplemento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewMenu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

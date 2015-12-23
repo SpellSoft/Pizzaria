@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
-
+using System.Linq;
 namespace Pizzaria.View.UI.ViewProduto
 {
     public partial class frmCadastrarProduto : Form
@@ -19,6 +19,11 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Deseja adicionar um complemento?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+
+            }
             var prodController = new ProdutoRepositorio();
             var catController = new CategoriaRepositorio();
             var sab = new SaborRepositorio();
@@ -44,7 +49,7 @@ namespace Pizzaria.View.UI.ViewProduto
                     QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text),
                     QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text)
                 },
-                PrecoCompra = Convert.ToDouble(txtCusto.Text),
+                PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text),
                 PrecoVenda = Convert.ToDouble(txtPeco.Text),
                  SaborID = sab.GetIDCategoriaPorNome(cbbSabor.Text)
                  
@@ -67,8 +72,16 @@ namespace Pizzaria.View.UI.ViewProduto
             }
             else
             {
-                prodController.Salvar(prod);
-                MessageBox.Show("Validated");
+                bool resulte = prodController.Salvar(prod);
+                if (resulte)
+                {
+                    MessageBox.Show("Produto cadastrado com sucesso!");
+                    foreach (var item in Controls.OfType<GroupBox>().OfType<TextBox>())
+                    {
+                        item.Enabled = false;
+                    }
+                }
+                
             }
 
 
@@ -84,6 +97,10 @@ namespace Pizzaria.View.UI.ViewProduto
             cbbSabor.DataSource = sab.Listar();
             cbbSaborComplemento.DisplayMember = "Nome";
             cbbSaborComplemento.DataSource = sab.Listar();
+
+            gpbEstoque.Visible = false;
+            cbbTipoProduto.DataSource = new string[] {"Escolha o tipo do produto","Pizza" };
+
         }
 
         private void btnAddSabor_Click(object sender, EventArgs e)
@@ -106,6 +123,23 @@ namespace Pizzaria.View.UI.ViewProduto
                 cbbCategoria.DisplayMember = "Nome";
                 cbbCategoria.DataSource = cat.Listar();
             }
+        }
+
+        private void ckbGerenciar_CheckedChanged(object sender, EventArgs e)
+        {
+          var f = gpbEstoque.Visible = (sender as CheckBox).Checked == true ? true : false;
+            if (f)
+            {
+                txtQtd.Text = "0";
+                txtQtdMax.Text = "0";
+                txtQtdMin.Text = "0";
+            }
+        }
+
+       
+        private void btnAddComplementoSabor_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
