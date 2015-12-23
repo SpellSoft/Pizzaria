@@ -7,13 +7,13 @@ namespace Pizzaria.Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class prods3dsd : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(prods3dsd));
         
         string IMigrationMetadata.Id
         {
-            get { return "201512221811041_InitialCreate"; }
+            get { return "201512230103085_prods3dsd"; }
         }
         
         string IMigrationMetadata.Source

@@ -19,7 +19,7 @@ namespace Pizzaria.Model.Entity
         public int SaborID { get; set; }
         public Sabor Sabor { get; set; }
         [StringLength(maximumLength: 100, ErrorMessage = "{0} deve conter pelo menos 100 letras.")]
-        [DisplayName(displayName: "Produto Descrição")]       
+        [DisplayName(displayName: "Complemento Descrição")]       
         public string Descricao { get; set; }
         [DisplayName("Preço")]
         [DataType(DataType.Currency, ErrorMessage = "{0} invalido.")]

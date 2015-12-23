@@ -17,5 +17,11 @@ namespace Pizzaria.Controller.Repository
         {
             return base.Salvar(entities);
         }
+        public int GetIDCategoriaPorNome(string nome)
+        {
+            var result = entity.FirstOrDefault(c => c.Nome == nome);
+            return result == null ? 0 : result.SaborID;
+
+        }
     }
 }

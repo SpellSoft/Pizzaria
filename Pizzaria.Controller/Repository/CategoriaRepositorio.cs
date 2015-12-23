@@ -15,7 +15,15 @@ namespace Pizzaria.Controller.Repository
         }
         public override bool Salvar(Categoria entities)
         {
+           
             return base.Salvar(entities);
         }
+        public int GetIDCategoriaPorNome(string nome)
+        {
+            var result = entity.FirstOrDefault(c => c.Nome == nome);
+            return result == null ? 0 : result.CategoriaID;
+           
+        }
+        
     }
 }

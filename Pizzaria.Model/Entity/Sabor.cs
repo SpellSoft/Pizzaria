@@ -15,5 +15,6 @@ namespace Pizzaria.Model.Entity
         [StringLength(maximumLength: 50, ErrorMessage = "{0} deve conter pelo menos 50 letras.")]
         [DisplayName(displayName: "Sabor Nome")]
         public string Nome { get; set; }
+      
     }
 }

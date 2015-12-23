@@ -9,8 +9,7 @@ namespace Pizzaria.Model.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "Pizzaria.Model.Data._DbContext";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Pizzaria.Model.Data._DbContext context)

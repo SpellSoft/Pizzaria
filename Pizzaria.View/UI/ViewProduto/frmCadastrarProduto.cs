@@ -19,19 +19,21 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            var control = new ProdutoRepositorio();
+            var prodController = new ProdutoRepositorio();
+            var catController = new CategoriaRepositorio();
+            var sab = new SaborRepositorio();
             var prod = new Produto
             {
                 Nome = txtNome.Text,
                 Codigo = txtCodigo.Text,
-                CategoriaID = 1,
+                CategoriaID = catController.GetIDCategoriaPorNome(cbbCategoria.Text),
                 Complemento = new List<Complemento>
                     {
                          new Complemento
                          {
                              Descricao = txtDescricaoComplemento.Text,
                               Preco = Convert.ToDouble(txtPrecoComplemento.Text),
-                                SaborID = 1
+                                SaborID = sab.GetIDCategoriaPorNome(cbbSaborComplemento.Text)
                          }
                     },
                 Descricao = txtDescricao.Text,
@@ -43,8 +45,9 @@ namespace Pizzaria.View.UI.ViewProduto
                     QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text)
                 },
                 PrecoCompra = Convert.ToDouble(txtCusto.Text),
-                PrecoVenda = Convert.ToDouble(txtPeco.Text)
-
+                PrecoVenda = Convert.ToDouble(txtPeco.Text),
+                 SaborID = sab.GetIDCategoriaPorNome(cbbSabor.Text)
+                 
 
 
             };
@@ -64,7 +67,7 @@ namespace Pizzaria.View.UI.ViewProduto
             }
             else
             {
-                control.Salvar(prod);
+                prodController.Salvar(prod);
                 MessageBox.Show("Validated");
             }
 
@@ -79,6 +82,8 @@ namespace Pizzaria.View.UI.ViewProduto
             var sab = new SaborRepositorio();
             cbbSabor.DisplayMember = "Nome";
             cbbSabor.DataSource = sab.Listar();
+            cbbSaborComplemento.DisplayMember = "Nome";
+            cbbSaborComplemento.DataSource = sab.Listar();
         }
 
         private void btnAddSabor_Click(object sender, EventArgs e)

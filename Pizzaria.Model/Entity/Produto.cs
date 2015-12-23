@@ -6,22 +6,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pizzaria.Model.Entity
 {
-    [Table(name:nameof(Produto))]
+    [Table(name: nameof(Produto))]
     public class Produto
     {
-       
+
         [Key]
-        [Range(type: typeof(int), minimum: "0", maximum: "10000",ErrorMessage = "{0} excedido, contate o administrador")]
-        [DisplayName(displayName:"Produto ID")]
+        [Range(type: typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
+        [DisplayName(displayName: "Produto ID")]
         public int ProdutoID { get; set; }
         [Required(ErrorMessage = "{0} é obrigatório.")]
-        [StringLength(maximumLength:50,ErrorMessage = "{0} deve conter pelo menos 50 letras.")]
+        [StringLength(maximumLength: 50, ErrorMessage = "{0} deve conter pelo menos 50 letras.")]
         [DisplayName(displayName: "Produto Nome")]
         public string Nome { get; set; }
         [Required(ErrorMessage = "{0} é obrigatório.")]
         [StringLength(maximumLength: 13, ErrorMessage = "{0} deve conter pelo menos 13 letras.")]
         [DisplayName(displayName: "Produto Código")]
-        public string Codigo { get; set; }      
+        public string Codigo { get; set; }
 
         private double? precoCompra;
         [Range(type: typeof(double), minimum: "0", maximum: "1000", ErrorMessage = "{0} incorreto.")]
@@ -31,7 +31,7 @@ namespace Pizzaria.Model.Entity
         {
             get { return precoCompra; }
             set { precoCompra = value; }
-        } 
+        }
         private double precoVenda;
         [DisplayName("Preço de Venda")]
         [DataType(DataType.Currency, ErrorMessage = "{0} invalido.")]
@@ -49,10 +49,10 @@ namespace Pizzaria.Model.Entity
                 {
                     precoVenda = value;
                 }
-              
+
             }
-        }        
-        [Range(type: typeof(int),minimum: "0",maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
+        }
+        [Range(type: typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
         [DisplayName(displayName: "Categoria ID")]
         [Required(ErrorMessage = "{0} é obrigatório.")]
         public int CategoriaID { get; set; }
@@ -62,7 +62,10 @@ namespace Pizzaria.Model.Entity
         [DisplayName(displayName: "Produto Descrição")]
         public string Descricao { get; set; }
         public virtual List<Complemento> Complemento { get; set; }
-
+        [ForeignKey(nameof(Sabor))]
+        public int SaborID { get; set; }
+        public virtual Sabor Sabor { get; set; }
+                                          
 
 
     }

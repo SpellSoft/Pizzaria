@@ -3,7 +3,7 @@ namespace Pizzaria.Model.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class prods3dsd : DbMigration
     {
         public override void Up()
         {
@@ -43,11 +43,13 @@ namespace Pizzaria.Model.Migrations
                         PrecoVenda = c.Double(nullable: false),
                         CategoriaID = c.Int(nullable: false),
                         Descricao = c.String(maxLength: 100, unicode: false, storeType: "nvarchar"),
-                        ComplementoID = c.Int(nullable: false),
+                        SaborID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ProdutoID)
                 .ForeignKey("dbo.Categoria", t => t.CategoriaID, cascadeDelete: true)
-                .Index(t => t.CategoriaID);
+                .ForeignKey("dbo.Sabor", t => t.SaborID, cascadeDelete: true)
+                .Index(t => t.CategoriaID)
+                .Index(t => t.SaborID);
             
             CreateTable(
                 "dbo.Estoque",
@@ -77,10 +79,12 @@ namespace Pizzaria.Model.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Complemento", "SaborID", "dbo.Sabor");
+            DropForeignKey("dbo.Produto", "SaborID", "dbo.Sabor");
             DropForeignKey("dbo.Estoque", "ProdutoID", "dbo.Produto");
             DropForeignKey("dbo.Complemento", "Produto_ProdutoID", "dbo.Produto");
             DropForeignKey("dbo.Produto", "CategoriaID", "dbo.Categoria");
             DropIndex("dbo.Complemento", new[] { "SaborID" });
+            DropIndex("dbo.Produto", new[] { "SaborID" });
             DropIndex("dbo.Estoque", new[] { "ProdutoID" });
             DropIndex("dbo.Complemento", new[] { "Produto_ProdutoID" });
             DropIndex("dbo.Produto", new[] { "CategoriaID" });
