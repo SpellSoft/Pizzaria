@@ -55,21 +55,12 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.gpbComplemento = new System.Windows.Forms.GroupBox();
-            this.btnAddComplementoSabor = new System.Windows.Forms.Button();
-            this.lblPrecoComplemento = new System.Windows.Forms.Label();
-            this.txtPrecoComplemento = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDescricaoComplemento = new System.Windows.Forms.TextBox();
-            this.cbbSaborComplemento = new System.Windows.Forms.ComboBox();
-            this.lblSaborComplemento = new System.Windows.Forms.Label();
             this.cbbTipoProduto = new System.Windows.Forms.ComboBox();
             this.gpbEstoque.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gpbPrecoVenda.SuspendLayout();
             this.gpbSabor.SuspendLayout();
             this.gpbCategoria.SuspendLayout();
-            this.gpbComplemento.SuspendLayout();
             this.SuspendLayout();
             // 
             // ckbGerenciar
@@ -86,7 +77,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(31, 534);
+            this.btnCadastrar.Location = new System.Drawing.Point(35, 388);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(669, 43);
             this.btnCadastrar.TabIndex = 0;
@@ -284,7 +275,6 @@
             this.cbbCategoria.Name = "cbbCategoria";
             this.cbbCategoria.Size = new System.Drawing.Size(270, 28);
             this.cbbCategoria.TabIndex = 23;
-          
             // 
             // lblDescricao
             // 
@@ -338,86 +328,6 @@
             this.txtNome.Size = new System.Drawing.Size(293, 26);
             this.txtNome.TabIndex = 0;
             // 
-            // gpbComplemento
-            // 
-            this.gpbComplemento.Controls.Add(this.btnAddComplementoSabor);
-            this.gpbComplemento.Controls.Add(this.lblPrecoComplemento);
-            this.gpbComplemento.Controls.Add(this.txtPrecoComplemento);
-            this.gpbComplemento.Controls.Add(this.label6);
-            this.gpbComplemento.Controls.Add(this.txtDescricaoComplemento);
-            this.gpbComplemento.Controls.Add(this.cbbSaborComplemento);
-            this.gpbComplemento.Controls.Add(this.lblSaborComplemento);
-            this.gpbComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbComplemento.Location = new System.Drawing.Point(31, 378);
-            this.gpbComplemento.Name = "gpbComplemento";
-            this.gpbComplemento.Size = new System.Drawing.Size(669, 150);
-            this.gpbComplemento.TabIndex = 8;
-            this.gpbComplemento.TabStop = false;
-            this.gpbComplemento.Text = "Complemento";
-            // 
-            // btnAddComplementoSabor
-            // 
-            this.btnAddComplementoSabor.Location = new System.Drawing.Point(351, 27);
-            this.btnAddComplementoSabor.Name = "btnAddComplementoSabor";
-            this.btnAddComplementoSabor.Size = new System.Drawing.Size(41, 30);
-            this.btnAddComplementoSabor.TabIndex = 35;
-            this.btnAddComplementoSabor.Text = "+";
-            this.btnAddComplementoSabor.UseVisualStyleBackColor = true;
-            this.btnAddComplementoSabor.Click += new System.EventHandler(this.btnAddComplementoSabor_Click);
-            // 
-            // lblPrecoComplemento
-            // 
-            this.lblPrecoComplemento.Location = new System.Drawing.Point(393, 29);
-            this.lblPrecoComplemento.Name = "lblPrecoComplemento";
-            this.lblPrecoComplemento.Size = new System.Drawing.Size(57, 27);
-            this.lblPrecoComplemento.TabIndex = 34;
-            this.lblPrecoComplemento.Text = "Preço";
-            this.lblPrecoComplemento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtPrecoComplemento
-            // 
-            this.txtPrecoComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecoComplemento.Location = new System.Drawing.Point(450, 26);
-            this.txtPrecoComplemento.Name = "txtPrecoComplemento";
-            this.txtPrecoComplemento.Size = new System.Drawing.Size(202, 31);
-            this.txtPrecoComplemento.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 20);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Descrição";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtDescricaoComplemento
-            // 
-            this.txtDescricaoComplemento.Location = new System.Drawing.Point(18, 82);
-            this.txtDescricaoComplemento.Multiline = true;
-            this.txtDescricaoComplemento.Name = "txtDescricaoComplemento";
-            this.txtDescricaoComplemento.Size = new System.Drawing.Size(634, 61);
-            this.txtDescricaoComplemento.TabIndex = 1;
-            // 
-            // cbbSaborComplemento
-            // 
-            this.cbbSaborComplemento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbSaborComplemento.FormattingEnabled = true;
-            this.cbbSaborComplemento.Location = new System.Drawing.Point(74, 28);
-            this.cbbSaborComplemento.Name = "cbbSaborComplemento";
-            this.cbbSaborComplemento.Size = new System.Drawing.Size(271, 28);
-            this.cbbSaborComplemento.TabIndex = 30;
-            // 
-            // lblSaborComplemento
-            // 
-            this.lblSaborComplemento.Location = new System.Drawing.Point(11, 28);
-            this.lblSaborComplemento.Name = "lblSaborComplemento";
-            this.lblSaborComplemento.Size = new System.Drawing.Size(57, 31);
-            this.lblSaborComplemento.TabIndex = 29;
-            this.lblSaborComplemento.Text = "Sabor";
-            this.lblSaborComplemento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // cbbTipoProduto
             // 
             this.cbbTipoProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -433,9 +343,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(734, 581);
+            this.ClientSize = new System.Drawing.Size(734, 444);
             this.Controls.Add(this.cbbTipoProduto);
-            this.Controls.Add(this.gpbComplemento);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ckbGerenciar);
             this.Controls.Add(this.gpbEstoque);
@@ -453,8 +362,6 @@
             this.gpbPrecoVenda.PerformLayout();
             this.gpbSabor.ResumeLayout(false);
             this.gpbCategoria.ResumeLayout(false);
-            this.gpbComplemento.ResumeLayout(false);
-            this.gpbComplemento.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -487,14 +394,6 @@
         private System.Windows.Forms.GroupBox gpbPrecoVenda;
         private System.Windows.Forms.Label lblPrecoVenda;
         private System.Windows.Forms.TextBox txtPeco;
-        private System.Windows.Forms.GroupBox gpbComplemento;
-        private System.Windows.Forms.ComboBox cbbSaborComplemento;
-        private System.Windows.Forms.Label lblSaborComplemento;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDescricaoComplemento;
-        private System.Windows.Forms.Label lblPrecoComplemento;
-        private System.Windows.Forms.TextBox txtPrecoComplemento;
-        private System.Windows.Forms.Button btnAddComplementoSabor;
         private System.Windows.Forms.ComboBox cbbTipoProduto;
     }
 }

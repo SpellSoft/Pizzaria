@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
 using System.Linq;
+using Pizzaria.View.UI.ViewComplemento;
+
 namespace Pizzaria.View.UI.ViewProduto
 {
     public partial class frmCadastrarProduto : Form
@@ -22,7 +24,7 @@ namespace Pizzaria.View.UI.ViewProduto
             var result = MessageBox.Show("Deseja adicionar um complemento?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-
+                OpenMdiForm.OpenForWithShowDialog(new frmCadastrarComplemento());
             }
             var prodController = new ProdutoRepositorio();
             var catController = new CategoriaRepositorio();
@@ -32,7 +34,8 @@ namespace Pizzaria.View.UI.ViewProduto
                 Nome = txtNome.Text,
                 Codigo = txtCodigo.Text,
                 CategoriaID = catController.GetIDCategoriaPorNome(cbbCategoria.Text),
-                Complemento = new List<Complemento>
+                
+                /*Complemento = new List<Complemento>
                     {
                          new Complemento
                          {
@@ -40,7 +43,7 @@ namespace Pizzaria.View.UI.ViewProduto
                               Preco = Convert.ToDouble(txtPrecoComplemento.Text),
                                 SaborID = sab.GetIDCategoriaPorNome(cbbSaborComplemento.Text)
                          }
-                    },
+                    },*/
                 Descricao = txtDescricao.Text,
                 Estoque = new Estoque
                 {
@@ -95,8 +98,7 @@ namespace Pizzaria.View.UI.ViewProduto
             var sab = new SaborRepositorio();
             cbbSabor.DisplayMember = "Nome";
             cbbSabor.DataSource = sab.Listar();
-            cbbSaborComplemento.DisplayMember = "Nome";
-            cbbSaborComplemento.DataSource = sab.Listar();
+
 
             gpbEstoque.Visible = false;
             cbbTipoProduto.DataSource = new string[] {"Escolha o tipo do produto","Pizza" };
