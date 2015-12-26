@@ -29,37 +29,39 @@ namespace Pizzaria.View.UI.ViewProduto
             var prodController = new ProdutoRepositorio();
             var catController = new CategoriaRepositorio();
             var sab = new SaborRepositorio();
+            var com = new ComplementoRepositorio().GetUltimoResgistro();
             var prod = new Produto
             {
                 Nome = txtNome.Text,
                 Codigo = txtCodigo.Text,
                 CategoriaID = catController.GetIDCategoriaPorNome(cbbCategoria.Text),
-                
-                /*Complemento = new List<Complemento>
+                Complemento = result == DialogResult.Yes ?
+                 new List<Complemento>
                     {
                          new Complemento
                          {
-                             Descricao = txtDescricaoComplemento.Text,
-                              Preco = Convert.ToDouble(txtPrecoComplemento.Text),
-                                SaborID = sab.GetIDCategoriaPorNome(cbbSaborComplemento.Text)
+                              ComplementoID = com.ComplementoID,
+                              Descricao =com.Descricao,
+                              Preco =  com.Preco,
+                              SaborID = com.SaborID
                          }
-                    },*/
+                    } : null,
                 Descricao = txtDescricao.Text,
                 Estoque = new Estoque
                 {
                     Gerenciar = ckbGerenciar.Checked,
-                    Quantidade = Convert.ToInt32(txtQtd.Text),
-                    QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text),
-                    QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text)
+                    Quantidade = Convert.ToInt32(txtQtd.Text == "" ? "0" : txtQtd.Text),
+                    QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text == "" ? "0" : txtQtdMax.Text),
+                    QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text == "" ? "0" : txtQtdMin.Text)
                 },
                 PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text),
                 PrecoVenda = Convert.ToDouble(txtPeco.Text),
-                 SaborID = sab.GetIDCategoriaPorNome(cbbSabor.Text)
-                 
+                SaborID = sab.GetIDCategoriaPorNome(cbbSabor.Text)
+
 
 
             };
-           
+
             IList<ValidationResult> erros = new List<ValidationResult>();
 
             if (!Validator.TryValidateObject(prod, new ValidationContext(prod), erros, true))
@@ -68,10 +70,10 @@ namespace Pizzaria.View.UI.ViewProduto
                 var errosMessage = "";
                 foreach (var c in erros)
                 {
-                  
+
                     errosMessage += c.ErrorMessage + "\n";
                 }
-               
+                MessageBox.Show(errosMessage);
             }
             else
             {
@@ -79,35 +81,33 @@ namespace Pizzaria.View.UI.ViewProduto
                 if (resulte)
                 {
                     MessageBox.Show("Produto cadastrado com sucesso!");
-                    foreach (var item in Controls.OfType<GroupBox>().OfType<TextBox>())
-                    {
-                        item.Enabled = false;
-                    }
+                    Array.ForEach(GetAllTextBox(),c=>c.Text = string.Empty);            
                 }
-                
+
             }
 
 
         }
-
+        public TextBox[] GetAllTextBox()
+               => new TextBox[] { txtNome, txtCodigo, txtPrecoCompra,txtPeco, txtDescricao,txtQtd,txtQtdMin,txtQtdMax };
         private void frmCadastrarProduto_Load(object sender, EventArgs e)
         {
             var cat = new CategoriaRepositorio();
             cbbCategoria.DisplayMember = "Nome";
-            cbbCategoria.DataSource =  cat.Listar();
+            cbbCategoria.DataSource = cat.Listar();
             var sab = new SaborRepositorio();
             cbbSabor.DisplayMember = "Nome";
             cbbSabor.DataSource = sab.Listar();
 
 
             gpbEstoque.Visible = false;
-            cbbTipoProduto.DataSource = new string[] {"Escolha o tipo do produto","Pizza" };
+            cbbTipoProduto.DataSource = new string[] { "Escolha o tipo do produto", "Pizza" };
 
         }
 
         private void btnAddSabor_Click(object sender, EventArgs e)
         {
-           var dia =  OpenMdiForm.OpenForWithShowDialog(new frmCadastrarSabor());
+            var dia = OpenMdiForm.OpenForWithShowDialog(new frmCadastrarSabor());
             if (dia == DialogResult.Yes)
             {
                 var sab = new SaborRepositorio();
@@ -129,7 +129,7 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void ckbGerenciar_CheckedChanged(object sender, EventArgs e)
         {
-          var f = gpbEstoque.Visible = (sender as CheckBox).Checked == true ? true : false;
+            var f = gpbEstoque.Visible = (sender as CheckBox).Checked == true ? true : false;
             if (f)
             {
                 txtQtd.Text = "0";
@@ -138,7 +138,7 @@ namespace Pizzaria.View.UI.ViewProduto
             }
         }
 
-       
+
         private void btnAddComplementoSabor_Click(object sender, EventArgs e)
         {
 

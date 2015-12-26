@@ -1,9 +1,5 @@
 ﻿using Pizzaria.Model.Entity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizzaria.Controller.Repository
 {
@@ -12,6 +8,11 @@ namespace Pizzaria.Controller.Repository
         public override bool Salvar(Complemento entities)
         {
             return base.Salvar(entities);
+        }
+        public Complemento GetUltimoResgistro()
+        {
+            var complemento = entity.OrderByDescending(c => c.ComplementoID).FirstOrDefault();
+            return complemento;
         }
     }
 }

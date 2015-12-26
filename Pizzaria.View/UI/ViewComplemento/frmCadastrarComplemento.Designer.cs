@@ -31,12 +31,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gpbComplemento = new System.Windows.Forms.GroupBox();
             this.lblPrecoComplemento = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.txtPrecoComplemento = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDescricaoComplemento = new System.Windows.Forms.TextBox();
             this.lblSaborComplemento = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnAddSabor = new System.Windows.Forms.Button();
+            this.cbbSabor = new System.Windows.Forms.ComboBox();
             this.gpbComplemento.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,8 +53,9 @@
             // 
             // gpbComplemento
             // 
+            this.gpbComplemento.Controls.Add(this.btnAddSabor);
+            this.gpbComplemento.Controls.Add(this.cbbSabor);
             this.gpbComplemento.Controls.Add(this.lblPrecoComplemento);
-            this.gpbComplemento.Controls.Add(this.txtNome);
             this.gpbComplemento.Controls.Add(this.txtPrecoComplemento);
             this.gpbComplemento.Controls.Add(this.label6);
             this.gpbComplemento.Controls.Add(this.txtDescricaoComplemento);
@@ -74,14 +76,6 @@
             this.lblPrecoComplemento.TabIndex = 34;
             this.lblPrecoComplemento.Text = "Preço";
             this.lblPrecoComplemento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtNome
-            // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(100, 29);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(202, 31);
-            this.txtNome.TabIndex = 0;
             // 
             // txtPrecoComplemento
             // 
@@ -128,6 +122,25 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // btnAddSabor
+            // 
+            this.btnAddSabor.Location = new System.Drawing.Point(351, 28);
+            this.btnAddSabor.Name = "btnAddSabor";
+            this.btnAddSabor.Size = new System.Drawing.Size(41, 30);
+            this.btnAddSabor.TabIndex = 36;
+            this.btnAddSabor.Text = "+";
+            this.btnAddSabor.UseVisualStyleBackColor = true;
+            this.btnAddSabor.Click += new System.EventHandler(this.btnAddSabor_Click);
+            // 
+            // cbbSabor
+            // 
+            this.cbbSabor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSabor.FormattingEnabled = true;
+            this.cbbSabor.Location = new System.Drawing.Point(74, 30);
+            this.cbbSabor.Name = "cbbSabor";
+            this.cbbSabor.Size = new System.Drawing.Size(271, 28);
+            this.cbbSabor.TabIndex = 35;
+            // 
             // frmCadastrarComplemento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,11 +163,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gpbComplemento;
         private System.Windows.Forms.Label lblPrecoComplemento;
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtPrecoComplemento;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDescricaoComplemento;
         private System.Windows.Forms.Label lblSaborComplemento;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnAddSabor;
+        private System.Windows.Forms.ComboBox cbbSabor;
     }
 }
