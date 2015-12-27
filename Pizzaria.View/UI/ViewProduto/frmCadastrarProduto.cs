@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
 using System.Linq;
 using Pizzaria.View.UI.ViewComplemento;
+using Pizzaria.View.UI.ViewBorda;
 
 namespace Pizzaria.View.UI.ViewProduto
 {
@@ -26,15 +27,13 @@ namespace Pizzaria.View.UI.ViewProduto
             {
                 OpenMdiForm.OpenForWithShowDialog(new frmCadastrarComplemento());
             }
-            var prodController = new ProdutoRepositorio();
-            var catController = new CategoriaRepositorio();
-            var sab = new SaborRepositorio();
             var com = new ComplementoRepositorio().GetUltimoResgistro();
+           
             var prod = new Produto
             {
                 Nome = txtNome.Text,
                 Codigo = txtCodigo.Text,
-                CategoriaID = catController.GetIDCategoriaPorNome(cbbCategoria.Text),
+                CategoriaID = new CategoriaRepositorio().GetIDCategoriaPorNome(cbbCategoria.Text),
                 Complemento = result == DialogResult.Yes ?
                  new List<Complemento>
                     {
@@ -56,7 +55,8 @@ namespace Pizzaria.View.UI.ViewProduto
                 },
                 PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text),
                 PrecoVenda = Convert.ToDouble(txtPeco.Text),
-                SaborID = sab.GetIDCategoriaPorNome(cbbSabor.Text)
+                SaborID = new SaborRepositorio().GetIDCategoriaPorNome(cbbSabor.Text),
+                 BordaID = new BordaRepositorio().getIDPorNome(cbbBorda.Text)
 
 
 
@@ -77,7 +77,7 @@ namespace Pizzaria.View.UI.ViewProduto
             }
             else
             {
-                bool resulte = prodController.Salvar(prod);
+                bool resulte = new ProdutoRepositorio().Salvar(prod);
                 if (resulte)
                 {
                     MessageBox.Show("Produto cadastrado com sucesso!");
@@ -98,8 +98,9 @@ namespace Pizzaria.View.UI.ViewProduto
             var sab = new SaborRepositorio();
             cbbSabor.DisplayMember = "Nome";
             cbbSabor.DataSource = sab.Listar();
-
-
+            var bor = new BordaRepositorio();
+            cbbBorda.DisplayMember = "Nome";
+            cbbBorda.DataSource = bor.Listar();
             gpbEstoque.Visible = false;
             cbbTipoProduto.DataSource = new string[] { "Escolha o tipo do produto", "Pizza" };
 
@@ -139,9 +140,16 @@ namespace Pizzaria.View.UI.ViewProduto
         }
 
 
-        private void btnAddComplementoSabor_Click(object sender, EventArgs e)
+        private void btnAddBorda_Click(object sender, EventArgs e)
         {
-
+            var dia = OpenMdiForm.OpenForWithShowDialog(new frmCadastrarBorda());
+            if (dia == DialogResult.Yes)
+            {
+                var bor = new BordaRepositorio();
+                cbbBorda.DisplayMember = "Nome";
+                cbbBorda.DataSource = bor.Listar();
+            }
         }
+
     }
 }

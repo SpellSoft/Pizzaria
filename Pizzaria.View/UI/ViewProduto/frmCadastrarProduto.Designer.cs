@@ -43,6 +43,9 @@
             this.txtPeco = new System.Windows.Forms.TextBox();
             this.txtPrecoCompra = new System.Windows.Forms.TextBox();
             this.lblCusto = new System.Windows.Forms.Label();
+            this.gpbBorda = new System.Windows.Forms.GroupBox();
+            this.btnAddBorda = new System.Windows.Forms.Button();
+            this.cbbBorda = new System.Windows.Forms.ComboBox();
             this.gpbSabor = new System.Windows.Forms.GroupBox();
             this.btnAddSabor = new System.Windows.Forms.Button();
             this.cbbSabor = new System.Windows.Forms.ComboBox();
@@ -59,6 +62,7 @@
             this.gpbEstoque.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gpbPrecoVenda.SuspendLayout();
+            this.gpbBorda.SuspendLayout();
             this.gpbSabor.SuspendLayout();
             this.gpbCategoria.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +81,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(35, 388);
+            this.btnCadastrar.Location = new System.Drawing.Point(35, 431);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(669, 43);
             this.btnCadastrar.TabIndex = 0;
@@ -95,7 +99,7 @@
             this.gpbEstoque.Controls.Add(this.lblQuantidade);
             this.gpbEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbEstoque.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.gpbEstoque.Location = new System.Drawing.Point(12, 310);
+            this.gpbEstoque.Location = new System.Drawing.Point(12, 350);
             this.gpbEstoque.Name = "gpbEstoque";
             this.gpbEstoque.Size = new System.Drawing.Size(711, 62);
             this.gpbEstoque.TabIndex = 6;
@@ -153,6 +157,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.gpbPrecoVenda);
+            this.groupBox1.Controls.Add(this.gpbBorda);
             this.groupBox1.Controls.Add(this.gpbSabor);
             this.groupBox1.Controls.Add(this.gpbCategoria);
             this.groupBox1.Controls.Add(this.lblDescricao);
@@ -164,7 +169,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(711, 259);
+            this.groupBox1.Size = new System.Drawing.Size(711, 299);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Produto";
@@ -178,7 +183,7 @@
             this.gpbPrecoVenda.Location = new System.Drawing.Point(18, 93);
             this.gpbPrecoVenda.Name = "gpbPrecoVenda";
             this.gpbPrecoVenda.Size = new System.Drawing.Size(341, 97);
-            this.gpbPrecoVenda.TabIndex = 30;
+            this.gpbPrecoVenda.TabIndex = 3;
             this.gpbPrecoVenda.TabStop = false;
             this.gpbPrecoVenda.Text = "Preços";
             // 
@@ -197,7 +202,7 @@
             this.txtPeco.Location = new System.Drawing.Point(109, 53);
             this.txtPeco.Name = "txtPeco";
             this.txtPeco.Size = new System.Drawing.Size(219, 26);
-            this.txtPeco.TabIndex = 1;
+            this.txtPeco.TabIndex = 4;
             // 
             // txtPrecoCompra
             // 
@@ -205,7 +210,7 @@
             this.txtPrecoCompra.Location = new System.Drawing.Point(75, 22);
             this.txtPrecoCompra.Name = "txtPrecoCompra";
             this.txtPrecoCompra.Size = new System.Drawing.Size(252, 26);
-            this.txtPrecoCompra.TabIndex = 0;
+            this.txtPrecoCompra.TabIndex = 3;
             // 
             // lblCusto
             // 
@@ -215,6 +220,37 @@
             this.lblCusto.TabIndex = 25;
             this.lblCusto.Text = "Compra";
             this.lblCusto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gpbBorda
+            // 
+            this.gpbBorda.Controls.Add(this.btnAddBorda);
+            this.gpbBorda.Controls.Add(this.cbbBorda);
+            this.gpbBorda.Location = new System.Drawing.Point(368, 205);
+            this.gpbBorda.Name = "gpbBorda";
+            this.gpbBorda.Size = new System.Drawing.Size(330, 88);
+            this.gpbBorda.TabIndex = 29;
+            this.gpbBorda.TabStop = false;
+            this.gpbBorda.Text = "Borda";
+            // 
+            // btnAddBorda
+            // 
+            this.btnAddBorda.Location = new System.Drawing.Point(283, 33);
+            this.btnAddBorda.Name = "btnAddBorda";
+            this.btnAddBorda.Size = new System.Drawing.Size(41, 30);
+            this.btnAddBorda.TabIndex = 23;
+            this.btnAddBorda.Text = "+";
+            this.btnAddBorda.UseVisualStyleBackColor = true;
+            this.btnAddBorda.ClientSizeChanged += new System.EventHandler(this.btnAddSabor_Click);
+            this.btnAddBorda.Click += new System.EventHandler(this.btnAddBorda_Click);
+            // 
+            // cbbBorda
+            // 
+            this.cbbBorda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbBorda.FormattingEnabled = true;
+            this.cbbBorda.Location = new System.Drawing.Point(6, 35);
+            this.cbbBorda.Name = "cbbBorda";
+            this.cbbBorda.Size = new System.Drawing.Size(271, 28);
+            this.cbbBorda.TabIndex = 22;
             // 
             // gpbSabor
             // 
@@ -235,7 +271,7 @@
             this.btnAddSabor.TabIndex = 23;
             this.btnAddSabor.Text = "+";
             this.btnAddSabor.UseVisualStyleBackColor = true;
-            this.btnAddSabor.ClientSizeChanged += new System.EventHandler(this.btnAddSabor_Click);
+            this.btnAddSabor.Click += new System.EventHandler(this.btnAddSabor_Click);
             // 
             // cbbSabor
             // 
@@ -291,8 +327,8 @@
             this.txtDescricao.Location = new System.Drawing.Point(18, 215);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(677, 38);
-            this.txtDescricao.TabIndex = 2;
+            this.txtDescricao.Size = new System.Drawing.Size(341, 78);
+            this.txtDescricao.TabIndex = 5;
             // 
             // lblCodigo
             // 
@@ -309,7 +345,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(74, 61);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(285, 26);
-            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.TabIndex = 2;
             // 
             // lblNome
             // 
@@ -326,7 +362,7 @@
             this.txtNome.Location = new System.Drawing.Point(66, 29);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(293, 26);
-            this.txtNome.TabIndex = 0;
+            this.txtNome.TabIndex = 1;
             // 
             // cbbTipoProduto
             // 
@@ -343,7 +379,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(734, 444);
+            this.ClientSize = new System.Drawing.Size(734, 486);
             this.Controls.Add(this.cbbTipoProduto);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ckbGerenciar);
@@ -360,6 +396,7 @@
             this.groupBox1.PerformLayout();
             this.gpbPrecoVenda.ResumeLayout(false);
             this.gpbPrecoVenda.PerformLayout();
+            this.gpbBorda.ResumeLayout(false);
             this.gpbSabor.ResumeLayout(false);
             this.gpbCategoria.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -395,5 +432,8 @@
         private System.Windows.Forms.Label lblPrecoVenda;
         private System.Windows.Forms.TextBox txtPeco;
         private System.Windows.Forms.ComboBox cbbTipoProduto;
+        private System.Windows.Forms.GroupBox gpbBorda;
+        private System.Windows.Forms.Button btnAddBorda;
+        private System.Windows.Forms.ComboBox cbbBorda;
     }
 }

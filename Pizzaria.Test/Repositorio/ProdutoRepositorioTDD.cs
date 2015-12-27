@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Pizzaria.Test.Repositorio
 {
     [TestClass]
-    public class ProdutoControllerTDD
+    public class ProdutoRepositorioTDD
     {
         [TestMethod]
         public void DefaultRepository_Test_Create()

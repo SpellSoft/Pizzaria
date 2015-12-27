@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\_DbContext.cs" />
+    <Compile Include="Entity\Borda.cs" />
     <Compile Include="Entity\Categoria.cs" />
     <Compile Include="Entity\Complemento.cs" />
     <Compile Include="Entity\Estoque.cs" />
@@ -71,6 +72,10 @@
     <Compile Include="Migrations\201512230103085_prods3dsd.cs" />
     <Compile Include="Migrations\201512230103085_prods3dsd.Designer.cs">
       <DependentUpon>201512230103085_prods3dsd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512271440383_borda.cs" />
+    <Compile Include="Migrations\201512271440383_borda.Designer.cs">
+      <DependentUpon>201512271440383_borda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +88,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512230103085_prods3dsd.resx">
       <DependentUpon>201512230103085_prods3dsd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512271440383_borda.resx">
+      <DependentUpon>201512271440383_borda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

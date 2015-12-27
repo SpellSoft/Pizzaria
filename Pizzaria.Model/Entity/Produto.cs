@@ -64,6 +64,9 @@ namespace Pizzaria.Model.Entity
         public virtual List<Complemento> Complemento { get; set; }
         [ForeignKey(nameof(Sabor))]
         public int SaborID { get; set; }
+        [ForeignKey(nameof(Borda))]
+        public int BordaID { get; set; }
+        public virtual Borda Borda { get; set; }
         public virtual Sabor Sabor { get; set; }
                                           
 

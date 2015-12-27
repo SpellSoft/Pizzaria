@@ -9,7 +9,7 @@ namespace Pizzaria.Model.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Pizzaria.Model.Data._DbContext context)
