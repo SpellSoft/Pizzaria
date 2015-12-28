@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mike.Utilities.Desktop;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -30,7 +31,7 @@ namespace Pizzaria.Model.Entity
             {
                 if (value < QuantidadeMinima)
                 {
-                    throw new Exception("erro no vaor");
+                    throw new CustomException("erro no vaor");
                 }
                 else
                 {

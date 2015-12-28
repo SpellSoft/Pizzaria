@@ -108,6 +108,7 @@
             // 
             // txtQtdMin
             // 
+            this.txtQtdMin.BackColor = System.Drawing.Color.Yellow;
             this.txtQtdMin.Location = new System.Drawing.Point(373, 26);
             this.txtQtdMin.Name = "txtQtdMin";
             this.txtQtdMin.Size = new System.Drawing.Size(62, 26);
@@ -124,6 +125,7 @@
             // 
             // txtQtdMax
             // 
+            this.txtQtdMax.BackColor = System.Drawing.Color.Yellow;
             this.txtQtdMax.Location = new System.Drawing.Point(611, 26);
             this.txtQtdMax.Name = "txtQtdMax";
             this.txtQtdMax.Size = new System.Drawing.Size(62, 26);
@@ -140,6 +142,7 @@
             // 
             // txtQtd
             // 
+            this.txtQtd.BackColor = System.Drawing.Color.Yellow;
             this.txtQtd.Location = new System.Drawing.Point(133, 26);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(62, 26);
@@ -198,6 +201,7 @@
             // 
             // txtPeco
             // 
+            this.txtPeco.BackColor = System.Drawing.Color.Yellow;
             this.txtPeco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPeco.Location = new System.Drawing.Point(109, 53);
             this.txtPeco.Name = "txtPeco";
@@ -206,6 +210,7 @@
             // 
             // txtPrecoCompra
             // 
+            this.txtPrecoCompra.BackColor = System.Drawing.Color.Yellow;
             this.txtPrecoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecoCompra.Location = new System.Drawing.Point(75, 22);
             this.txtPrecoCompra.Name = "txtPrecoCompra";
@@ -323,6 +328,7 @@
             // 
             // txtDescricao
             // 
+            this.txtDescricao.BackColor = System.Drawing.Color.Yellow;
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(18, 215);
             this.txtDescricao.Multiline = true;
@@ -341,6 +347,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.BackColor = System.Drawing.Color.Yellow;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(74, 61);
             this.txtCodigo.Name = "txtCodigo";
@@ -358,6 +365,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.BackColor = System.Drawing.Color.Yellow;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(66, 29);
             this.txtNome.Name = "txtNome";

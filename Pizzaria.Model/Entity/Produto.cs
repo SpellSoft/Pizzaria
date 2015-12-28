@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mike.Utilities.Desktop;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -43,7 +44,7 @@ namespace Pizzaria.Model.Entity
             {
                 if (precoCompra > value)
                 {
-                    throw new Exception("Valor de venda não pode ser menor que o valor de compra.");
+                    throw new CustomException("Valor de venda não pode ser menor que o valor de compra.");
                 }
                 else
                 {
