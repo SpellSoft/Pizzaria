@@ -10,6 +10,8 @@ using Pizzaria.View.UI.ViewComplemento;
 using Pizzaria.View.UI.ViewBorda;
 using Pizzaria.Model.Utilities;
 using System.Drawing;
+using System.Linq;
+using Pizzaria.View.Enum;
 
 namespace Pizzaria.View.UI.ViewProduto
 {
@@ -19,7 +21,17 @@ namespace Pizzaria.View.UI.ViewProduto
         {
             InitializeComponent();
         }
+        private void frmCadastrarProduto_Load(object sender, EventArgs e)
+        {
+            CarregarCategoria();
+            CarregarSabor();
+            CarregarBorda();
+            gpbEstoque.Visible = false;
+            CarregarCbbTipoCadastro();
+            MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
+            MudarTamanhoDoForm(new Size(752, 490));
 
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
@@ -67,7 +79,7 @@ namespace Pizzaria.View.UI.ViewProduto
                     PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text == "" ? "0" : txtPrecoCompra.Text),
                     PrecoVenda = Convert.ToDouble(txtPeco.Text == "" ? "0" : txtPeco.Text),
                     SaborID = new SaborRepositorio().GetIDCategoriaPorNome(cbbSabor.Text),
-                    BordaID = new BordaRepositorio().getIDPorNome(cbbBorda.Text)
+                    BordaID = GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pizza) == true ? new BordaRepositorio().getIDPorNome(cbbBorda.Text) : 0
 
 
 
@@ -83,7 +95,10 @@ namespace Pizzaria.View.UI.ViewProduto
             }
 
         }
-
+        public bool GetTipoProdutoNoCbbProduto(EnumTipoProduto enumProduto)
+        {
+            return (cbbTipoProduto.Text == enumProduto.ToString());
+        }
         private void ValidandoTxt(Produto prod, Complemento com)
         {
 
@@ -135,22 +150,25 @@ namespace Pizzaria.View.UI.ViewProduto
                     => this.FocoNoTxt(txt);
         public TextBox[] GetAllTextBox()
                => new TextBox[] { txtNome, txtCodigo, txtPrecoCompra, txtPeco, txtDescricao, txtQtd, txtQtdMin, txtQtdMax };
-        private void frmCadastrarProduto_Load(object sender, EventArgs e)
-        {
-            CarregarCategoria();
-            CarregarSabor();
-            CarregarBorda();
-            gpbEstoque.Visible = false;
-            CarregarCbbTipoCadastro();
+       
 
+        private void MudarPosicaoDoButton(Button btn, Point location)
+        {
+            GerenciarButton.MudarPosicao(btn, location);
+        }
+
+        private void MudarTamanhoDoForm(Size size)
+        {
+            GerenciarForm.MudarTamanho(this, size);
         }
 
         private void CarregarCbbTipoCadastro()
         {
             cbbTipoProduto.DataSource = new string[]
             {
-                "Escolha o tipo do produto",
-                "Pizza"
+                
+                "Pizza",
+                "Pastel"
             };
         }
 
@@ -195,14 +213,30 @@ namespace Pizzaria.View.UI.ViewProduto
         private void ckbGerenciar_CheckedChanged(object sender, EventArgs e)
         {
             var result = gpbEstoque.Visible = (sender as CheckBox).Checked == true ? true : false;
+            
             if (result)
             {
-                txtQtd.Text = "0";
-                txtQtdMax.Text = "0";
-                txtQtdMin.Text = "0";
+                ModificarTextoDoEstoque(text: "0");
+             
+                MudarPosicaoDoButton(btn: btnCadastrar, location: new Point(12,470));
+                MudarTamanhoDoForm(size: new Size(754,565));
+            }
+            else
+            {
+                MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
+                MudarTamanhoDoForm(new Size(752, 490));
             }
         }
 
+        private void ModificarTextoDoEstoque(string text)
+        {
+            foreach (TextBox txt in Controls.OfType<GroupBox>()
+                    .Where(c => c.Name == "gpbEstoque")
+                    .SelectMany(c => c.Controls.OfType<TextBox>()))
+            {
+                txt.Text = text;
+            }
+        }
 
         private void btnAddBorda_Click(object sender, EventArgs e)
         {
@@ -212,5 +246,21 @@ namespace Pizzaria.View.UI.ViewProduto
             }
         }
 
+        private void cbbTipoProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var c = cbbTipoProduto.Text;
+            switch (cbbTipoProduto.Text.OfType<const>())
+            {
+                case EnumTipoProduto.Pizza:
+                    break;
+                case EnumTipoProduto.Pastel:
+                    GerenciarComboBox.DesabilitarOuHabilitar(gpbBorda);
+                    break;
+                case EnumTipoProduto.Outros:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
