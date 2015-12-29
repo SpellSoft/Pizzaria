@@ -29,9 +29,9 @@ namespace Pizzaria.Model.Entity
             get { return quantidadeMaxima; }
             set
             {
-                if (value < QuantidadeMinima)
+                if (QuantidadeMinima > value)
                 {
-                    throw new CustomException("erro no vaor");
+                    throw new CustomException("A quantidade máxima não pode ser menor que a quantidade mínima.");
                 }
                 else
                 {

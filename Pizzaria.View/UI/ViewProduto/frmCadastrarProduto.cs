@@ -61,8 +61,8 @@ namespace Pizzaria.View.UI.ViewProduto
                     {
                         Gerenciar = ckbGerenciar.Checked,
                         Quantidade = Convert.ToInt32(txtQtd.Text == "" ? "0" : txtQtd.Text),
-                        QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text == "" ? "0" : txtQtdMax.Text),
-                        QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text == "" ? "0" : txtQtdMin.Text)
+                        QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text == "" ? "0" : txtQtdMin.Text),
+                        QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text == "" ? "0" : txtQtdMax.Text)
                     },
                     PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text == "" ? "0" : txtPrecoCompra.Text),
                     PrecoVenda = Convert.ToDouble(txtPeco.Text == "" ? "0" : txtPeco.Text),

@@ -8,14 +8,12 @@ namespace Pizzaria.Model.Entity
     [Table(name:nameof(Complemento))]
     public class Complemento
     {
-        //[Key]
-        //[ForeignKey(nameof(Produto))]
-        //[Range(type: typeof(int), minimum: "0", maximum: "60000", ErrorMessage = "{0} excedido, contate o administrador")]
-        //[DisplayName(displayName: "Produto ID")]
         [Key]
+        [Range(type: typeof(int), minimum: "0", maximum: "60000", ErrorMessage = "{0} excedido, contate o administrador")]
+        [DisplayName(displayName: "Complemento ID")]        
         public int ComplementoID { get; set; }
-        //[Range(type: typeof(int), minimum: "0", maximum: "60000", ErrorMessage = "{0} excedido, contate o administrador")]
-        //[DisplayName(displayName: "Sabor ID")]
+        [Range(type: typeof(int), minimum: "0", maximum: "60000", ErrorMessage = "{0} excedido, contate o administrador")]
+        [DisplayName(displayName: "Sabor ID")]
         public int SaborID { get; set; }
         public Sabor Sabor { get; set; }
         [StringLength(maximumLength: 100, ErrorMessage = "{0} deve conter pelo menos 100 letras.")]

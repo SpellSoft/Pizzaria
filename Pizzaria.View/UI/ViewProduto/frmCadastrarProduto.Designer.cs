@@ -112,7 +112,8 @@
             this.txtQtdMin.Location = new System.Drawing.Point(373, 26);
             this.txtQtdMin.Name = "txtQtdMin";
             this.txtQtdMin.Size = new System.Drawing.Size(62, 26);
-            this.txtQtdMin.TabIndex = 1;
+            this.txtQtdMin.TabIndex = 3;
+            this.txtQtdMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblQuantidadeMinima
             // 
@@ -129,7 +130,8 @@
             this.txtQtdMax.Location = new System.Drawing.Point(611, 26);
             this.txtQtdMax.Name = "txtQtdMax";
             this.txtQtdMax.Size = new System.Drawing.Size(62, 26);
-            this.txtQtdMax.TabIndex = 2;
+            this.txtQtdMax.TabIndex = 3;
+            this.txtQtdMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblQuantidadeMaxima
             // 
@@ -146,7 +148,8 @@
             this.txtQtd.Location = new System.Drawing.Point(133, 26);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(62, 26);
-            this.txtQtd.TabIndex = 0;
+            this.txtQtd.TabIndex = 3;
+            this.txtQtd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblQuantidade
             // 
@@ -204,18 +207,22 @@
             this.txtPeco.BackColor = System.Drawing.Color.Yellow;
             this.txtPeco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPeco.Location = new System.Drawing.Point(109, 53);
+            this.txtPeco.MaxLength = 5;
             this.txtPeco.Name = "txtPeco";
             this.txtPeco.Size = new System.Drawing.Size(219, 26);
             this.txtPeco.TabIndex = 4;
+            this.txtPeco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPrecoCompra
             // 
             this.txtPrecoCompra.BackColor = System.Drawing.Color.Yellow;
             this.txtPrecoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecoCompra.Location = new System.Drawing.Point(75, 22);
+            this.txtPrecoCompra.MaxLength = 5;
             this.txtPrecoCompra.Name = "txtPrecoCompra";
             this.txtPrecoCompra.Size = new System.Drawing.Size(252, 26);
             this.txtPrecoCompra.TabIndex = 3;
+            this.txtPrecoCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCusto
             // 
@@ -331,10 +338,12 @@
             this.txtDescricao.BackColor = System.Drawing.Color.Yellow;
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(18, 215);
+            this.txtDescricao.MaxLength = 100;
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(341, 78);
             this.txtDescricao.TabIndex = 5;
+            this.txtDescricao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCodigo
             // 
@@ -350,9 +359,11 @@
             this.txtCodigo.BackColor = System.Drawing.Color.Yellow;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(74, 61);
+            this.txtCodigo.MaxLength = 13;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(285, 26);
             this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNome
             // 
@@ -368,9 +379,11 @@
             this.txtNome.BackColor = System.Drawing.Color.Yellow;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(66, 29);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(293, 26);
             this.txtNome.TabIndex = 1;
+            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbbTipoProduto
             // 
