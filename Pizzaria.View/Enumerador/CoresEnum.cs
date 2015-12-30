@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Pizzaria.View.Enum
+namespace Pizzaria.View.Enumerador
 {
     public enum CoresEnum
     {

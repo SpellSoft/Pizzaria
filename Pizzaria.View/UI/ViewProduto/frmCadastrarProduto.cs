@@ -11,12 +11,14 @@ using Pizzaria.View.UI.ViewBorda;
 using Pizzaria.Model.Utilities;
 using System.Drawing;
 using System.Linq;
-using Pizzaria.View.Enum;
+using Pizzaria.View.Enumerador;
 
 namespace Pizzaria.View.UI.ViewProduto
 {
     public partial class frmCadastrarProduto : Form
     {
+
+
         public frmCadastrarProduto()
         {
             InitializeComponent();
@@ -41,7 +43,7 @@ namespace Pizzaria.View.UI.ViewProduto
             }
             catch (CustomException error)
             {
-               FocarNoTxt(ValidarTxt(error.Message, Color.Yellow));
+                FocarNoTxt(ValidarTxt(error.Message, Color.Yellow));
             }
             catch (Exception error)
             {
@@ -78,8 +80,13 @@ namespace Pizzaria.View.UI.ViewProduto
                     },
                     PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text == "" ? "0" : txtPrecoCompra.Text),
                     PrecoVenda = Convert.ToDouble(txtPeco.Text == "" ? "0" : txtPeco.Text),
-                    SaborID = new SaborRepositorio().GetIDCategoriaPorNome(cbbSabor.Text),
-                    BordaID = GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pizza) == true ? new BordaRepositorio().getIDPorNome(cbbBorda.Text) : 0
+                    SaborID = GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pizza) == true
+                                  || GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pastel) ?
+                                  new SaborRepositorio().GetIDCategoriaPorNome(cbbSabor.Text) :
+                                  0,
+                    BordaID = GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pizza) == true ?
+                                  new BordaRepositorio().getIDPorNome(cbbBorda.Text) :
+                                  0
 
 
 
@@ -150,7 +157,7 @@ namespace Pizzaria.View.UI.ViewProduto
                     => this.FocoNoTxt(txt);
         public TextBox[] GetAllTextBox()
                => new TextBox[] { txtNome, txtCodigo, txtPrecoCompra, txtPeco, txtDescricao, txtQtd, txtQtdMin, txtQtdMax };
-       
+
 
         private void MudarPosicaoDoButton(Button btn, Point location)
         {
@@ -166,9 +173,9 @@ namespace Pizzaria.View.UI.ViewProduto
         {
             cbbTipoProduto.DataSource = new string[]
             {
-                
                 "Pizza",
-                "Pastel"
+                "Pastel",
+                "Outros"
             };
         }
 
@@ -213,13 +220,12 @@ namespace Pizzaria.View.UI.ViewProduto
         private void ckbGerenciar_CheckedChanged(object sender, EventArgs e)
         {
             var result = gpbEstoque.Visible = (sender as CheckBox).Checked == true ? true : false;
-            
+
             if (result)
             {
                 ModificarTextoDoEstoque(text: "0");
-             
-                MudarPosicaoDoButton(btn: btnCadastrar, location: new Point(12,470));
-                MudarTamanhoDoForm(size: new Size(754,565));
+                MudarPosicaoDoButton(btn: btnCadastrar, location: new Point(12, 470));
+                MudarTamanhoDoForm(size: new Size(754, 565));
             }
             else
             {
@@ -248,19 +254,29 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void cbbTipoProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var c = cbbTipoProduto.Text;
-            switch (cbbTipoProduto.Text.OfType<const>())
+
+            switch ((EnumTipoProduto)Enum.Parse(typeof(EnumTipoProduto), cbbTipoProduto.Text))
             {
                 case EnumTipoProduto.Pizza:
+                    DesabilitarOuHablitarGroupBox(gpb: gpbBorda, desabilitar: true);
+                    DesabilitarOuHablitarGroupBox(gpb: gpbSabor, desabilitar: true);
                     break;
                 case EnumTipoProduto.Pastel:
-                    GerenciarComboBox.DesabilitarOuHabilitar(gpbBorda);
+                    DesabilitarOuHablitarGroupBox(gpb: gpbBorda);
+                    DesabilitarOuHablitarGroupBox(gpb: gpbSabor, desabilitar: true);
                     break;
                 case EnumTipoProduto.Outros:
+                    DesabilitarOuHablitarGroupBox(gpb: gpbBorda);
+                    DesabilitarOuHablitarGroupBox(gpb: gpbSabor);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void DesabilitarOuHablitarGroupBox(GroupBox gpb, bool desabilitar = false)
+        {
+            GerenciarComboBox.DesabilitarOuHabilitar(gpb, desabilitar);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace Pizzaria.View.Enum
+namespace Pizzaria.View.Enumerador
 {
     public enum EnumTipoProduto
     {

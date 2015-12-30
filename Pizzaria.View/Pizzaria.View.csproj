@@ -59,8 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\CoresEnum.cs" />
-    <Compile Include="Enum\EnumTipoProduto.cs" />
+    <Compile Include="Enumerador\CoresEnum.cs" />
+    <Compile Include="Enumerador\EnumTipoProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ViewBorda\frmCadastrarBorda.cs">
