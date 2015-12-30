@@ -13,5 +13,13 @@ namespace Pizzaria.Controller.Repository
         {
             return base.Salvar(entities);
         }
+        public override Produto GetPeloID(int id)
+        {
+            return base.GetPeloID(id);
+        }
+        public override bool Editar(Produto entities)
+        {
+            return base.Editar(entities);
+        }
     }
 }

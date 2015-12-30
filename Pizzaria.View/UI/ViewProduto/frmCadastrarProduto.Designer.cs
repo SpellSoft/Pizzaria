@@ -37,7 +37,7 @@
             this.lblQuantidadeMaxima = new System.Windows.Forms.Label();
             this.txtQtd = new System.Windows.Forms.TextBox();
             this.lblQuantidade = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gpbProduto = new System.Windows.Forms.GroupBox();
             this.gpbPrecoVenda = new System.Windows.Forms.GroupBox();
             this.lblPrecoVenda = new System.Windows.Forms.Label();
             this.txtPeco = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.gpbTipoCadastro = new System.Windows.Forms.GroupBox();
             this.cbbTipoProduto = new System.Windows.Forms.ComboBox();
             this.gpbEstoque.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gpbProduto.SuspendLayout();
             this.gpbPrecoVenda.SuspendLayout();
             this.gpbBorda.SuspendLayout();
             this.gpbSabor.SuspendLayout();
@@ -71,14 +71,21 @@
             // 
             // ckbGerenciar
             // 
+            this.ckbGerenciar.BackColor = System.Drawing.Color.Transparent;
+            this.ckbGerenciar.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.ckbGerenciar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.ckbGerenciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.ckbGerenciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.ckbGerenciar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.ckbGerenciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbGerenciar.Location = new System.Drawing.Point(380, 0);
             this.ckbGerenciar.Name = "ckbGerenciar";
             this.ckbGerenciar.Size = new System.Drawing.Size(343, 70);
             this.ckbGerenciar.TabIndex = 3;
+            this.ckbGerenciar.TabStop = false;
             this.ckbGerenciar.Text = "Gerenciar Estoque";
             this.ckbGerenciar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ckbGerenciar.UseVisualStyleBackColor = true;
+            this.ckbGerenciar.UseVisualStyleBackColor = false;
             this.ckbGerenciar.CheckedChanged += new System.EventHandler(this.ckbGerenciar_CheckedChanged);
             // 
             // btnCadastrar
@@ -86,7 +93,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(12, 472);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(711, 43);
-            this.btnCadastrar.TabIndex = 0;
+            this.btnCadastrar.TabIndex = 9;
             this.btnCadastrar.Text = "Salvar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -111,10 +118,11 @@
             // txtQtdMin
             // 
             this.txtQtdMin.BackColor = System.Drawing.Color.Yellow;
-            this.txtQtdMin.Location = new System.Drawing.Point(373, 26);
+            this.txtQtdMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQtdMin.Location = new System.Drawing.Point(373, 23);
             this.txtQtdMin.Name = "txtQtdMin";
-            this.txtQtdMin.Size = new System.Drawing.Size(62, 26);
-            this.txtQtdMin.TabIndex = 3;
+            this.txtQtdMin.Size = new System.Drawing.Size(62, 29);
+            this.txtQtdMin.TabIndex = 7;
             this.txtQtdMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblQuantidadeMinima
@@ -129,10 +137,11 @@
             // txtQtdMax
             // 
             this.txtQtdMax.BackColor = System.Drawing.Color.Yellow;
-            this.txtQtdMax.Location = new System.Drawing.Point(611, 26);
+            this.txtQtdMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQtdMax.Location = new System.Drawing.Point(611, 23);
             this.txtQtdMax.Name = "txtQtdMax";
-            this.txtQtdMax.Size = new System.Drawing.Size(62, 26);
-            this.txtQtdMax.TabIndex = 3;
+            this.txtQtdMax.Size = new System.Drawing.Size(62, 29);
+            this.txtQtdMax.TabIndex = 8;
             this.txtQtdMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblQuantidadeMaxima
@@ -147,10 +156,11 @@
             // txtQtd
             // 
             this.txtQtd.BackColor = System.Drawing.Color.Yellow;
-            this.txtQtd.Location = new System.Drawing.Point(133, 26);
+            this.txtQtd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQtd.Location = new System.Drawing.Point(133, 23);
             this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(62, 26);
-            this.txtQtd.TabIndex = 3;
+            this.txtQtd.Size = new System.Drawing.Size(62, 29);
+            this.txtQtd.TabIndex = 6;
             this.txtQtd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblQuantidade
@@ -162,25 +172,25 @@
             this.lblQuantidade.TabIndex = 5;
             this.lblQuantidade.Text = "Quantidade";
             // 
-            // groupBox1
+            // gpbProduto
             // 
-            this.groupBox1.Controls.Add(this.gpbPrecoVenda);
-            this.groupBox1.Controls.Add(this.gpbBorda);
-            this.groupBox1.Controls.Add(this.gpbSabor);
-            this.groupBox1.Controls.Add(this.gpbCategoria);
-            this.groupBox1.Controls.Add(this.lblDescricao);
-            this.groupBox1.Controls.Add(this.txtDescricao);
-            this.groupBox1.Controls.Add(this.lblCodigo);
-            this.groupBox1.Controls.Add(this.txtCodigo);
-            this.groupBox1.Controls.Add(this.lblNome);
-            this.groupBox1.Controls.Add(this.txtNome);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 62);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(711, 337);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Produto";
+            this.gpbProduto.Controls.Add(this.gpbPrecoVenda);
+            this.gpbProduto.Controls.Add(this.gpbBorda);
+            this.gpbProduto.Controls.Add(this.gpbSabor);
+            this.gpbProduto.Controls.Add(this.gpbCategoria);
+            this.gpbProduto.Controls.Add(this.lblDescricao);
+            this.gpbProduto.Controls.Add(this.txtDescricao);
+            this.gpbProduto.Controls.Add(this.lblCodigo);
+            this.gpbProduto.Controls.Add(this.txtCodigo);
+            this.gpbProduto.Controls.Add(this.lblNome);
+            this.gpbProduto.Controls.Add(this.txtNome);
+            this.gpbProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbProduto.Location = new System.Drawing.Point(12, 62);
+            this.gpbProduto.Name = "gpbProduto";
+            this.gpbProduto.Size = new System.Drawing.Size(711, 337);
+            this.gpbProduto.TabIndex = 1;
+            this.gpbProduto.TabStop = false;
+            this.gpbProduto.Text = "Produto";
             // 
             // gpbPrecoVenda
             // 
@@ -252,9 +262,9 @@
             this.btnAddBorda.Name = "btnAddBorda";
             this.btnAddBorda.Size = new System.Drawing.Size(41, 30);
             this.btnAddBorda.TabIndex = 23;
+            this.btnAddBorda.TabStop = false;
             this.btnAddBorda.Text = "+";
             this.btnAddBorda.UseVisualStyleBackColor = true;
-            this.btnAddBorda.ClientSizeChanged += new System.EventHandler(this.btnAddSabor_Click);
             this.btnAddBorda.Click += new System.EventHandler(this.btnAddBorda_Click);
             // 
             // cbbBorda
@@ -265,6 +275,7 @@
             this.cbbBorda.Name = "cbbBorda";
             this.cbbBorda.Size = new System.Drawing.Size(271, 28);
             this.cbbBorda.TabIndex = 22;
+            this.cbbBorda.TabStop = false;
             // 
             // gpbSabor
             // 
@@ -283,6 +294,7 @@
             this.btnAddSabor.Name = "btnAddSabor";
             this.btnAddSabor.Size = new System.Drawing.Size(41, 30);
             this.btnAddSabor.TabIndex = 23;
+            this.btnAddSabor.TabStop = false;
             this.btnAddSabor.Text = "+";
             this.btnAddSabor.UseVisualStyleBackColor = true;
             this.btnAddSabor.Click += new System.EventHandler(this.btnAddSabor_Click);
@@ -295,6 +307,7 @@
             this.cbbSabor.Name = "cbbSabor";
             this.cbbSabor.Size = new System.Drawing.Size(271, 28);
             this.cbbSabor.TabIndex = 22;
+            this.cbbSabor.TabStop = false;
             // 
             // gpbCategoria
             // 
@@ -313,6 +326,7 @@
             this.btnAddCategoria.Name = "btnAddCategoria";
             this.btnAddCategoria.Size = new System.Drawing.Size(41, 30);
             this.btnAddCategoria.TabIndex = 24;
+            this.btnAddCategoria.TabStop = false;
             this.btnAddCategoria.Text = "+";
             this.btnAddCategoria.UseVisualStyleBackColor = true;
             this.btnAddCategoria.Click += new System.EventHandler(this.btnAddCategoria_Click);
@@ -325,6 +339,7 @@
             this.cbbCategoria.Name = "cbbCategoria";
             this.cbbCategoria.Size = new System.Drawing.Size(270, 28);
             this.cbbCategoria.TabIndex = 23;
+            this.cbbCategoria.TabStop = false;
             // 
             // lblDescricao
             // 
@@ -401,12 +416,13 @@
             // cbbTipoProduto
             // 
             this.cbbTipoProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTipoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTipoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTipoProduto.FormattingEnabled = true;
-            this.cbbTipoProduto.Location = new System.Drawing.Point(9, 22);
+            this.cbbTipoProduto.Location = new System.Drawing.Point(9, 21);
             this.cbbTipoProduto.Name = "cbbTipoProduto";
-            this.cbbTipoProduto.Size = new System.Drawing.Size(336, 28);
+            this.cbbTipoProduto.Size = new System.Drawing.Size(336, 32);
             this.cbbTipoProduto.TabIndex = 10;
+            this.cbbTipoProduto.TabStop = false;
             this.cbbTipoProduto.SelectedIndexChanged += new System.EventHandler(this.cbbTipoProduto_SelectedIndexChanged);
             // 
             // frmCadastrarProduto
@@ -416,7 +432,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(734, 523);
             this.Controls.Add(this.gpbTipoCadastro);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbProduto);
             this.Controls.Add(this.ckbGerenciar);
             this.Controls.Add(this.gpbEstoque);
             this.Controls.Add(this.btnCadastrar);
@@ -427,8 +443,8 @@
             this.Load += new System.EventHandler(this.frmCadastrarProduto_Load);
             this.gpbEstoque.ResumeLayout(false);
             this.gpbEstoque.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gpbProduto.ResumeLayout(false);
+            this.gpbProduto.PerformLayout();
             this.gpbPrecoVenda.ResumeLayout(false);
             this.gpbPrecoVenda.PerformLayout();
             this.gpbBorda.ResumeLayout(false);
@@ -449,7 +465,7 @@
         private System.Windows.Forms.Label lblQuantidadeMinima;
         private System.Windows.Forms.TextBox txtQtdMax;
         private System.Windows.Forms.Label lblQuantidadeMaxima;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpbProduto;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Label lblCusto;
         private System.Windows.Forms.TextBox txtDescricao;

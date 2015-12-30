@@ -11,7 +11,7 @@ namespace Pizzaria.Model.Migrations
                 "dbo.Borda",
                 c => new
                     {
-                        BordaID = c.Int(nullable: false, identity: true),
+                        BordaID = c.Int(nullable: true, identity: true),
                         Nome = c.String(unicode: false),
                         Preco = c.Double(nullable: false),
                         Descricao = c.String(unicode: false),
@@ -20,7 +20,7 @@ namespace Pizzaria.Model.Migrations
             
             AddColumn("dbo.Produto", "BordaID", c => c.Int(nullable: false));
             CreateIndex("dbo.Produto", "BordaID");
-            AddForeignKey("dbo.Produto", "BordaID", "dbo.Borda", "BordaID", cascadeDelete: true);
+            AddForeignKey("dbo.Produto", "BordaID", "dbo.Borda", "BordaID", cascadeDelete: false);
         }
         
         public override void Down()
