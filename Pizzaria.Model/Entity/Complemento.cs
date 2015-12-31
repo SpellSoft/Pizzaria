@@ -14,7 +14,7 @@ namespace Pizzaria.Model.Entity
         public int ComplementoID { get; set; }
         [Range(type: typeof(int), minimum: "0", maximum: "60000", ErrorMessage = "{0} excedido, contate o administrador")]
         [DisplayName(displayName: "Sabor ID")]
-        public int SaborID { get; set; }
+        public int? SaborID { get; set; }
         public Sabor Sabor { get; set; }
         [StringLength(maximumLength: 100, ErrorMessage = "{0} deve conter pelo menos 100 letras.")]
         [DisplayName(displayName: "Complemento Descrição")]       

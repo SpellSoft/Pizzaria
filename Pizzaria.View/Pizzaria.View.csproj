@@ -99,6 +99,8 @@
     <Compile Include="UI\ViewSabor\frmCadastrarSabor.Designer.cs">
       <DependentUpon>frmCadastrarSabor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\GerenciarControl.cs" />
+    <Compile Include="Utilities\Message.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

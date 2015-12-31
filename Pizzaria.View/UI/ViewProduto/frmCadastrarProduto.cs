@@ -12,11 +12,17 @@ using Pizzaria.Model.Utilities;
 using System.Drawing;
 using System.Linq;
 using Pizzaria.View.Enumerador;
+using Pizzaria.View.Utilities;
 
 namespace Pizzaria.View.UI.ViewProduto
 {
     public partial class frmCadastrarProduto : Form
     {
+        private ProdutoRepositorio _produtoRepositorio { get; } = new ProdutoRepositorio();
+        private CategoriaRepositorio _categoriaRepositorio { get; } = new CategoriaRepositorio();
+        private SaborRepositorio _saborRepositorio { get; } = new SaborRepositorio();
+        private BordaRepositorio _bordaRepositorio { get; } = new BordaRepositorio();
+        public ComplementoRepositorio _complementoRepositorio { get; } = new ComplementoRepositorio();
 
 
         public frmCadastrarProduto()
@@ -30,8 +36,8 @@ namespace Pizzaria.View.UI.ViewProduto
             CarregarBorda();
             gpbEstoque.Visible = false;
             CarregarCbbTipoCadastro();
-            MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
-            MudarTamanhoDoForm(new Size(752, 490));
+            GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
+            GerenciarControl.MudarTamanhoDoForm(this, new Size(752, 490));
 
         }
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -47,7 +53,7 @@ namespace Pizzaria.View.UI.ViewProduto
             }
             catch (Exception error)
             {
-                SaveErroInTxt.RecordInTxt(error, this.GetType().Name);
+
                 ValidarTxt(error.Message, Color.Yellow);
 
             }
@@ -69,7 +75,7 @@ namespace Pizzaria.View.UI.ViewProduto
                 {
                     Nome = txtNome.Text,
                     Codigo = txtCodigo.Text,
-                    CategoriaID = new CategoriaRepositorio().GetIDCategoriaPorNome(cbbCategoria.Text),
+                    CategoriaID = _categoriaRepositorio.GetIDCategoriaPorNome(cbbCategoria.Text),
                     Descricao = txtDescricao.Text,
                     Estoque = ckbGerenciar.Checked ? new Estoque
                     {
@@ -80,12 +86,12 @@ namespace Pizzaria.View.UI.ViewProduto
                     } : null,
                     PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text == "" ? "0" : txtPrecoCompra.Text),
                     PrecoVenda = Convert.ToDouble(txtPeco.Text == "" ? "0" : txtPeco.Text),
-                    SaborID = GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pizza) == true
-                                  || GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pastel) ?
-                                  new SaborRepositorio()?.GetIDCategoriaPorNome(cbbSabor.Text) :
+                    SaborID = GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) == true
+                                  || GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pastel) ?
+                                  _saborRepositorio?.GetIDCategoriaPorNome(cbbSabor.Text) :
                                   null,
-                    BordaID = GetTipoProdutoNoCbbProduto(EnumTipoProduto.Pizza) == true ?
-                                  new BordaRepositorio()?.getIDPorNome(cbbBorda.Text) :
+                    BordaID = GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) && GetTipoDeBorda(EnumTipoProduto.Escolha.ToString()) == false ?
+                                  _bordaRepositorio?.getIDPorNome(cbbBorda.Text) :
                                   null
 
 
@@ -102,9 +108,13 @@ namespace Pizzaria.View.UI.ViewProduto
             }
 
         }
-        public bool GetTipoProdutoNoCbbProduto(EnumTipoProduto enumProduto)
+        public bool GetTipoProdutoNoCbbTipo(EnumTipoProduto enumProduto)
         {
             return (cbbTipoProduto.Text == enumProduto.ToString());
+        }
+        public bool GetTipoDeBorda(string sabor)
+        {
+            return (cbbBorda.Text == sabor);
         }
         private void ValidandoTxt(Produto prod)
         {
@@ -115,33 +125,34 @@ namespace Pizzaria.View.UI.ViewProduto
                 TextBox txt = ValidaCampos.Validar(prod, GetAllTextBox());
                 if (txt == null)
                 {
-                    if (DialogMessage.MessageFullQuestion("Deseja adicionar um complemento?", "Aviso") == DialogResult.Yes)
+                    if (GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza))
                     {
-                        if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarComplemento()) == DialogResult.Yes)
+                        if (CustomMessage.MessageFullQuestion("Deseja adicionar um complemento?", "Aviso") == DialogResult.Yes)
                         {
-                            Complemento com = new ComplementoRepositorio().GetUltimoResgistro();
-                            prod.Complemento = new List<Complemento>
+                            if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarComplemento()) == DialogResult.Yes)
                             {
-                                new Complemento
+                                Complemento com = _complementoRepositorio.GetUltimoResgistro();
+                                prod.Complemento = new List<Complemento>
                                 {
-                                    ComplementoID = com.ComplementoID,
-                                    Descricao = com.Descricao,
-                                    Preco = com.Preco,
-                                    SaborID = com.SaborID
-                                }
-                            };
+                                      new Complemento
+                                      {
+                                          ComplementoID = com.ComplementoID,
+                                          Descricao = com.Descricao,
+                                          Preco = com.Preco,
+                                          SaborID = com.SaborID
+                                      }
+                                };
+                            }
                         }
                     }
-                    if (new ProdutoRepositorio().Salvar(prod))
+                    if (_produtoRepositorio.Salvar(prod))
                     {
-                        DialogMessage.MessageFullComButtonOkIconeDeInformacao("Produto cadastrado com sucesso!", "Aviso");
+                        CustomMessage.MessageFullComButtonOkIconeDeInformacao("Produto cadastrado com sucesso!", "Aviso");
                         Array.ForEach(GetAllTextBox(), c => c.Text = string.Empty);
                     }
                 }
                 else
-                {
                     FocarNoTxt(txt);
-                }
             }
             catch (CustomException error)
             {
@@ -172,21 +183,12 @@ namespace Pizzaria.View.UI.ViewProduto
                };
 
 
-        private void MudarPosicaoDoButton(Button btn, Point location)
-        {
-            GerenciarButton.MudarPosicao(btn, location);
-        }
-
-        private void MudarTamanhoDoForm(Size size)
-        {
-            GerenciarForm.MudarTamanho(this, size);
-        }
 
         private void CarregarCbbTipoCadastro()
         {
             cbbTipoProduto.DataSource = new string[]
             {
-               EnumTipoProduto.Escolha.ToString(),
+                EnumTipoProduto.Escolha.ToString(),
                 EnumTipoProduto.Pizza.ToString(),
                 EnumTipoProduto.Pastel.ToString(),
                 EnumTipoProduto.Outros.ToString()
@@ -195,23 +197,29 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void CarregarBorda()
         {
-            var bordaRepositorio = new BordaRepositorio();
-            cbbBorda.DisplayMember = "Nome";
-            cbbBorda.DataSource = bordaRepositorio.Listar();
+           
+            var arrayBorda = new List<string> { EnumTipoProduto.Escolha.ToString() };
+            foreach (var txt in _bordaRepositorio.Listar().Select(item => new Borda { Nome = item.Nome }.Nome))
+            {
+                arrayBorda.Add(txt);
+            }
+            cbbBorda.DataSource = arrayBorda;
         }
 
         private void CarregarSabor()
         {
-            var saborRepositorio = new SaborRepositorio();
-            cbbSabor.DisplayMember = "Nome";
-            cbbSabor.DataSource = saborRepositorio.Listar();
+            var arraySabor = new List<string> { EnumTipoProduto.Escolha.ToString() };
+            foreach (var txt in _saborRepositorio.Listar().Select(item => new Sabor { Nome = item.Nome }.Nome))
+            {
+                arraySabor.Add(txt);
+            }
+            cbbSabor.DataSource = arraySabor;
         }
 
         private void CarregarCategoria()
         {
-            var categoriaRepositorio = new CategoriaRepositorio();
             cbbCategoria.DisplayMember = "Nome";
-            cbbCategoria.DataSource = categoriaRepositorio.Listar();
+            cbbCategoria.DataSource = _categoriaRepositorio.Listar();
         }
 
         private void btnAddSabor_Click(object sender, EventArgs e)
@@ -238,14 +246,14 @@ namespace Pizzaria.View.UI.ViewProduto
             if (result)
             {
                 ModificarTextoDoEstoque(text: "0");
-                MudarPosicaoDoButton(btn: btnCadastrar, location: new Point(12, 470));
-                MudarTamanhoDoForm(size: new Size(754, 565));
+                GerenciarControl.MudarPosicaoDoButton(btn: btnCadastrar, location: new Point(12, 470));
+                GerenciarControl.MudarTamanhoDoForm(this, size: new Size(754, 565));
                 FocarNoTxt(txtQtd);
             }
             else
             {
-                MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
-                MudarTamanhoDoForm(new Size(752, 490));
+                GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
+                GerenciarControl.MudarTamanhoDoForm(this, new Size(752, 490));
                 FocarNoTxt(txtNome);
             }
         }
@@ -274,97 +282,49 @@ namespace Pizzaria.View.UI.ViewProduto
             switch ((EnumTipoProduto)Enum.Parse(typeof(EnumTipoProduto), cbbTipoProduto.Text))
             {
                 case EnumTipoProduto.Pizza:
-                    DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
-                    DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);
-                    DesabilitarButton(btn: btnCadastrar, habilitado: true);
-                    FocarNoTxt(txt:txtNome);
+                    GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
+                    GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);
+                    GerenciarControl.DesabilitarButton(btn: btnCadastrar, habilitado: true);
+                    FocarNoTxt(txt: txtNome);
                     break;
-                case EnumTipoProduto.Pastel:   
-                    DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);                    
-                    DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar,habilitado:true);
+                case EnumTipoProduto.Pastel:
+                    GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);
+                    GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
                     DesabilitarPastel();
-                    DesabilitarButton(btn: btnCadastrar, habilitado: true);
+                    GerenciarControl.DesabilitarButton(btn: btnCadastrar, habilitado: true);
                     FocarNoTxt(txt: txtNome);
                     break;
                 case EnumTipoProduto.Outros:
-                    DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(),mostrar:true);
-                    DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
+                    GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);
+                    GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
                     DesabilitarOutros();
-                    DesabilitarButton(btn: btnCadastrar,habilitado:true);
+                    GerenciarControl.DesabilitarButton(btn: btnCadastrar, habilitado: true);
                     FocarNoTxt(txt: txtNome);
                     break;
                 case EnumTipoProduto.Escolha:
-                    DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox());                   
-                    DesabilitarOuHablitarCheckBox(ckb:ckbGerenciar);
-                    DesabilitarButton(btn:btnCadastrar);       
+                    GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox());
+                    GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar);
+                    GerenciarControl.DesabilitarButton(btn: btnCadastrar);
                     break;
-              
+
             }
         }
 
-        private void FocarNoButton(Button btn)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void DesabilitarButton(Button btn, bool habilitado = false)
-        {
-            btn.Enabled = habilitado;
-        }
 
         private void DesabilitarPastel()
         {
-            DesabilitarOuHabilitarMuitosGroupBox(listGpb: new List<GroupBox> {gpbBorda });
+            GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: new List<GroupBox> { gpbBorda });
         }
 
         private void DesabilitarOutros()
         {
-            DesabilitarOuHabilitarMuitosGroupBox(listGpb: new List<GroupBox> {gpbBorda,gpbSabor });
-        }
-
-        private void DesabilitarOuHabilitarMuitosGroupBox(List<GroupBox> listGpb,bool mostrar = false)
-        {
-            GerenciarGroupBox.DesabilitarOuHabilitarMuitos(listGpb, mostrar);
-        }
-
-        private void DesabilitarOuHablitarCheckBox(CheckBox ckb,bool habilitado = false)
-        {
-            ckbGerenciar.Enabled = habilitado;
-        }
-
-        private void EsconderOuMostrarCheckBox(CheckBox ckb,bool mostrar = false)
-        {
-            ckb.Visible = mostrar;
-        }
-        public void EsconderOuMostrarGroupBox(GroupBox gpb,bool mostrar = false)
-        {
-            GerenciarGroupBox.EsconderOuMostrar(gpb, mostrar);
-        }
-
-        private void EsconderOuMostrarMuitosGroupBox(List<GroupBox> list,bool mostrar = false)
-        {
-            GerenciarGroupBox.EsconderOuMostrarMuitos(ListarGroupBox(), mostrar);
-            //if (ckbGerenciar.Visible && ckbGerenciar.Checked)
-            //{
-            //    EsconderOuMostrarGroupBox(gpbEstoque, true);fg
-            //}
-            //else if(ckbGerenciar.Visible && ckbGerenciar.Checked == false)
-            //{
-            //    EsconderOuMostrarGroupBox(gpbEstoque, false);
-            //}
-            //else
-            //{
-            //    EsconderOuMostrarGroupBox(gpbEstoque, false);
-            //}
+            GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: new List<GroupBox> { gpbBorda, gpbSabor });
         }
 
         private List<GroupBox> ListarGroupBox()
         {
-            return new List<GroupBox> { gpbBorda, gpbCategoria, gpbEstoque,gpbPrecoVenda, gpbSabor,gpbProduto };
+            return new List<GroupBox> { gpbBorda, gpbCategoria, gpbEstoque, gpbPrecoVenda, gpbSabor, gpbProduto };
         }
-        private void DesabilitarOuHablitarGroupBox(GroupBox gpb, bool desabilitar = false)
-        {
-            GerenciarGroupBox.DesabilitarOuHabilitar(gpb, desabilitar);
-        }
+
     }
 }
