@@ -118,12 +118,14 @@
             // txtQtdMin
             // 
             this.txtQtdMin.BackColor = System.Drawing.Color.Yellow;
+            this.txtQtdMin.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtQtdMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtdMin.Location = new System.Drawing.Point(373, 23);
             this.txtQtdMin.Name = "txtQtdMin";
             this.txtQtdMin.Size = new System.Drawing.Size(62, 29);
             this.txtQtdMin.TabIndex = 7;
             this.txtQtdMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQtdMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdMin_KeyPress);
             // 
             // lblQuantidadeMinima
             // 
@@ -137,12 +139,14 @@
             // txtQtdMax
             // 
             this.txtQtdMax.BackColor = System.Drawing.Color.Yellow;
+            this.txtQtdMax.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtQtdMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtdMax.Location = new System.Drawing.Point(611, 23);
             this.txtQtdMax.Name = "txtQtdMax";
             this.txtQtdMax.Size = new System.Drawing.Size(62, 29);
             this.txtQtdMax.TabIndex = 8;
             this.txtQtdMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQtdMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdMax_KeyPress);
             // 
             // lblQuantidadeMaxima
             // 
@@ -156,12 +160,14 @@
             // txtQtd
             // 
             this.txtQtd.BackColor = System.Drawing.Color.Yellow;
+            this.txtQtd.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtQtd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtd.Location = new System.Drawing.Point(133, 23);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(62, 29);
             this.txtQtd.TabIndex = 6;
             this.txtQtd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtd_KeyPress);
             // 
             // lblQuantidade
             // 
@@ -217,6 +223,7 @@
             // txtPeco
             // 
             this.txtPeco.BackColor = System.Drawing.Color.Yellow;
+            this.txtPeco.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtPeco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPeco.Location = new System.Drawing.Point(108, 67);
             this.txtPeco.MaxLength = 5;
@@ -224,10 +231,12 @@
             this.txtPeco.Size = new System.Drawing.Size(219, 29);
             this.txtPeco.TabIndex = 4;
             this.txtPeco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPeco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeco_KeyPress);
             // 
             // txtPrecoCompra
             // 
             this.txtPrecoCompra.BackColor = System.Drawing.Color.Yellow;
+            this.txtPrecoCompra.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtPrecoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecoCompra.Location = new System.Drawing.Point(108, 24);
             this.txtPrecoCompra.MaxLength = 5;
@@ -235,6 +244,7 @@
             this.txtPrecoCompra.Size = new System.Drawing.Size(219, 29);
             this.txtPrecoCompra.TabIndex = 3;
             this.txtPrecoCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecoCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoCompra_KeyPress);
             // 
             // lblCusto
             // 
@@ -353,6 +363,7 @@
             // txtDescricao
             // 
             this.txtDescricao.BackColor = System.Drawing.Color.Yellow;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(18, 231);
             this.txtDescricao.MaxLength = 100;
@@ -361,6 +372,7 @@
             this.txtDescricao.Size = new System.Drawing.Size(677, 100);
             this.txtDescricao.TabIndex = 5;
             this.txtDescricao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
             // 
             // lblCodigo
             // 
@@ -374,6 +386,7 @@
             // txtCodigo
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.Yellow;
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(74, 64);
             this.txtCodigo.MaxLength = 13;
@@ -381,6 +394,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(285, 29);
             this.txtCodigo.TabIndex = 2;
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // lblNome
             // 
@@ -394,6 +408,7 @@
             // txtNome
             // 
             this.txtNome.BackColor = System.Drawing.Color.Yellow;
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(66, 25);
             this.txtNome.MaxLength = 50;
@@ -401,6 +416,7 @@
             this.txtNome.Size = new System.Drawing.Size(293, 29);
             this.txtNome.TabIndex = 1;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // gpbTipoCadastro
             // 

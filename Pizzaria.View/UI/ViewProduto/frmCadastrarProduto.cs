@@ -73,19 +73,19 @@ namespace Pizzaria.View.UI.ViewProduto
 
                 return new Produto
                 {
-                    Nome = txtNome.Text,
-                    Codigo = txtCodigo.Text,
+                    Nome = txtNome.Text.UpperCaseOnlyFirst().Trim(),
+                    Codigo = txtCodigo.Text.Trim(),
                     CategoriaID = _categoriaRepositorio.GetIDCategoriaPorNome(cbbCategoria.Text),
-                    Descricao = txtDescricao.Text,
+                    Descricao = txtDescricao.Text.UpperCaseOnlyFirst().Trim(),
                     Estoque = ckbGerenciar.Checked ? new Estoque
                     {
                         Gerenciar = ckbGerenciar.Checked,
-                        Quantidade = Convert.ToInt32(txtQtd.Text == "" ? "0" : txtQtd.Text),
-                        QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text == "" ? "0" : txtQtdMin.Text),
-                        QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text == "" ? "0" : txtQtdMax.Text)
+                        Quantidade = Convert.ToInt32(txtQtd.Text.Trim() == "" ? "0" : txtQtd.Text),
+                        QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text.Trim() == "" ? "0" : txtQtdMin.Text),
+                        QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text.Trim() == "" ? "0" : txtQtdMax.Text)
                     } : null,
-                    PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text == "" ? "0" : txtPrecoCompra.Text),
-                    PrecoVenda = Convert.ToDouble(txtPeco.Text == "" ? "0" : txtPeco.Text),
+                    PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text.Trim() == "" ? "0" : txtPrecoCompra.Text),
+                    PrecoVenda = Convert.ToDouble(txtPeco.Text.Trim() == "" ? "0" : txtPeco.Text),
                     SaborID = GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) == true
                                   || GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pastel) ?
                                   _saborRepositorio?.GetIDCategoriaPorNome(cbbSabor.Text) :
@@ -326,5 +326,49 @@ namespace Pizzaria.View.UI.ViewProduto
             return new List<GroupBox> { gpbBorda, gpbCategoria, gpbEstoque, gpbPrecoVenda, gpbSabor, gpbProduto };
         }
 
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.IntegerAndLetter(e: e);
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.IntegerAndLetter(e: e);
+            ValidatorField.NoSpace(e);
+        }
+
+        private void txtPrecoCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.NoVirgula(e: e, sender: sender);
+            ValidatorField.Money(e: e);
+        }
+
+        private void txtPeco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.NoVirgula(e: e, sender: sender);
+            ValidatorField.Money(e: e);
+        }
+
+        private void txtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.Integer(e: e);
+        }
+
+        private void txtQtdMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.Integer(e: e);
+        }
+
+        private void txtQtdMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.Integer(e: e);
+        }
+
+        private void txtDescricao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.IntegerAndLetter(e: e);
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+        }
     }
 }
