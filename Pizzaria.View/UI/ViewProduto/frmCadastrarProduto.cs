@@ -13,33 +13,60 @@ using System.Drawing;
 using System.Linq;
 using Pizzaria.View.Enumerador;
 using Pizzaria.View.Utilities;
+using Pizzaria.View.UI.ViewEspera;
 
 namespace Pizzaria.View.UI.ViewProduto
 {
     public partial class frmCadastrarProduto : Form
     {
-        private ProdutoRepositorio _produtoRepositorio { get; } = new ProdutoRepositorio();
-        private CategoriaRepositorio _categoriaRepositorio { get; } = new CategoriaRepositorio();
-        private SaborRepositorio _saborRepositorio { get; } = new SaborRepositorio();
-        private BordaRepositorio _bordaRepositorio { get; } = new BordaRepositorio();
-        public ComplementoRepositorio _complementoRepositorio { get; } = new ComplementoRepositorio();
+        private ProdutoRepositorio _produtoRepositorio { get; set; }
+        private CategoriaRepositorio _categoriaRepositorio { get; set; }
+        private SaborRepositorio _saborRepositorio { get; set; }
+        private BordaRepositorio _bordaRepositorio { get; set; }
+        private ComplementoRepositorio _complementoRepositorio { get; set; }
 
+        private void InsProdutodRep()
+                     => _produtoRepositorio = new ProdutoRepositorio();
+        private void InsCategoriaRep()
+                => _categoriaRepositorio = new CategoriaRepositorio();
+        private void InsSaborRep()
+                     => _saborRepositorio = new SaborRepositorio();
+        private void InsBordaRep()
+                     => _bordaRepositorio = new BordaRepositorio();
+        private void InsComplementoRep()
+                     => _complementoRepositorio = new ComplementoRepositorio();
 
         public frmCadastrarProduto()
-        {
+        {           
+           
             InitializeComponent();
         }
         private void frmCadastrarProduto_Load(object sender, EventArgs e)
         {
-            CarregarCategoria();
-            CarregarSabor();
-            CarregarBorda();
-            gpbEstoque.Visible = false;
-            CarregarCbbTipoCadastro();
-            GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
-            GerenciarControl.MudarTamanhoDoForm(this, new Size(752, 490));
 
+            try
+            {
+                CarregarCategoria();
+                CarregarSabor();
+                CarregarBorda();
+                gpbEstoque.Visible = false;
+                CarregarCbbTipoCadastro();
+                GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
+                GerenciarControl.MudarTamanhoDoForm(this, new Size(752, 490));
+
+            }
+            catch (CustomException error)
+            {
+                CustomMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message);
+            }
+            catch (Exception error)
+            {
+                CustomMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message);
+            }
+         
         }
+
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
@@ -70,7 +97,9 @@ namespace Pizzaria.View.UI.ViewProduto
 
             try
             {
-
+                InsCategoriaRep();
+                InsSaborRep();
+                InsBordaRep();
                 return new Produto
                 {
                     Nome = txtNome.Text.UpperCaseOnlyFirst().Trim(),
@@ -131,6 +160,7 @@ namespace Pizzaria.View.UI.ViewProduto
                         {
                             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarComplemento()) == DialogResult.Yes)
                             {
+                                InsComplementoRep();
                                 Complemento com = _complementoRepositorio.GetUltimoResgistro();
                                 prod.Complemento = new List<Complemento>
                                 {
@@ -145,6 +175,7 @@ namespace Pizzaria.View.UI.ViewProduto
                             }
                         }
                     }
+                    InsProdutodRep();
                     if (_produtoRepositorio.Salvar(prod))
                     {
                         CustomMessage.MessageFullComButtonOkIconeDeInformacao("Produto cadastrado com sucesso!", "Aviso");
@@ -197,8 +228,9 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void CarregarBorda()
         {
-           
+
             var arrayBorda = new List<string> { EnumTipoProduto.Escolha.ToString() };
+            InsBordaRep();
             foreach (var txt in _bordaRepositorio.Listar().Select(item => new Borda { Nome = item.Nome }.Nome))
             {
                 arrayBorda.Add(txt);
@@ -209,6 +241,7 @@ namespace Pizzaria.View.UI.ViewProduto
         private void CarregarSabor()
         {
             var arraySabor = new List<string> { EnumTipoProduto.Escolha.ToString() };
+            InsSaborRep();
             foreach (var txt in _saborRepositorio.Listar().Select(item => new Sabor { Nome = item.Nome }.Nome))
             {
                 arraySabor.Add(txt);
@@ -219,6 +252,7 @@ namespace Pizzaria.View.UI.ViewProduto
         private void CarregarCategoria()
         {
             cbbCategoria.DisplayMember = "Nome";
+            InsCategoriaRep();
             cbbCategoria.DataSource = _categoriaRepositorio.Listar();
         }
 

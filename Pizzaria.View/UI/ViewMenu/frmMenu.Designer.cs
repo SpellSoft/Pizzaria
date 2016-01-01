@@ -28,71 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
+            this.menu = new System.Windows.Forms.MenuStrip();
             this.menuProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGerenciarProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPesquisarProduto = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu.AutoSize = false;
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuProduto});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menu.Size = new System.Drawing.Size(955, 53);
+            this.menu.TabIndex = 1;
+            this.menu.Text = "menuStrip1";
             // 
             // menuProduto
             // 
             this.menuProduto.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnGerenciarProduto,
             this.btnPesquisarProduto});
+            this.menuProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuProduto.Image = ((System.Drawing.Image)(resources.GetObject("menuProduto.Image")));
             this.menuProduto.Name = "menuProduto";
-            this.menuProduto.Size = new System.Drawing.Size(62, 20);
+            this.menuProduto.Size = new System.Drawing.Size(100, 47);
             this.menuProduto.Text = "Produto";
             // 
             // btnGerenciarProduto
             // 
             this.btnGerenciarProduto.Name = "btnGerenciarProduto";
-            this.btnGerenciarProduto.Size = new System.Drawing.Size(152, 22);
+            this.btnGerenciarProduto.Size = new System.Drawing.Size(153, 26);
             this.btnGerenciarProduto.Text = "Gerenciar";
             this.btnGerenciarProduto.Click += new System.EventHandler(this.btnGerenciarProduto_Click);
             // 
             // btnPesquisarProduto
             // 
             this.btnPesquisarProduto.Name = "btnPesquisarProduto";
-            this.btnPesquisarProduto.Size = new System.Drawing.Size(152, 22);
+            this.btnPesquisarProduto.Size = new System.Drawing.Size(153, 26);
             this.btnPesquisarProduto.Text = "Pesquisar";
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 682);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(955, 738);
+            this.Controls.Add(this.menu);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menu;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenu_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem menuProduto;
         private System.Windows.Forms.ToolStripMenuItem btnGerenciarProduto;
         private System.Windows.Forms.ToolStripMenuItem btnPesquisarProduto;

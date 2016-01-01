@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastrarProduto));
             this.ckbGerenciar = new System.Windows.Forms.CheckBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.gpbEstoque = new System.Windows.Forms.GroupBox();
@@ -90,6 +91,9 @@
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(12, 472);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(711, 43);
@@ -196,7 +200,7 @@
             this.gpbProduto.Size = new System.Drawing.Size(711, 337);
             this.gpbProduto.TabIndex = 1;
             this.gpbProduto.TabStop = false;
-            this.gpbProduto.Text = "Produto";
+            this.gpbProduto.Text = "Cadastrar Produto";
             // 
             // gpbPrecoVenda
             // 
@@ -446,16 +450,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(734, 523);
+            this.ClientSize = new System.Drawing.Size(734, 519);
             this.Controls.Add(this.gpbTipoCadastro);
             this.Controls.Add(this.gpbProduto);
             this.Controls.Add(this.ckbGerenciar);
             this.Controls.Add(this.gpbEstoque);
             this.Controls.Add(this.btnCadastrar);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCadastrarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastrar de Produto";
+            this.Text = "Produto";
             this.Load += new System.EventHandler(this.frmCadastrarProduto_Load);
             this.gpbEstoque.ResumeLayout(false);
             this.gpbEstoque.PerformLayout();

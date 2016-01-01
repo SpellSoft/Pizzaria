@@ -28,56 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastrarCategoria));
+            this.gpbCadastrarCategoria = new System.Windows.Forms.GroupBox();
+            this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.gpbCadastrarCategoria.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // gpbCadastrarCategoria
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Nome";
+            this.gpbCadastrarCategoria.Controls.Add(this.lblNome);
+            this.gpbCadastrarCategoria.Controls.Add(this.txtNome);
+            this.gpbCadastrarCategoria.Controls.Add(this.btnCadastrar);
+            this.gpbCadastrarCategoria.Location = new System.Drawing.Point(12, 12);
+            this.gpbCadastrarCategoria.Name = "gpbCadastrarCategoria";
+            this.gpbCadastrarCategoria.Size = new System.Drawing.Size(349, 169);
+            this.gpbCadastrarCategoria.TabIndex = 6;
+            this.gpbCadastrarCategoria.TabStop = false;
+            this.gpbCadastrarCategoria.Text = "Cadastrar Categoria";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(15, 34);
+            this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(51, 20);
+            this.lblNome.TabIndex = 8;
+            this.lblNome.Text = "Nome";
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(48, 79);
+            this.txtNome.Location = new System.Drawing.Point(18, 59);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(205, 31);
-            this.txtNome.TabIndex = 4;
+            this.txtNome.Size = new System.Drawing.Size(306, 31);
+            this.txtNome.TabIndex = 7;
+            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(19, 128);
+            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Location = new System.Drawing.Point(18, 100);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(246, 88);
-            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.Size = new System.Drawing.Size(306, 49);
+            this.btnCadastrar.TabIndex = 6;
             this.btnCadastrar.Text = "Salvar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // frmCadastrarCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.btnCadastrar);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(372, 198);
+            this.Controls.Add(this.gpbCadastrarCategoria);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCadastrarCategoria";
-            this.Text = "frmCadastrarCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Categoria";
+            this.gpbCadastrarCategoria.ResumeLayout(false);
+            this.gpbCadastrarCategoria.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gpbCadastrarCategoria;
+        private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btnCadastrar;
     }

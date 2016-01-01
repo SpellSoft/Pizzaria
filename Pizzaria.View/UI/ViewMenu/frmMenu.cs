@@ -1,6 +1,4 @@
-﻿using Pizzaria.Model.Data;
-using System;
-using System.Linq;
+﻿using System;
 using System.Windows.Forms;
 using Mike.Utilities.Desktop;
 using Pizzaria.View.UI.ViewProduto;

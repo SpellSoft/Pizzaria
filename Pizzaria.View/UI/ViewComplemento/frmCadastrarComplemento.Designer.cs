@@ -28,31 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastrarComplemento));
             this.gpbComplemento = new System.Windows.Forms.GroupBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnAddSabor = new System.Windows.Forms.Button();
+            this.cbbSabor = new System.Windows.Forms.ComboBox();
             this.lblPrecoComplemento = new System.Windows.Forms.Label();
             this.txtPrecoComplemento = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDescricaoComplemento = new System.Windows.Forms.TextBox();
             this.lblSaborComplemento = new System.Windows.Forms.Label();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnAddSabor = new System.Windows.Forms.Button();
-            this.cbbSabor = new System.Windows.Forms.ComboBox();
             this.gpbComplemento.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(156, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 25);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Complemento";
-            // 
             // gpbComplemento
             // 
+            this.gpbComplemento.Controls.Add(this.btnSalvar);
             this.gpbComplemento.Controls.Add(this.btnAddSabor);
             this.gpbComplemento.Controls.Add(this.cbbSabor);
             this.gpbComplemento.Controls.Add(this.lblPrecoComplemento);
@@ -61,62 +52,23 @@
             this.gpbComplemento.Controls.Add(this.txtDescricaoComplemento);
             this.gpbComplemento.Controls.Add(this.lblSaborComplemento);
             this.gpbComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbComplemento.Location = new System.Drawing.Point(23, 56);
+            this.gpbComplemento.Location = new System.Drawing.Point(13, 14);
+            this.gpbComplemento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gpbComplemento.Name = "gpbComplemento";
-            this.gpbComplemento.Size = new System.Drawing.Size(669, 150);
+            this.gpbComplemento.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gpbComplemento.Size = new System.Drawing.Size(458, 331);
             this.gpbComplemento.TabIndex = 27;
             this.gpbComplemento.TabStop = false;
-            this.gpbComplemento.Text = "Complemento";
-            // 
-            // lblPrecoComplemento
-            // 
-            this.lblPrecoComplemento.Location = new System.Drawing.Point(393, 29);
-            this.lblPrecoComplemento.Name = "lblPrecoComplemento";
-            this.lblPrecoComplemento.Size = new System.Drawing.Size(57, 27);
-            this.lblPrecoComplemento.TabIndex = 34;
-            this.lblPrecoComplemento.Text = "Preço";
-            this.lblPrecoComplemento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtPrecoComplemento
-            // 
-            this.txtPrecoComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecoComplemento.Location = new System.Drawing.Point(450, 26);
-            this.txtPrecoComplemento.Name = "txtPrecoComplemento";
-            this.txtPrecoComplemento.Size = new System.Drawing.Size(202, 31);
-            this.txtPrecoComplemento.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 20);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Descrição";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtDescricaoComplemento
-            // 
-            this.txtDescricaoComplemento.Location = new System.Drawing.Point(18, 82);
-            this.txtDescricaoComplemento.Multiline = true;
-            this.txtDescricaoComplemento.Name = "txtDescricaoComplemento";
-            this.txtDescricaoComplemento.Size = new System.Drawing.Size(634, 61);
-            this.txtDescricaoComplemento.TabIndex = 1;
-            // 
-            // lblSaborComplemento
-            // 
-            this.lblSaborComplemento.Location = new System.Drawing.Point(11, 28);
-            this.lblSaborComplemento.Name = "lblSaborComplemento";
-            this.lblSaborComplemento.Size = new System.Drawing.Size(57, 31);
-            this.lblSaborComplemento.TabIndex = 29;
-            this.lblSaborComplemento.Text = "Sabor";
-            this.lblSaborComplemento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.gpbComplemento.Text = "Cadastrar Complemento";
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(38, 212);
+            this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Location = new System.Drawing.Point(26, 266);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(669, 38);
+            this.btnSalvar.Size = new System.Drawing.Size(405, 50);
             this.btnSalvar.TabIndex = 28;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -124,9 +76,10 @@
             // 
             // btnAddSabor
             // 
-            this.btnAddSabor.Location = new System.Drawing.Point(351, 28);
+            this.btnAddSabor.Location = new System.Drawing.Point(374, 43);
+            this.btnAddSabor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddSabor.Name = "btnAddSabor";
-            this.btnAddSabor.Size = new System.Drawing.Size(41, 30);
+            this.btnAddSabor.Size = new System.Drawing.Size(57, 31);
             this.btnAddSabor.TabIndex = 36;
             this.btnAddSabor.Text = "+";
             this.btnAddSabor.UseVisualStyleBackColor = true;
@@ -136,31 +89,91 @@
             // 
             this.cbbSabor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSabor.FormattingEnabled = true;
-            this.cbbSabor.Location = new System.Drawing.Point(74, 30);
+            this.cbbSabor.Location = new System.Drawing.Point(93, 45);
+            this.cbbSabor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbbSabor.Name = "cbbSabor";
-            this.cbbSabor.Size = new System.Drawing.Size(271, 28);
+            this.cbbSabor.Size = new System.Drawing.Size(273, 28);
             this.cbbSabor.TabIndex = 35;
+            // 
+            // lblPrecoComplemento
+            // 
+            this.lblPrecoComplemento.Location = new System.Drawing.Point(6, 91);
+            this.lblPrecoComplemento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecoComplemento.Name = "lblPrecoComplemento";
+            this.lblPrecoComplemento.Size = new System.Drawing.Size(86, 32);
+            this.lblPrecoComplemento.TabIndex = 34;
+            this.lblPrecoComplemento.Text = "Preço";
+            this.lblPrecoComplemento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPrecoComplemento
+            // 
+            this.txtPrecoComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtPrecoComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecoComplemento.Location = new System.Drawing.Point(93, 92);
+            this.txtPrecoComplemento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPrecoComplemento.MaxLength = 5;
+            this.txtPrecoComplemento.Name = "txtPrecoComplemento";
+            this.txtPrecoComplemento.Size = new System.Drawing.Size(338, 31);
+            this.txtPrecoComplemento.TabIndex = 0;
+            this.txtPrecoComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(22, 128);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 31);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Descrição";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtDescricaoComplemento
+            // 
+            this.txtDescricaoComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtDescricaoComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricaoComplemento.Location = new System.Drawing.Point(26, 164);
+            this.txtDescricaoComplemento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDescricaoComplemento.MaxLength = 100;
+            this.txtDescricaoComplemento.Multiline = true;
+            this.txtDescricaoComplemento.Name = "txtDescricaoComplemento";
+            this.txtDescricaoComplemento.Size = new System.Drawing.Size(405, 92);
+            this.txtDescricaoComplemento.TabIndex = 1;
+            this.txtDescricaoComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblSaborComplemento
+            // 
+            this.lblSaborComplemento.Location = new System.Drawing.Point(6, 43);
+            this.lblSaborComplemento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSaborComplemento.Name = "lblSaborComplemento";
+            this.lblSaborComplemento.Size = new System.Drawing.Size(86, 33);
+            this.lblSaborComplemento.TabIndex = 29;
+            this.lblSaborComplemento.Text = "Sabor";
+            this.lblSaborComplemento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmCadastrarComplemento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 262);
-            this.Controls.Add(this.btnSalvar);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(483, 361);
             this.Controls.Add(this.gpbComplemento);
-            this.Controls.Add(this.label2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCadastrarComplemento";
-            this.Text = "frmCadastrarComplemento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Complemento";
             this.Load += new System.EventHandler(this.frmCadastrarComplemento_Load);
             this.gpbComplemento.ResumeLayout(false);
             this.gpbComplemento.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gpbComplemento;
         private System.Windows.Forms.Label lblPrecoComplemento;
         private System.Windows.Forms.TextBox txtPrecoComplemento;

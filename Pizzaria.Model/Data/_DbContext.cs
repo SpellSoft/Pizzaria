@@ -10,7 +10,7 @@ namespace Pizzaria.Model.Data
     public class _DbContext : DbContext
     {
         public _DbContext(): base(ConfigurationManager.ConnectionStrings["Pizzaria"].ConnectionString)
-        {
+        {            
             Database.SetInitializer<_DbContext>(new DataInitializer());
         }
         public DbSet<Produto> Produto { get; set; }

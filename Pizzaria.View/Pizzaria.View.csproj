@@ -81,6 +81,12 @@
     <Compile Include="UI\ViewComplemento\frmCadastrarComplemento.Designer.cs">
       <DependentUpon>frmCadastrarComplemento.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewEspera\frmAguarde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewEspera\frmAguarde.Designer.cs">
+      <DependentUpon>frmAguarde.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewMenu\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <EmbeddedResource Include="UI\ViewComplemento\frmCadastrarComplemento.resx">
       <DependentUpon>frmCadastrarComplemento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewEspera\frmAguarde.resx">
+      <DependentUpon>frmAguarde.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewMenu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,9 +151,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Pizzaria.Controller\Pizzaria.Controller.csproj">
       <Project>{8e38db4e-cdbe-485b-8438-a263e455eef4}</Project>
@@ -154,6 +161,11 @@
       <Project>{fc38fee2-f79d-43a4-85eb-8ab6ae114ec9}</Project>
       <Name>Pizzaria.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Source\Img\Espera\Running snake.gif" />
+    <Content Include="Source\Img\Global\icone.ico" />
+    <Content Include="Source\Img\Menu\product.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

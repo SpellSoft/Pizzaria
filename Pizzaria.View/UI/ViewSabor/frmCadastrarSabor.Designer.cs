@@ -28,58 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastrarSabor));
+            this.gpbCadastrarSabor = new System.Windows.Forms.GroupBox();
+            this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.gpbCadastrarSabor.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnCadastrar
+            // gpbCadastrarSabor
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(26, 95);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(246, 88);
-            this.btnCadastrar.TabIndex = 0;
-            this.btnCadastrar.Text = "Salvar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.gpbCadastrarSabor.Controls.Add(this.lblNome);
+            this.gpbCadastrarSabor.Controls.Add(this.txtNome);
+            this.gpbCadastrarSabor.Controls.Add(this.btnCadastrar);
+            this.gpbCadastrarSabor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbCadastrarSabor.Location = new System.Drawing.Point(12, 13);
+            this.gpbCadastrarSabor.Name = "gpbCadastrarSabor";
+            this.gpbCadastrarSabor.Size = new System.Drawing.Size(290, 157);
+            this.gpbCadastrarSabor.TabIndex = 3;
+            this.gpbCadastrarSabor.TabStop = false;
+            this.gpbCadastrarSabor.Text = "Cadastrar Sabor";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Location = new System.Drawing.Point(17, 33);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(51, 20);
+            this.lblNome.TabIndex = 5;
+            this.lblNome.Text = "Nome";
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(55, 46);
+            this.txtNome.Location = new System.Drawing.Point(21, 56);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(205, 31);
-            this.txtNome.TabIndex = 1;
+            this.txtNome.Size = new System.Drawing.Size(246, 31);
+            this.txtNome.TabIndex = 4;
+            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label1
+            // btnCadastrar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nome";
+            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Location = new System.Drawing.Point(21, 93);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(246, 46);
+            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.Text = "Salvar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
             // frmCadastrarSabor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 190);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.btnCadastrar);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(313, 182);
+            this.Controls.Add(this.gpbCadastrarSabor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCadastrarSabor";
-            this.Text = "frmCadastrarSabor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sabor";
             this.Load += new System.EventHandler(this.frmCadastrarSabor_Load);
+            this.gpbCadastrarSabor.ResumeLayout(false);
+            this.gpbCadastrarSabor.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.GroupBox gpbCadastrarSabor;
+        private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCadastrar;
     }
 }

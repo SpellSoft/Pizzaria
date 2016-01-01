@@ -1,4 +1,5 @@
 ﻿using Pizzaria.Model.Entity;
+using System;
 using System.Linq;
 
 namespace Pizzaria.Controller.Repository
@@ -14,5 +15,6 @@ namespace Pizzaria.Controller.Repository
             var complemento = entity.OrderByDescending(c => c.ComplementoID).FirstOrDefault();
             return complemento;
         }
+
     }
 }
