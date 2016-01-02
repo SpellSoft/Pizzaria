@@ -37,8 +37,7 @@ namespace Pizzaria.View.UI.ViewProduto
                      => _complementoRepositorio = new ComplementoRepositorio();
 
         public frmCadastrarProduto()
-        {           
-           
+        {
             InitializeComponent();
         }
         private void frmCadastrarProduto_Load(object sender, EventArgs e)
@@ -63,10 +62,15 @@ namespace Pizzaria.View.UI.ViewProduto
             {
                 CustomMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message);
             }
-         
+          
         }
 
+        private Action RunAguarde<T>()
+        {
+            throw new NotImplementedException();
+        }
 
+     
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
