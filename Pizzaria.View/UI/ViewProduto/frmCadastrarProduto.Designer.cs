@@ -41,7 +41,7 @@
             this.gpbProduto = new System.Windows.Forms.GroupBox();
             this.gpbPrecoVenda = new System.Windows.Forms.GroupBox();
             this.lblPrecoVenda = new System.Windows.Forms.Label();
-            this.txtPeco = new System.Windows.Forms.TextBox();
+            this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             this.txtPrecoCompra = new System.Windows.Forms.TextBox();
             this.lblCusto = new System.Windows.Forms.Label();
             this.gpbBorda = new System.Windows.Forms.GroupBox();
@@ -73,12 +73,15 @@
             // ckbGerenciar
             // 
             this.ckbGerenciar.BackColor = System.Drawing.Color.Transparent;
+            this.ckbGerenciar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ckbGerenciar.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.ckbGerenciar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.ckbGerenciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.ckbGerenciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
-            this.ckbGerenciar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.ckbGerenciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ckbGerenciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbGerenciar.Image = ((System.Drawing.Image)(resources.GetObject("ckbGerenciar.Image")));
+            this.ckbGerenciar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ckbGerenciar.Location = new System.Drawing.Point(380, 0);
             this.ckbGerenciar.Name = "ckbGerenciar";
             this.ckbGerenciar.Size = new System.Drawing.Size(343, 70);
@@ -94,11 +97,14 @@
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.Location = new System.Drawing.Point(12, 472);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(711, 43);
             this.btnCadastrar.TabIndex = 9;
             this.btnCadastrar.Text = "Salvar";
+            this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
@@ -205,7 +211,7 @@
             // gpbPrecoVenda
             // 
             this.gpbPrecoVenda.Controls.Add(this.lblPrecoVenda);
-            this.gpbPrecoVenda.Controls.Add(this.txtPeco);
+            this.gpbPrecoVenda.Controls.Add(this.txtPrecoVenda);
             this.gpbPrecoVenda.Controls.Add(this.txtPrecoCompra);
             this.gpbPrecoVenda.Controls.Add(this.lblCusto);
             this.gpbPrecoVenda.Location = new System.Drawing.Point(18, 96);
@@ -224,18 +230,18 @@
             this.lblPrecoVenda.Text = "Venda";
             this.lblPrecoVenda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtPeco
+            // txtPrecoVenda
             // 
-            this.txtPeco.BackColor = System.Drawing.Color.Yellow;
-            this.txtPeco.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtPeco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeco.Location = new System.Drawing.Point(108, 67);
-            this.txtPeco.MaxLength = 5;
-            this.txtPeco.Name = "txtPeco";
-            this.txtPeco.Size = new System.Drawing.Size(219, 29);
-            this.txtPeco.TabIndex = 4;
-            this.txtPeco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPeco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeco_KeyPress);
+            this.txtPrecoVenda.BackColor = System.Drawing.Color.Yellow;
+            this.txtPrecoVenda.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecoVenda.Location = new System.Drawing.Point(108, 67);
+            this.txtPrecoVenda.MaxLength = 5;
+            this.txtPrecoVenda.Name = "txtPrecoVenda";
+            this.txtPrecoVenda.Size = new System.Drawing.Size(219, 29);
+            this.txtPrecoVenda.TabIndex = 4;
+            this.txtPrecoVenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecoVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeco_KeyPress);
             // 
             // txtPrecoCompra
             // 
@@ -272,12 +278,14 @@
             // 
             // btnAddBorda
             // 
+            this.btnAddBorda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddBorda.BackgroundImage")));
+            this.btnAddBorda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddBorda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddBorda.Location = new System.Drawing.Point(282, 22);
             this.btnAddBorda.Name = "btnAddBorda";
             this.btnAddBorda.Size = new System.Drawing.Size(41, 30);
             this.btnAddBorda.TabIndex = 23;
             this.btnAddBorda.TabStop = false;
-            this.btnAddBorda.Text = "+";
             this.btnAddBorda.UseVisualStyleBackColor = true;
             this.btnAddBorda.Click += new System.EventHandler(this.btnAddBorda_Click);
             // 
@@ -304,12 +312,14 @@
             // 
             // btnAddSabor
             // 
+            this.btnAddSabor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddSabor.BackgroundImage")));
+            this.btnAddSabor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddSabor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSabor.Location = new System.Drawing.Point(283, 23);
             this.btnAddSabor.Name = "btnAddSabor";
             this.btnAddSabor.Size = new System.Drawing.Size(41, 30);
             this.btnAddSabor.TabIndex = 23;
             this.btnAddSabor.TabStop = false;
-            this.btnAddSabor.Text = "+";
             this.btnAddSabor.UseVisualStyleBackColor = true;
             this.btnAddSabor.Click += new System.EventHandler(this.btnAddSabor_Click);
             // 
@@ -336,12 +346,14 @@
             // 
             // btnAddCategoria
             // 
-            this.btnAddCategoria.Location = new System.Drawing.Point(282, 24);
+            this.btnAddCategoria.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddCategoria.BackgroundImage")));
+            this.btnAddCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCategoria.Location = new System.Drawing.Point(282, 25);
             this.btnAddCategoria.Name = "btnAddCategoria";
-            this.btnAddCategoria.Size = new System.Drawing.Size(41, 30);
+            this.btnAddCategoria.Size = new System.Drawing.Size(41, 29);
             this.btnAddCategoria.TabIndex = 24;
             this.btnAddCategoria.TabStop = false;
-            this.btnAddCategoria.Text = "+";
             this.btnAddCategoria.UseVisualStyleBackColor = true;
             this.btnAddCategoria.Click += new System.EventHandler(this.btnAddCategoria_Click);
             // 
@@ -366,7 +378,7 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.BackColor = System.Drawing.Color.Yellow;
+            this.txtDescricao.BackColor = System.Drawing.Color.White;
             this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(18, 231);
@@ -506,7 +518,7 @@
         private System.Windows.Forms.ComboBox cbbCategoria;
         private System.Windows.Forms.GroupBox gpbPrecoVenda;
         private System.Windows.Forms.Label lblPrecoVenda;
-        private System.Windows.Forms.TextBox txtPeco;
+        private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.GroupBox gpbBorda;
         private System.Windows.Forms.Button btnAddBorda;
         private System.Windows.Forms.ComboBox cbbBorda;

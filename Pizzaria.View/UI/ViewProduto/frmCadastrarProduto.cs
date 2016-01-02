@@ -65,11 +65,6 @@ namespace Pizzaria.View.UI.ViewProduto
           
         }
 
-        private Action RunAguarde<T>()
-        {
-            throw new NotImplementedException();
-        }
-
      
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -106,10 +101,10 @@ namespace Pizzaria.View.UI.ViewProduto
                 InsBordaRep();
                 return new Produto
                 {
-                    Nome = txtNome.Text.UpperCaseOnlyFirst().Trim(),
+                    Nome = txtNome.Text.Trim().Length > 0 ? txtNome.Text.UpperCaseOnlyFirst().Trim() : "",
                     Codigo = txtCodigo.Text.Trim(),
                     CategoriaID = _categoriaRepositorio.GetIDCategoriaPorNome(cbbCategoria.Text),
-                    Descricao = txtDescricao.Text.UpperCaseOnlyFirst().Trim(),
+                    Descricao = txtDescricao.Text.Trim().Length > 0 ? txtDescricao.Text.UpperCaseOnlyFirst().Trim() : null ,
                     Estoque = ckbGerenciar.Checked ? new Estoque
                     {
                         Gerenciar = ckbGerenciar.Checked,
@@ -117,8 +112,8 @@ namespace Pizzaria.View.UI.ViewProduto
                         QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text.Trim() == "" ? "0" : txtQtdMin.Text),
                         QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text.Trim() == "" ? "0" : txtQtdMax.Text)
                     } : null,
-                    PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text.Trim() == "" ? "0" : txtPrecoCompra.Text),
-                    PrecoVenda = Convert.ToDouble(txtPeco.Text.Trim() == "" ? "0" : txtPeco.Text),
+                    PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text.Trim() == "" ? null : txtPrecoCompra.Text),
+                    PrecoVenda = Convert.ToDouble(txtPrecoVenda.Text.Trim() == "" ? "0" : txtPrecoVenda.Text),
                     SaborID = GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) == true
                                   || GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pastel) ?
                                   _saborRepositorio?.GetIDCategoriaPorNome(cbbSabor.Text) :
@@ -210,7 +205,7 @@ namespace Pizzaria.View.UI.ViewProduto
                    txtNome,
                    txtCodigo,
                    txtPrecoCompra,
-                   txtPeco,
+                   txtPrecoVenda,
                    txtDescricao,
                    txtQtd,
                    txtQtdMin,

@@ -1,5 +1,4 @@
 ﻿using Mike.Utilities.Desktop;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,31 +11,30 @@ namespace Pizzaria.Model.Entity
     {
 
         [Key]
-        [Range(type: typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
-        [DisplayName(displayName: "Produto ID")]
+        [Range(type: typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "ID do Produto excedido, contate o administrador")]
+        [DisplayName(displayName: "ID do Produto")]
         public int ProdutoID { get; set; }
-        [Required(ErrorMessage = "{0} é obrigatório.")]
-        [StringLength(maximumLength: 50, ErrorMessage = "{0} deve conter pelo menos 50 letras.")]
-        [DisplayName(displayName: "Produto Nome")]
+        [Required(ErrorMessage = "Nome do Produto é obrigatório.")]
+        [StringLength(maximumLength: 50, ErrorMessage = "Nome do Produto deve conter pelo menos 50 letras.")]
+        [DisplayName(displayName: "Nome do Produto")]
         public string Nome { get; set; }
-        [Required(ErrorMessage = "{0} é obrigatório.")]
-        [StringLength(maximumLength: 13, ErrorMessage = "{0} deve conter pelo menos 13 letras.")]
-        [DisplayName(displayName: "Produto Código")]
+        [Required(ErrorMessage = "Código do Produto é obrigatório.")]
+        [StringLength(maximumLength: 13, ErrorMessage = "Código do Produto deve conter pelo menos 13 letras.")]
+        [DisplayName(displayName: "Código do Produto")]
         public string Codigo { get; set; }
 
         private double? precoCompra;
-        [Range(type: typeof(double), minimum: "0", maximum: "1000", ErrorMessage = "{0} incorreto.")]
-        [DisplayName("Preço de Compra/Custo")]
-        [DataType(DataType.Currency, ErrorMessage = "{0} invalido.")]
+        [Range(type: typeof(double), minimum: "0", maximum: "1000", ErrorMessage = "Preço de Compra incorreto.")]
+        [DataType(DataType.Currency, ErrorMessage = "Preço de Compra inválido.")]
         public double? PrecoCompra
         {
             get { return precoCompra; }
             set { precoCompra = value; }
         }
         private double precoVenda;
-        [DisplayName("Preço de Venda")]
-        [DataType(DataType.Currency, ErrorMessage = "{0} invalido.")]
-        [Range(typeof(double), minimum: "0", maximum: "1000", ErrorMessage = "{0} incorreto.")]
+        [Required(ErrorMessage = "Preço de Venda é obrigatório.")]
+        [DataType(DataType.Currency, ErrorMessage = "Preço de Venda inválido.")]
+        [Range(typeof(double), minimum: "001", maximum: "1000", ErrorMessage = "Preço de Venda deve ser maior que 0.0 R$ e menor que 1.000 R$.")]
         public double PrecoVenda
         {
             get { return precoVenda; }
@@ -53,14 +51,13 @@ namespace Pizzaria.Model.Entity
 
             }
         }
-        [Range(type: typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "{0} excedido, contate o administrador")]
-        [DisplayName(displayName: "Categoria ID")]
-        [Required(ErrorMessage = "{0} é obrigatório.")]
+        [Range(type: typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "Categoria excedido, contate o administrador")]      
+        [Required(ErrorMessage = "Categoria é obrigatório.")]
         public int CategoriaID { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual Estoque Estoque { get; set; }
-        [StringLength(maximumLength: 100, ErrorMessage = "{0} deve conter pelo menos 100 letras.")]
-        [DisplayName(displayName: "Produto Descrição")]
+        [StringLength(maximumLength: 100, ErrorMessage = "Descrição do Produto deve conter pelo menos 100 letras.")]
+     
         public string Descricao { get; set; }
         public virtual List<Complemento> Complemento { get; set; }
         [ForeignKey(nameof(Sabor))]
@@ -69,7 +66,7 @@ namespace Pizzaria.Model.Entity
         public int? BordaID { get; set; }
         public virtual Borda Borda { get; set; }
         public virtual Sabor Sabor { get; set; }
-                                          
+
 
 
     }

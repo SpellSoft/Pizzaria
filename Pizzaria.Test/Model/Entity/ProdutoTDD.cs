@@ -22,13 +22,35 @@ namespace Pizzaria.Test
             if (!Validator.TryValidateObject(prod, new ValidationContext(prod), erros, true))
             {
 
-               //erro
-               
+                //erro
+
             }
             else
             {
                 //valido
             }
+        }
+        [TestMethod]
+        public void Produto_teste_AtribuicaoSemDescricao()
+        {
+            var prod = new Produto();
+            prod.CategoriaID = 1;
+            prod.Codigo = "1234567891234";
+            prod.Nome = "Kaiser";
+            prod.PrecoCompra = 1;
+            prod.PrecoVenda = 9;
+            IList<ValidationResult> erros = new List<ValidationResult>();
+            if (!Validator.TryValidateObject(prod, new ValidationContext(prod), erros, true))
+            {
+
+                //erro
+
+            }
+            else
+            {
+                //valido
+            }
+
         }
     }
 }
