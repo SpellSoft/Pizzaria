@@ -44,23 +44,25 @@
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menu.Size = new System.Drawing.Size(955, 53);
+            this.menu.Size = new System.Drawing.Size(1113, 53);
             this.menu.TabIndex = 1;
             this.menu.Text = "menuStrip1";
             // 
             // menuProduto
             // 
+            this.menuProduto.AutoSize = false;
             this.menuProduto.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnGerenciarProduto,
             this.btnPesquisarProduto});
             this.menuProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuProduto.Image = ((System.Drawing.Image)(resources.GetObject("menuProduto.Image")));
             this.menuProduto.Name = "menuProduto";
-            this.menuProduto.Size = new System.Drawing.Size(100, 47);
+            this.menuProduto.Size = new System.Drawing.Size(94, 47);
             this.menuProduto.Text = "Produto";
             // 
             // btnGerenciarProduto
             // 
+            this.btnGerenciarProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnGerenciarProduto.Image")));
             this.btnGerenciarProduto.Name = "btnGerenciarProduto";
             this.btnGerenciarProduto.Size = new System.Drawing.Size(153, 26);
             this.btnGerenciarProduto.Text = "Gerenciar";
@@ -68,6 +70,7 @@
             // 
             // btnPesquisarProduto
             // 
+            this.btnPesquisarProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisarProduto.Image")));
             this.btnPesquisarProduto.Name = "btnPesquisarProduto";
             this.btnPesquisarProduto.Size = new System.Drawing.Size(153, 26);
             this.btnPesquisarProduto.Text = "Pesquisar";
@@ -77,7 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(955, 738);
+            this.ClientSize = new System.Drawing.Size(1113, 517);
             this.Controls.Add(this.menu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

@@ -165,7 +165,9 @@
   <ItemGroup>
     <Content Include="Source\Img\Espera\Running snake.gif" />
     <Content Include="Source\Img\Global\icone.ico" />
+    <Content Include="Source\Img\Menu\find.ico" />
     <Content Include="Source\Img\Menu\product.png" />
+    <Content Include="Source\Img\Menu\yahoo_widget_engine.ico" />
     <Content Include="Source\Img\Produto\add1.png" />
     <Content Include="Source\Img\Produto\estoque2.ico" />
     <Content Include="Source\Img\Produto\save.ico" />

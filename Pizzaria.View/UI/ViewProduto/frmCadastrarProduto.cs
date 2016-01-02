@@ -13,7 +13,6 @@ using System.Drawing;
 using System.Linq;
 using Pizzaria.View.Enumerador;
 using Pizzaria.View.Utilities;
-using Pizzaria.View.UI.ViewEspera;
 
 namespace Pizzaria.View.UI.ViewProduto
 {
@@ -260,7 +259,14 @@ namespace Pizzaria.View.UI.ViewProduto
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarSabor()) == DialogResult.Yes)
             {
                 CarregarSabor();
+                GetUltimoSabor();
             }
+        }
+
+        private void GetUltimoSabor()
+        {
+            InsSaborRep();
+            cbbSabor.Text = _saborRepositorio.GetUltimoRegistro();
         }
 
         private void btnAddCategoria_Click(object sender, EventArgs e)
@@ -269,7 +275,14 @@ namespace Pizzaria.View.UI.ViewProduto
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCategoria()) == DialogResult.Yes)
             {
                 CarregarCategoria();
+                GetUltimaCategoria();
             }
+        }
+
+        private void GetUltimaCategoria()
+        {
+            InsCategoriaRep();
+            cbbCategoria.Text = _categoriaRepositorio.GetUltimoRegistro();
         }
 
         private void ckbGerenciar_CheckedChanged(object sender, EventArgs e)

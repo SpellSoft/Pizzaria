@@ -21,7 +21,8 @@ namespace Pizzaria.Controller.Repository
         {
             var result = entity.FirstOrDefault(c => c.Nome == nome);
             return result?.SaborID;
-
         }
+        public string GetUltimoRegistro()
+                      => entity.OrderByDescending(c => c.SaborID).FirstOrDefault()?.Nome;
     }
 }
