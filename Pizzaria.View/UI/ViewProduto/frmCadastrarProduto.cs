@@ -112,8 +112,8 @@ namespace Pizzaria.View.UI.ViewProduto
                         QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text.Trim() == "" ? "0" : txtQtdMin.Text),
                         QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text.Trim() == "" ? "0" : txtQtdMax.Text)
                     } : null,
-                    PrecoCompra = Convert.ToDouble(txtPrecoCompra.Text.Trim() == "" ? null : txtPrecoCompra.Text),
-                    PrecoVenda = Convert.ToDouble(txtPrecoVenda.Text.Trim() == "" ? "0" : txtPrecoVenda.Text),
+                    PrecoCompra = Convert.ToDecimal(txtPrecoCompra.Text.Trim() == "" ? null : txtPrecoCompra.Text),
+                    PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text.Trim() == "" ? "0" : txtPrecoVenda.Text),
                     SaborID = GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) == true
                                   || GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pastel) ?
                                   _saborRepositorio?.GetIDCategoriaPorNome(cbbSabor.Text) :

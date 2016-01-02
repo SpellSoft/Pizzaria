@@ -23,19 +23,19 @@ namespace Pizzaria.Model.Entity
         [DisplayName(displayName: "Código do Produto")]
         public string Codigo { get; set; }
 
-        private double? precoCompra;
-        [Range(type: typeof(double), minimum: "0", maximum: "1000", ErrorMessage = "Preço de Compra incorreto.")]
+        private decimal? precoCompra;
+        [Range(type: typeof(decimal), minimum: "0", maximum: "1000", ErrorMessage = "Preço de Compra incorreto.")]
         [DataType(DataType.Currency, ErrorMessage = "Preço de Compra inválido.")]
-        public double? PrecoCompra
+        public decimal? PrecoCompra
         {
             get { return precoCompra; }
             set { precoCompra = value; }
         }
-        private double precoVenda;
+        private decimal precoVenda;
         [Required(ErrorMessage = "Preço de Venda é obrigatório.")]
         [DataType(DataType.Currency, ErrorMessage = "Preço de Venda inválido.")]
-        [Range(typeof(double), minimum: "001", maximum: "1000", ErrorMessage = "Preço de Venda deve ser maior que 0.0 R$ e menor que 1.000 R$.")]
-        public double PrecoVenda
+        [Range(typeof(decimal), minimum: "0,01", maximum: "1000", ErrorMessage = "Preço de Venda deve ser maior que 0.0 R$ e menor que 1.000 R$.")]
+        public decimal PrecoVenda
         {
             get { return precoVenda; }
             set
