@@ -70,6 +70,7 @@
             this.txtNome.Size = new System.Drawing.Size(306, 31);
             this.txtNome.TabIndex = 7;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // btnCadastrar
             // 

@@ -84,18 +84,21 @@
             // 
             // txtNome
             // 
+            this.txtNome.BackColor = System.Drawing.Color.Yellow;
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(93, 40);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNome.MaxLength = 50;
+            this.txtNome.MaxLength = 30;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(301, 31);
             this.txtNome.TabIndex = 0;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // txtPrecoComplemento
             // 
+            this.txtPrecoComplemento.BackColor = System.Drawing.Color.Yellow;
             this.txtPrecoComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtPrecoComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecoComplemento.Location = new System.Drawing.Point(93, 85);
@@ -105,6 +108,7 @@
             this.txtPrecoComplemento.Size = new System.Drawing.Size(301, 31);
             this.txtPrecoComplemento.TabIndex = 0;
             this.txtPrecoComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecoComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoComplemento_KeyPress);
             // 
             // lblDescricao
             // 
@@ -123,12 +127,13 @@
             this.txtDescricaoComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricaoComplemento.Location = new System.Drawing.Point(26, 156);
             this.txtDescricaoComplemento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtDescricaoComplemento.MaxLength = 100;
+            this.txtDescricaoComplemento.MaxLength = 50;
             this.txtDescricaoComplemento.Multiline = true;
             this.txtDescricaoComplemento.Name = "txtDescricaoComplemento";
             this.txtDescricaoComplemento.Size = new System.Drawing.Size(368, 115);
             this.txtDescricaoComplemento.TabIndex = 1;
             this.txtDescricaoComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescricaoComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricaoComplemento_KeyPress);
             // 
             // lblSaborComplemento
             // 

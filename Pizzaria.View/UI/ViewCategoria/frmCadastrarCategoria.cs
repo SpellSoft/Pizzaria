@@ -43,5 +43,11 @@ namespace Pizzaria.View.UI.ViewCategoria
         {
             FocarNoTxt(txtNome);
         }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+            ValidatorField.Letter(e);
+        }
     }
 }

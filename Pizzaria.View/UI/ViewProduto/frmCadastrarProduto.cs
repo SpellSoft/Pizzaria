@@ -319,6 +319,8 @@ namespace Pizzaria.View.UI.ViewProduto
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarBorda()) == DialogResult.Yes)
             {
                 CarregarBorda();
+                InsBordaRep();
+                cbbBorda.Text = _bordaRepositorio.GetUltimoRegistro(); 
             }
         }
 

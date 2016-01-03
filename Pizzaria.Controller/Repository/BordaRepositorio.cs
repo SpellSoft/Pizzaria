@@ -1,9 +1,6 @@
 ﻿using Pizzaria.Model.Entity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizzaria.Controller.Repository
 {
@@ -22,5 +19,7 @@ namespace Pizzaria.Controller.Repository
           var result =  entity.FirstOrDefault(c => c.Nome == nome);
             return result == null ? 0 : result.BordaID;
         }
+        public string GetUltimoRegistro()
+                      => entity.OrderByDescending(c => c.BordaID).FirstOrDefault()?.Nome;
     }
 }

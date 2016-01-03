@@ -20,7 +20,7 @@ namespace Pizzaria.Model.Entity
         [DisplayName(displayName: "Complemento Descrição")]       
         public string Descricao { get; set; }
         [DisplayName("Preço")]
-        [DataType(DataType.Currency, ErrorMessage = "{0} invalido.")]
+        [DataType(DataType.Currency, ErrorMessage = "{0} inváido.")]
         [Range(typeof(double), minimum: "0", maximum: "1000", ErrorMessage = "{0} incorreto.")]
         public double Preco { get; set; }
         public virtual Produto Produto { get; set; }
