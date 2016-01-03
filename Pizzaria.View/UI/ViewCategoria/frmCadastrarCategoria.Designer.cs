@@ -60,11 +60,12 @@
             // 
             // txtNome
             // 
+            this.txtNome.BackColor = System.Drawing.Color.Yellow;
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(18, 59);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNome.MaxLength = 50;
+            this.txtNome.MaxLength = 30;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(306, 31);
             this.txtNome.TabIndex = 7;
@@ -81,6 +82,7 @@
             this.btnCadastrar.TabIndex = 6;
             this.btnCadastrar.Text = "Salvar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // frmCadastrarCategoria
             // 
@@ -98,6 +100,7 @@
             this.Name = "frmCadastrarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categoria";
+            this.Load += new System.EventHandler(this.frmCadastrarCategoria_Load);
             this.gpbCadastrarCategoria.ResumeLayout(false);
             this.gpbCadastrarCategoria.PerformLayout();
             this.ResumeLayout(false);
