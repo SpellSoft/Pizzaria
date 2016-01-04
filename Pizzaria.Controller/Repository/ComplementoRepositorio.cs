@@ -1,5 +1,4 @@
 ﻿using Pizzaria.Model.Entity;
-using System;
 using System.Linq;
 
 namespace Pizzaria.Controller.Repository
@@ -12,8 +11,7 @@ namespace Pizzaria.Controller.Repository
         }
         public Complemento GetUltimoResgistro()
         {
-            var complemento = entity.OrderByDescending(c => c.ComplementoID).FirstOrDefault();
-            return complemento;
+            return entity.OrderByDescending(c => c.ComplementoID).FirstOrDefault();
         }
 
     }

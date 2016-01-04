@@ -107,6 +107,7 @@
             // 
             // txtPrecoComplemento
             // 
+            this.txtPrecoComplemento.BackColor = System.Drawing.Color.Yellow;
             this.txtPrecoComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtPrecoComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecoComplemento.Location = new System.Drawing.Point(93, 92);
@@ -116,6 +117,7 @@
             this.txtPrecoComplemento.Size = new System.Drawing.Size(338, 31);
             this.txtPrecoComplemento.TabIndex = 0;
             this.txtPrecoComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecoComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoComplemento_KeyPress);
             // 
             // label6
             // 
@@ -139,6 +141,7 @@
             this.txtDescricaoComplemento.Size = new System.Drawing.Size(405, 92);
             this.txtDescricaoComplemento.TabIndex = 1;
             this.txtDescricaoComplemento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescricaoComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricaoComplemento_KeyPress);
             // 
             // lblSaborComplemento
             // 
