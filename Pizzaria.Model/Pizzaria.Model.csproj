@@ -80,6 +80,7 @@
       <DependentUpon>201512271440383_borda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelView\ProdutoPesquisaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\ValidarCampos.cs" />
   </ItemGroup>

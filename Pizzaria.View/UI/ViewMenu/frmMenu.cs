@@ -49,5 +49,13 @@ namespace Pizzaria.View.UI.ViewMenu
         {
             aguarde.ShowDialog();
         }
+
+        private void btnPesquisarProduto_Click(object sender, EventArgs e)
+        {
+            InsControlsForTask();
+            espere.Start(RunMessage);
+            OpenMdiForm.LoadNewKeepAnother(this, new frmPesquisarProduto());
+            CancelarTask();
+        }
     }
 }

@@ -99,6 +99,12 @@
     <Compile Include="UI\ViewProduto\frmCadastrarProduto.Designer.cs">
       <DependentUpon>frmCadastrarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewProduto\frmPesquisarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewProduto\frmPesquisarProduto.Designer.cs">
+      <DependentUpon>frmPesquisarProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewSabor\frmCadastrarSabor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewProduto\frmCadastrarProduto.resx">
       <DependentUpon>frmCadastrarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewProduto\frmPesquisarProduto.resx">
+      <DependentUpon>frmPesquisarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewSabor\frmCadastrarSabor.resx">
       <DependentUpon>frmCadastrarSabor.cs</DependentUpon>

@@ -1,9 +1,7 @@
 ﻿using Pizzaria.Model.Entity;
-using System;
+using Pizzaria.Model.ModelView;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pizzaria.Controller.Repository
 {
@@ -20,6 +18,22 @@ namespace Pizzaria.Controller.Repository
         public override bool Editar(Produto entities)
         {
             return base.Editar(entities);
+        }
+        public override List<Produto> Listar()
+        {
+            return base.Listar();
+        }
+        public List<ProdutoPesquisaViewModel> ListarPesquisa()
+        {
+            return (from prod in Listar()
+                    select new ProdutoPesquisaViewModel
+                    {
+                        ProdutoID = prod.ProdutoID,
+                        Nome = prod.Nome,
+                        Categoria = prod.Categoria.Nome,
+                        Código = prod.Codigo,
+                        PrecoVenda = prod.PrecoVenda
+                    }).ToList();
         }
     }
 }
