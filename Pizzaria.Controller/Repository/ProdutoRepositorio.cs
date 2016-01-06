@@ -2,6 +2,7 @@
 using Pizzaria.Model.ModelView;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Pizzaria.Controller.Repository
 {
@@ -23,7 +24,7 @@ namespace Pizzaria.Controller.Repository
         {
             return base.Listar();
         }
-        public List<ProdutoPesquisaViewModel> ListarPesquisa()
+        public List<ProdutoPesquisaViewModel> ListarPesquisa(string nome = "")
         {
             return (from prod in Listar()
                     select new ProdutoPesquisaViewModel
@@ -33,7 +34,36 @@ namespace Pizzaria.Controller.Repository
                         Categoria = prod.Categoria.Nome,
                         Código = prod.Codigo,
                         PrecoVenda = prod.PrecoVenda
-                    }).ToList();
+                    }).Where(c=>c.Nome.ToLower().Contains(nome)).ToList();
+           
+        }
+
+        public object ListarPorCodigo(string code = "")
+        {
+
+            return (from prod in Listar()
+                    select new ProdutoPesquisaViewModel
+                    {
+                        ProdutoID = prod.ProdutoID,
+                        Nome = prod.Nome,
+                        Categoria = prod.Categoria.Nome,
+                        Código = prod.Codigo,
+                        PrecoVenda = prod.PrecoVenda
+                    }).Where(c => c.Código.ToLower().Contains(code)).ToList();
+        }
+
+        public object ListarPorCategoria(string category)
+        {
+
+            return (from prod in Listar()
+                    select new ProdutoPesquisaViewModel
+                    {
+                        ProdutoID = prod.ProdutoID,
+                        Nome = prod.Nome,
+                        Categoria = prod.Categoria.Nome,
+                        Código = prod.Codigo,
+                        PrecoVenda = prod.PrecoVenda
+                    }).Where(c => c.Categoria.ToLower().Contains(category)).ToList();
         }
     }
 }

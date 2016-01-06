@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisarProduto));
             this.gpbPesquisarProduto = new System.Windows.Forms.GroupBox();
-            this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.ckbCategoria = new System.Windows.Forms.CheckBox();
             this.ckbNome = new System.Windows.Forms.CheckBox();
+            this.ckbCategoria = new System.Windows.Forms.CheckBox();
             this.ckbCódigo = new System.Windows.Forms.CheckBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.gpbPesquisarProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.SuspendLayout();
@@ -54,23 +54,19 @@
             this.gpbPesquisarProduto.TabStop = false;
             this.gpbPesquisarProduto.Text = "Pesquisar Produto";
             // 
-            // dgvProduto
+            // ckbNome
             // 
-            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduto.Location = new System.Drawing.Point(0, 135);
-            this.dgvProduto.Name = "dgvProduto";
-            this.dgvProduto.Size = new System.Drawing.Size(590, 198);
-            this.dgvProduto.TabIndex = 0;
-            this.dgvProduto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProduto_CellFormatting);
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisa.Location = new System.Drawing.Point(7, 98);
-            this.txtPesquisa.MaxLength = 20;
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(577, 29);
-            this.txtPesquisa.TabIndex = 1;
+            this.ckbNome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.ckbNome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ckbNome.Image = ((System.Drawing.Image)(resources.GetObject("ckbNome.Image")));
+            this.ckbNome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ckbNome.Location = new System.Drawing.Point(7, 25);
+            this.ckbNome.Name = "ckbNome";
+            this.ckbNome.Size = new System.Drawing.Size(180, 67);
+            this.ckbNome.TabIndex = 3;
+            this.ckbNome.Text = "Nome";
+            this.ckbNome.UseVisualStyleBackColor = true;
+            this.ckbNome.CheckedChanged += new System.EventHandler(this.ckbNome_CheckedChanged);
             // 
             // ckbCategoria
             // 
@@ -86,20 +82,6 @@
             this.ckbCategoria.UseVisualStyleBackColor = true;
             this.ckbCategoria.CheckedChanged += new System.EventHandler(this.ckbCategoria_CheckedChanged);
             // 
-            // ckbNome
-            // 
-            this.ckbNome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
-            this.ckbNome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ckbNome.Image = ((System.Drawing.Image)(resources.GetObject("ckbNome.Image")));
-            this.ckbNome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ckbNome.Location = new System.Drawing.Point(7, 25);
-            this.ckbNome.Name = "ckbNome";
-            this.ckbNome.Size = new System.Drawing.Size(180, 67);
-            this.ckbNome.TabIndex = 3;
-            this.ckbNome.Text = "Nome";
-            this.ckbNome.UseVisualStyleBackColor = true;
-            this.ckbNome.CheckedChanged += new System.EventHandler(this.ckbNome_CheckedChanged);
-            // 
             // ckbCódigo
             // 
             this.ckbCódigo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
@@ -113,6 +95,28 @@
             this.ckbCódigo.Text = "Código";
             this.ckbCódigo.UseVisualStyleBackColor = true;
             this.ckbCódigo.CheckedChanged += new System.EventHandler(this.ckbCódigo_CheckedChanged);
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisa.Location = new System.Drawing.Point(7, 98);
+            this.txtPesquisa.MaxLength = 20;
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(577, 29);
+            this.txtPesquisa.TabIndex = 1;
+            this.txtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
+            this.txtPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisa_KeyPress);
+            // 
+            // dgvProduto
+            // 
+            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto.Location = new System.Drawing.Point(0, 135);
+            this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.Size = new System.Drawing.Size(590, 198);
+            this.dgvProduto.TabIndex = 0;
+            this.dgvProduto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProduto_CellFormatting);
             // 
             // frmPesquisarProduto
             // 

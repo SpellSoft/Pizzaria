@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using Pizzaria.View.Utilities;
+
 namespace Pizzaria.View.UI.ViewProduto
 {
     public partial class frmPesquisarProduto : Form
@@ -47,7 +49,7 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void CarregarDataGridView()
         {
-            dgvProduto.DataSource = _produtoRepositorio.ListarPesquisa();
+            AddInDataGridView(_produtoRepositorio.ListarPesquisa());
             PadronizarDataGridView();
             AjustarTamanhoDoDataGridView();
         }
@@ -65,16 +67,22 @@ namespace Pizzaria.View.UI.ViewProduto
         private void ckbNome_CheckedChanged(object sender, EventArgs e)
         {
             ChecarCkb(sender);
+            LimparTxt();
+            FocarNoTxt();
         }
-           
+
         private void ckbCódigo_CheckedChanged(object sender, EventArgs e)
         {
             ChecarCkb(sender);
+            LimparTxt();
+            FocarNoTxt();
         }
 
         private void ckbCategoria_CheckedChanged(object sender, EventArgs e)
         {
             ChecarCkb(sender);
+            LimparTxt();
+            FocarNoTxt();
         }
 
         private void ChecarCkb(object sender)
@@ -87,5 +95,51 @@ namespace Pizzaria.View.UI.ViewProduto
                 }
             }
         }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            CheckBox ckb = GetCheckBoxSelecionado();
+            switch (ckb?.Name)
+            {
+                case nameof(ckbNome):
+                    InsProdutoRep();
+                    AddInDataGridView(_produtoRepositorio.ListarPesquisa(GetValueInTxt()));
+                    break;
+                case nameof(ckbCódigo):
+                    InsProdutoRep();
+                    AddInDataGridView(_produtoRepositorio.ListarPorCodigo(GetValueInTxt()));
+                    break;
+                case nameof(ckbCategoria):
+                    InsProdutoRep();
+                    AddInDataGridView(_produtoRepositorio.ListarPorCategoria(GetValueInTxt()));
+                    break;
+                default:
+                    CustomMessage.MessageFullComButtonOkIconeDeInformacao("Selecione um tipo de pesquisa");
+                    txtPesquisa.LimparTxtNoEventoChanged(txtPesquisa_TextChanged);
+                    break;
+            }
+        }
+
+        private string GetValueInTxt()
+                       => txtPesquisa.Text;
+        private CheckBox GetCheckBoxSelecionado()
+        {
+            return GetAllCheckBox().FirstOrDefault(c => c.Checked == true);
+        }
+
+        private void FocarNoTxt()
+                     => this.FocoNoTxt(txtPesquisa);
+        private void LimparTxt()
+                     => txtPesquisa.Text = string.Empty;
+        private void AddInDataGridView(object dataSource)
+                       => dgvProduto.DataSource = dataSource;
+
+        private void txtPesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.IntegerAndLetter(e);
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+        }
     }
+
+
 }
