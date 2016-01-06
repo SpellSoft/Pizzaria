@@ -177,8 +177,11 @@
     <Content Include="Source\Img\Menu\find.ico" />
     <Content Include="Source\Img\Menu\product.png" />
     <Content Include="Source\Img\Menu\yahoo_widget_engine.ico" />
+    <Content Include="Source\Img\Produto\category.png" />
+    <Content Include="Source\Img\Produto\codebar.png" />
     <Content Include="Source\Img\Produto\add1.png" />
     <Content Include="Source\Img\Produto\estoque2.ico" />
+    <Content Include="Source\Img\Produto\pencil.png" />
     <Content Include="Source\Img\Produto\save.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
