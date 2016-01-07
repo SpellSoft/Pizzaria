@@ -38,11 +38,13 @@
             // 
             // menu
             // 
+            this.menu.AutoSize = false;
+            this.menu.BackColor = System.Drawing.Color.Yellow;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuProduto});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(742, 51);
+            this.menu.Size = new System.Drawing.Size(742, 50);
             this.menu.TabIndex = 1;
             this.menu.Text = "menuStrip1";
             // 
@@ -96,7 +98,6 @@
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

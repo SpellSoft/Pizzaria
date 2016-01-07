@@ -61,10 +61,10 @@ namespace Pizzaria.View.UI.ViewProduto
             {
                 CustomMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message);
             }
-          
+
         }
 
-     
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
@@ -103,7 +103,7 @@ namespace Pizzaria.View.UI.ViewProduto
                     Nome = txtNome.Text.Trim().Length > 0 ? txtNome.Text.UpperCaseOnlyFirst().Trim() : "",
                     Codigo = txtCodigo.Text.Trim(),
                     CategoriaID = _categoriaRepositorio.GetIDCategoriaPorNome(cbbCategoria.Text),
-                    Descricao = txtDescricao.Text.Trim().Length > 0 ? txtDescricao.Text.UpperCaseOnlyFirst().Trim() : null ,
+                    Descricao = txtDescricao.Text.Trim().Length > 0 ? txtDescricao.Text.UpperCaseOnlyFirst().Trim() : null,
                     Estoque = ckbGerenciar.Checked ? new Estoque
                     {
                         Gerenciar = ckbGerenciar.Checked,
@@ -320,7 +320,7 @@ namespace Pizzaria.View.UI.ViewProduto
             {
                 CarregarBorda();
                 InsBordaRep();
-                cbbBorda.Text = _bordaRepositorio.GetUltimoRegistro(); 
+                cbbBorda.Text = _bordaRepositorio.GetUltimoRegistro();
             }
         }
 

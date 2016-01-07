@@ -64,10 +64,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\_DbContext.cs" />
+    <Compile Include="Entity\Bairro.cs" />
     <Compile Include="Entity\Borda.cs" />
     <Compile Include="Entity\Categoria.cs" />
+    <Compile Include="Entity\Cidade.cs" />
+    <Compile Include="Entity\Cliente.cs" />
     <Compile Include="Entity\Complemento.cs" />
+    <Compile Include="Entity\Contato.cs" />
+    <Compile Include="Entity\Endereco.cs" />
     <Compile Include="Entity\Estoque.cs" />
+    <Compile Include="Entity\Logradouro.cs" />
     <Compile Include="Entity\Produto.cs" />
     <Compile Include="Entity\Sabor.cs" />
     <Compile Include="Initializer\DataInitializer.cs" />

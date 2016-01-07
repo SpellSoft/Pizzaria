@@ -19,5 +19,10 @@ namespace Pizzaria.Model.Data
         public DbSet<Sabor> Sabor { get; set; }
         public DbSet<Complemento> Complemento { get; set; }
         public DbSet<Borda> Borda { get; set; }
+        public DbSet<Bairro> Bairro { get; set; }
+        public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Logradouro> Logradouro { get; set; }
+        public DbSet<Contato> Contato { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
     }
 }
