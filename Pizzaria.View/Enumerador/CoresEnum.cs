@@ -2,29 +2,21 @@
 
 namespace Pizzaria.View.Enumerador
 {
-    public enum CoresEnum
-    {
-        Alterar,
-        Deletar,
-        Sair,
-        Novo
-    }
-
     public class GetColor
     {
         public Color Cores { get; set; }
-        public static Color Cor(CoresEnum cor)
+        public static Color Cor(EnumTipoOperacao cor)
         {
             Color cores = Color.White;
             switch (cor)
             {
-                case CoresEnum.Alterar:
+                case EnumTipoOperacao.Editar:
                     cores = Color.LightGreen;
                     break;
-                case CoresEnum.Deletar:
+                case EnumTipoOperacao.Deletar:
                     cores = Color.LightCoral;
                     break;
-                case CoresEnum.Sair:
+                case EnumTipoOperacao.Sair:
                     cores = Color.Silver;
                     break;
             }

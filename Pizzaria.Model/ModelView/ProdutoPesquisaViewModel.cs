@@ -9,7 +9,7 @@ namespace Pizzaria.Model.ModelView
         public string Nome { get; set; }
         public string Código { get; set; }
         public string Categoria { get; set; }        
-        [DisplayName("Preço de Venda")]
+        [DisplayName("Preço")]
         public decimal PrecoVenda { get; set; }
     }
 }

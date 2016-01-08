@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerador\CoresEnum.cs" />
+    <Compile Include="Enumerador\EnumTipoOperacao.cs" />
     <Compile Include="Enumerador\EnumTipoProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +106,12 @@
     <Compile Include="UI\ViewProduto\frmCadastrarProduto.Designer.cs">
       <DependentUpon>frmCadastrarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewProduto\frmGerenciarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewProduto\frmGerenciarProduto.Designer.cs">
+      <DependentUpon>frmGerenciarProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewProduto\frmPesquisarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +125,7 @@
       <DependentUpon>frmCadastrarSabor.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\GerenciarControl.cs" />
+    <Compile Include="Utilities\InjectionMethods.cs" />
     <Compile Include="Utilities\Message.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewProduto\frmCadastrarProduto.resx">
       <DependentUpon>frmCadastrarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewProduto\frmGerenciarProduto.resx">
+      <DependentUpon>frmGerenciarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewProduto\frmPesquisarProduto.resx">
       <DependentUpon>frmPesquisarProduto.cs</DependentUpon>
@@ -181,6 +192,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Source\Img\Crud\delte.ico" />
+    <Content Include="Source\Img\Crud\edit.ico" />
+    <Content Include="Source\Img\Crud\exit.ico" />
+    <Content Include="Source\Img\Crud\new.ico" />
     <Content Include="Source\Img\Espera\Running snake.gif" />
     <Content Include="Source\Img\Global\add1.png" />
     <Content Include="Source\Img\Global\icone.ico" />

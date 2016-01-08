@@ -26,7 +26,7 @@ namespace Pizzaria.View.UI.ViewMenu
         {
             InsControlsForTask();
             espere.Start(RunMessage);
-            OpenMdiForm.LoadNewKeepAnother(this, new frmCadastrarProduto());
+            OpenMdiForm.LoadNewKeepAnother(this, new frmGerenciarProduto());
             CancelarTask();
         }
 

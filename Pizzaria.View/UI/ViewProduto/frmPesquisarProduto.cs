@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using Pizzaria.View.Utilities;
+using Pizzaria.Model.ModelView;
 
 namespace Pizzaria.View.UI.ViewProduto
 {
@@ -24,7 +25,10 @@ namespace Pizzaria.View.UI.ViewProduto
         {
             InsProdutoRep();
             CarregarDataGridView();
+            PadronizarDataGridView();
             EsconderColunaDoDataGridView();
+            AjustarTamanhoDoDataGridView();
+
         }
         private CheckBox[] GetAllCheckBox()
         {
@@ -32,26 +36,23 @@ namespace Pizzaria.View.UI.ViewProduto
         }
         private void EsconderColunaDoDataGridView()
         {
-            dgvProduto.EsconderColuna("ProdutoID");
+            dgvProduto.EsconderColuna(nameof(ProdutoPesquisaViewModel.ProdutoID));
         }
         private void AjustarTamanhoDoDataGridView()
         {
             dgvProduto.AjustartamanhoDoDataGridView(new List<TamanhoGrid>
             {
-
-                 new TamanhoGrid { ColunaNome="Nome", Tamanho = 180 },
-                 new TamanhoGrid { ColunaNome = "Código", Tamanho = 120 },
-                 new TamanhoGrid { ColunaNome="Categoria", Tamanho = 120 },
-                   new TamanhoGrid { ColunaNome="PrecoVenda", Tamanho = 120 },
+                 new TamanhoGrid { ColunaNome=nameof(ProdutoPesquisaViewModel.Nome), Tamanho = 215 },
+                 new TamanhoGrid { ColunaNome =nameof(ProdutoPesquisaViewModel.Código), Tamanho = 125 },
+                 new TamanhoGrid { ColunaNome=nameof(ProdutoPesquisaViewModel.Categoria), Tamanho = 165 },
+                   new TamanhoGrid { ColunaNome=nameof(ProdutoPesquisaViewModel.PrecoVenda), Tamanho = 85 }
             });
 
         }
-
         private void CarregarDataGridView()
         {
             AddInDataGridView(_produtoRepositorio.ListarPesquisa());
-            PadronizarDataGridView();
-            AjustarTamanhoDoDataGridView();
+
         }
 
         private void PadronizarDataGridView()
@@ -99,25 +100,30 @@ namespace Pizzaria.View.UI.ViewProduto
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             CheckBox ckb = GetCheckBoxSelecionado();
-            switch (ckb?.Name)
+            InsProdutoRep();
+            if (_produtoRepositorio.GetQuantidade() > 0)
             {
-                case nameof(ckbNome):
-                    InsProdutoRep();
-                    AddInDataGridView(_produtoRepositorio.ListarPesquisa(GetValueInTxt()));
-                    break;
-                case nameof(ckbCódigo):
-                    InsProdutoRep();
-                    AddInDataGridView(_produtoRepositorio.ListarPorCodigo(GetValueInTxt()));
-                    break;
-                case nameof(ckbCategoria):
-                    InsProdutoRep();
-                    AddInDataGridView(_produtoRepositorio.ListarPorCategoria(GetValueInTxt()));
-                    break;
-                default:
-                    CustomMessage.MessageFullComButtonOkIconeDeInformacao("Selecione um tipo de pesquisa");
-                    txtPesquisa.LimparTxtNoEventoChanged(txtPesquisa_TextChanged);
-                    break;
+                switch (ckb?.Name)
+                {
+                    case nameof(ckbNome):
+
+                        AddInDataGridView(_produtoRepositorio.ListarPesquisa(GetValueInTxt()));
+                        break;
+                    case nameof(ckbCódigo):
+
+                        AddInDataGridView(_produtoRepositorio.ListarPorCodigo(GetValueInTxt()));
+                        break;
+                    case nameof(ckbCategoria):
+
+                        AddInDataGridView(_produtoRepositorio.ListarPorCategoria(GetValueInTxt()));
+                        break;
+                    default:
+                        CustomMessage.MessageFullComButtonOkIconeDeInformacao("Selecione um tipo de pesquisa");
+                        txtPesquisa.LimparTxtNoEventoChanged(txtPesquisa_TextChanged);
+                        break;
+                }
             }
+           
         }
 
         private string GetValueInTxt()
