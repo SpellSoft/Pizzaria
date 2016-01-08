@@ -63,6 +63,12 @@
     <Compile Include="Enumerador\EnumTipoProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\frmCadastrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCadastrarCliente.Designer.cs">
+      <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewBorda\frmCadastrarBorda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\frmCadastrarCliente.resx">
+      <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewBorda\frmCadastrarBorda.resx">
       <DependentUpon>frmCadastrarBorda.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,10 +182,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Source\Img\Espera\Running snake.gif" />
+    <Content Include="Source\Img\Global\add1.png" />
     <Content Include="Source\Img\Global\icone.ico" />
-    <Content Include="Source\Img\Menu\find.ico" />
+    <Content Include="Source\Img\Global\find.ico" />
+    <Content Include="Source\Img\Global\save.ico" />
+    <Content Include="Source\Img\Menu\personal.png" />
     <Content Include="Source\Img\Menu\product.png" />
-    <Content Include="Source\Img\Menu\yahoo_widget_engine.ico" />
+    <Content Include="Source\Img\Global\yahoo_widget_engine.ico" />
     <Content Include="Source\Img\Produto\category.png" />
     <Content Include="Source\Img\Produto\codebar.png" />
     <Content Include="Source\Img\Produto\add1.png" />

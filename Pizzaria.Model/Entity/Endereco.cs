@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pizzaria.Model.Entity
 {
+    [Table(nameof(Endereco))]
     public class Endereco
     {
         [Key]
@@ -22,5 +23,6 @@ namespace Pizzaria.Model.Entity
         public virtual Bairro Bairro { get; set; }
         public virtual Cidade Cidade { get; set; }
         public virtual Logradouro Logradouro { get; set; }
+        public virtual Cliente Cliente { get; set; }
     }
 }

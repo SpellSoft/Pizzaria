@@ -33,6 +33,9 @@
             this.menuProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGerenciarProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPesquisarProduto = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGerenciarClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnPesquisarClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +44,8 @@
             this.menu.AutoSize = false;
             this.menu.BackColor = System.Drawing.Color.Yellow;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuProduto});
+            this.menuProduto,
+            this.menuClientes});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(742, 50);
@@ -76,6 +80,31 @@
             this.btnPesquisarProduto.Text = "Pesquisar";
             this.btnPesquisarProduto.Click += new System.EventHandler(this.btnPesquisarProduto_Click);
             // 
+            // menuClientes
+            // 
+            this.menuClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGerenciarClientes,
+            this.btnPesquisarClientes});
+            this.menuClientes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.menuClientes.Image = ((System.Drawing.Image)(resources.GetObject("menuClientes.Image")));
+            this.menuClientes.Name = "menuClientes";
+            this.menuClientes.Size = new System.Drawing.Size(99, 46);
+            this.menuClientes.Text = "Clientes";
+            // 
+            // btnGerenciarClientes
+            // 
+            this.btnGerenciarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnGerenciarClientes.Image")));
+            this.btnGerenciarClientes.Name = "btnGerenciarClientes";
+            this.btnGerenciarClientes.Size = new System.Drawing.Size(153, 26);
+            this.btnGerenciarClientes.Text = "Gerenciar";
+            // 
+            // btnPesquisarClientes
+            // 
+            this.btnPesquisarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisarClientes.Image")));
+            this.btnPesquisarClientes.Name = "btnPesquisarClientes";
+            this.btnPesquisarClientes.Size = new System.Drawing.Size(153, 26);
+            this.btnPesquisarClientes.Text = "Pesquisar";
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,5 +136,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuProduto;
         private System.Windows.Forms.ToolStripMenuItem btnGerenciarProduto;
         private System.Windows.Forms.ToolStripMenuItem btnPesquisarProduto;
+        private System.Windows.Forms.ToolStripMenuItem menuClientes;
+        private System.Windows.Forms.ToolStripMenuItem btnGerenciarClientes;
+        private System.Windows.Forms.ToolStripMenuItem btnPesquisarClientes;
     }
 }

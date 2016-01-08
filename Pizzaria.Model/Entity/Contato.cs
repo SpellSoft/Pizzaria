@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pizzaria.Model.Entity
 {
+    [Table(nameof(Contato))]
     public class Contato
     {
         [Key]

@@ -77,13 +77,9 @@
     <Compile Include="Entity\Produto.cs" />
     <Compile Include="Entity\Sabor.cs" />
     <Compile Include="Initializer\DataInitializer.cs" />
-    <Compile Include="Migrations\201512230103085_prods3dsd.cs" />
-    <Compile Include="Migrations\201512230103085_prods3dsd.Designer.cs">
-      <DependentUpon>201512230103085_prods3dsd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512271440383_borda.cs" />
-    <Compile Include="Migrations\201512271440383_borda.Designer.cs">
-      <DependentUpon>201512271440383_borda.cs</DependentUpon>
+    <Compile Include="Migrations\201601071857374_Tabelas.cs" />
+    <Compile Include="Migrations\201601071857374_Tabelas.Designer.cs">
+      <DependentUpon>201601071857374_Tabelas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelView\ProdutoPesquisaViewModel.cs" />
@@ -95,11 +91,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512230103085_prods3dsd.resx">
-      <DependentUpon>201512230103085_prods3dsd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512271440383_borda.resx">
-      <DependentUpon>201512271440383_borda.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601071857374_Tabelas.resx">
+      <DependentUpon>201601071857374_Tabelas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
