@@ -19,6 +19,9 @@ namespace Pizzaria.View.Enumerador
                 case EnumTipoOperacao.Sair:
                     cores = Color.Silver;
                     break;
+                case EnumTipoOperacao.Detalhes:
+                    cores = Color.Silver;
+                    break;
             }
             return cores;
         }

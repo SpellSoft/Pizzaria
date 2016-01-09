@@ -3,7 +3,7 @@ using Pizzaria.Model.ModelView;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-
+using System.Data.Entity;
 namespace Pizzaria.Controller.Repository
 {
     public class ProdutoRepositorio : DefaultRepositorio<Produto>
@@ -34,8 +34,8 @@ namespace Pizzaria.Controller.Repository
                         Categoria = prod.Categoria.Nome,
                         Código = prod.Codigo,
                         PrecoVenda = prod.PrecoVenda
-                    }).Where(c=>c.Nome.ToLower().Contains(nome)).ToList();
-           
+                    }).Where(c => c.Nome.ToLower().Contains(nome)).ToList();
+
         }
 
         public object ListarPorCodigo(string code = "")
@@ -64,6 +64,16 @@ namespace Pizzaria.Controller.Repository
                         Código = prod.Codigo,
                         PrecoVenda = prod.PrecoVenda
                     }).Where(c => c.Categoria.ToLower().Contains(category)).ToList();
+        }
+
+        public Produto GetPeloCodigo(string codigo)
+        {
+            return entity.Include(c => c.Estoque)
+                                .Include(c => c.Categoria)
+                                .Include(c => c.Borda)
+                                .Include(c => c.Sabor)                               
+                                .FirstOrDefault(c => c.Codigo.ToLower()
+                                == codigo.ToLower());
         }
     }
 }

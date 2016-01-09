@@ -14,6 +14,9 @@ namespace Pizzaria.Model.Entity
         [Range(type: typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "ID do Produto excedido, contate o administrador")]
         [DisplayName(displayName: "ID do Produto")]
         public int ProdutoID { get; set; }
+
+        public int TipoProduto { get; set; }
+
         [Required(ErrorMessage = "Nome do Produto é obrigatório.")]
         [StringLength(maximumLength: 50, ErrorMessage = "Nome do Produto deve conter pelo menos 50 letras.")]
         [DisplayName(displayName: "Nome do Produto")]

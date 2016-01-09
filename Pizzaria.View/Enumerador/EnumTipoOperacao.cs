@@ -5,6 +5,7 @@
         Novo,
         Editar,
         Deletar,
-        Sair
+        Sair,
+        Detalhes
     }
 }

@@ -77,10 +77,6 @@
     <Compile Include="Entity\Produto.cs" />
     <Compile Include="Entity\Sabor.cs" />
     <Compile Include="Initializer\DataInitializer.cs" />
-    <Compile Include="Migrations\201601071857374_Tabelas.cs" />
-    <Compile Include="Migrations\201601071857374_Tabelas.Designer.cs">
-      <DependentUpon>201601071857374_Tabelas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelView\ProdutoPesquisaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,11 +85,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601071857374_Tabelas.resx">
-      <DependentUpon>201601071857374_Tabelas.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

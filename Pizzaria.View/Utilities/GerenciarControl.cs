@@ -1,11 +1,9 @@
 ﻿using Mike.Utilities.Desktop;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Pizzaria.View.Enumerador;
+using System;
 
 namespace Pizzaria.View.Utilities
 {
@@ -53,6 +51,24 @@ namespace Pizzaria.View.Utilities
             ckb.Visible = mostrar;
         }
 
+        public static void MudarTextoDoForm(Form form, string text)
+        {
+            form.Text = text;
+        }
 
+        public static void MudarIConeDoButton(Button btn, EnumTipoOperacao operecao,string iconeName)
+        {
+            btn.Image = Image.FromFile(iconeName.GetFullPath());
+        }
+
+        public static void MudarTextoDoButton(Button btn, string text)
+        {
+            btn.Text = text;
+        }
+
+        public static void MudarTextoDoGroupBox(GroupBox gpb, string text)
+        {
+            gpb.Text = text;
+        }
     }
 }

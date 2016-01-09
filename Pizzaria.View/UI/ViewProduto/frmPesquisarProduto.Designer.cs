@@ -49,7 +49,7 @@
             this.gpbPesquisarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbPesquisarProduto.Location = new System.Drawing.Point(12, 12);
             this.gpbPesquisarProduto.Name = "gpbPesquisarProduto";
-            this.gpbPesquisarProduto.Size = new System.Drawing.Size(590, 333);
+            this.gpbPesquisarProduto.Size = new System.Drawing.Size(590, 375);
             this.gpbPesquisarProduto.TabIndex = 0;
             this.gpbPesquisarProduto.TabStop = false;
             this.gpbPesquisarProduto.Text = "Pesquisar Produto";
@@ -114,7 +114,7 @@
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduto.Location = new System.Drawing.Point(0, 135);
             this.dgvProduto.Name = "dgvProduto";
-            this.dgvProduto.Size = new System.Drawing.Size(590, 198);
+            this.dgvProduto.Size = new System.Drawing.Size(590, 240);
             this.dgvProduto.TabIndex = 0;
             this.dgvProduto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProduto_CellFormatting);
             // 
@@ -123,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(614, 357);
+            this.ClientSize = new System.Drawing.Size(614, 399);
             this.Controls.Add(this.gpbPesquisarProduto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
