@@ -1,5 +1,4 @@
-﻿using Pizzaria.View.UI.ViewEspera;
-using Pizzaria.View.UI.ViewMenu;
+﻿using Pizzaria.View.UI.ViewMenu;
 using System;
 using System.Windows.Forms;
 

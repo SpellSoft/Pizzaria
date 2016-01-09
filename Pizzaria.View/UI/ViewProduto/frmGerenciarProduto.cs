@@ -28,6 +28,12 @@ namespace Pizzaria.View.UI.ViewProduto
         {
             Array.ForEach(GetAllButton(), c => c.Padronizar());
             CarregarGrid();
+            FocarNotxt();
+        }
+
+        private void FocarNotxt()
+        {
+            this.FocoNoTxt(txtNome);
         }
 
         private void CarregarGrid()
@@ -67,6 +73,36 @@ namespace Pizzaria.View.UI.ViewProduto
         private void dgvPesquisarProduto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             e.CellStyle.Format = "C2";
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarProduto()) == DialogResult.Yes)
+            {
+                CarregarGrid();
+            }
+            
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.IntegerAndLetter(e: e);
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            InsProdutoRep();
+            if (SeExisteProduto())
+            {
+                ProdutoDgv = _produtoRepositorio.ListarPesquisa(txtNome.Text);
+            }
+            
+        }
+
+        private bool SeExisteProduto()
+        {           
+            return _produtoRepositorio.GetQuantidade() > 0;
         }
     }
 }

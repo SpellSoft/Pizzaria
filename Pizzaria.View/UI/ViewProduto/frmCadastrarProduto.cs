@@ -70,7 +70,12 @@ namespace Pizzaria.View.UI.ViewProduto
 
             try
             {
-                ValidandoTxt(PopularProduto());
+                if (SeExisteCategoria())
+                {
+                    ValidandoTxt(PopularProduto());
+                }
+
+
             }
             catch (CustomException error)
             {
@@ -83,6 +88,17 @@ namespace Pizzaria.View.UI.ViewProduto
 
             }
 
+        }
+
+        private bool SeExisteCategoria()
+        {
+            InsCategoriaRep();
+            if (_categoriaRepositorio.GetQuantidade() > 0)
+            {
+                return true;
+            }
+            throw new CustomException("Você deve cadastrar um Categoria");
+         
         }
 
         private TextBox ValidarTxt(string erro, Color cor)
@@ -158,6 +174,7 @@ namespace Pizzaria.View.UI.ViewProduto
                         {
                             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarComplemento()) == DialogResult.Yes)
                             {
+                                //TODO erro, esta salvando o complemento duas vezes
                                 InsComplementoRep();
                                 Complemento com = _complementoRepositorio.GetUltimoResgistro();
                                 prod.Complemento = new List<Complemento>
@@ -170,6 +187,7 @@ namespace Pizzaria.View.UI.ViewProduto
                                           SaborID = com.SaborID
                                       }
                                 };
+                                _complementoRepositorio.Deletar(com.ComplementoID);
                             }
                         }
                     }
@@ -177,7 +195,12 @@ namespace Pizzaria.View.UI.ViewProduto
                     if (_produtoRepositorio.Salvar(prod))
                     {
                         CustomMessage.MessageFullComButtonOkIconeDeInformacao("Produto cadastrado com sucesso!", "Aviso");
-                        Array.ForEach(GetAllTextBox(), c => c.Text = string.Empty);
+                        this.DialogResult = DialogResult.Yes;
+                    }
+                    else
+                    {
+                        CustomMessage
+                            .MessageFullComButtonOkIconeDeInformacao("Houve um problema inesperado, tente novamente!", "Aviso");
                     }
                 }
                 else

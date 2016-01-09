@@ -52,45 +52,56 @@
             this.gpbGerenciarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbGerenciarProduto.Location = new System.Drawing.Point(12, 13);
             this.gpbGerenciarProduto.Name = "gpbGerenciarProduto";
-            this.gpbGerenciarProduto.Size = new System.Drawing.Size(605, 273);
+            this.gpbGerenciarProduto.Size = new System.Drawing.Size(605, 309);
             this.gpbGerenciarProduto.TabIndex = 1;
             this.gpbGerenciarProduto.TabStop = false;
             this.gpbGerenciarProduto.Text = "Gerenciar Produto";
             // 
             // btnNovo
             // 
+            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
+            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovo.Location = new System.Drawing.Point(24, 35);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(97, 47);
+            this.btnNovo.Size = new System.Drawing.Size(102, 47);
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
+            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnEditar
             // 
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(147, 35);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(97, 47);
+            this.btnEditar.Size = new System.Drawing.Size(102, 47);
             this.btnEditar.TabIndex = 0;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnDeletar
             // 
-            this.btnDeletar.Location = new System.Drawing.Point(320, 35);
+            this.btnDeletar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletar.Image")));
+            this.btnDeletar.Location = new System.Drawing.Point(315, 35);
             this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(97, 47);
+            this.btnDeletar.Size = new System.Drawing.Size(102, 47);
             this.btnDeletar.TabIndex = 0;
             this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeletar.UseVisualStyleBackColor = true;
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(499, 35);
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.Location = new System.Drawing.Point(482, 35);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(97, 47);
+            this.btnSair.Size = new System.Drawing.Size(102, 47);
             this.btnSair.TabIndex = 0;
             this.btnSair.Text = "Sair";
+            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSair.UseVisualStyleBackColor = true;
             // 
             // gpbPesquisarCliente
@@ -99,26 +110,29 @@
             this.gpbPesquisarCliente.Controls.Add(this.txtNome);
             this.gpbPesquisarCliente.Location = new System.Drawing.Point(6, 88);
             this.gpbPesquisarCliente.Name = "gpbPesquisarCliente";
-            this.gpbPesquisarCliente.Size = new System.Drawing.Size(590, 179);
+            this.gpbPesquisarCliente.Size = new System.Drawing.Size(590, 215);
             this.gpbPesquisarCliente.TabIndex = 1;
             this.gpbPesquisarCliente.TabStop = false;
-            this.gpbPesquisarCliente.Text = "Pesquisar";
+            this.gpbPesquisarCliente.Text = "Pesquisar por Nome";
             // 
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtNome.Location = new System.Drawing.Point(39, 33);
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(6, 24);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(476, 26);
+            this.txtNome.Size = new System.Drawing.Size(578, 29);
             this.txtNome.TabIndex = 0;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // dgvPesquisarProduto
             // 
             this.dgvPesquisarProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPesquisarProduto.Location = new System.Drawing.Point(0, 65);
+            this.dgvPesquisarProduto.Location = new System.Drawing.Point(0, 59);
             this.dgvPesquisarProduto.Name = "dgvPesquisarProduto";
-            this.dgvPesquisarProduto.Size = new System.Drawing.Size(590, 114);
+            this.dgvPesquisarProduto.Size = new System.Drawing.Size(590, 156);
             this.dgvPesquisarProduto.TabIndex = 1;
             this.dgvPesquisarProduto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvPesquisarProduto_CellFormatting);
             // 
@@ -127,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(627, 298);
+            this.ClientSize = new System.Drawing.Size(627, 334);
             this.Controls.Add(this.gpbGerenciarProduto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
