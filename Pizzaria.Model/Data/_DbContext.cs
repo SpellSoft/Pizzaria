@@ -25,18 +25,5 @@ namespace Pizzaria.Model.Data
         public DbSet<Contato> Contato { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-   //         modelBuilder.Entity<Produto>()
-   //   .HasMany(a => a.Complemento)
-   //    .WithOptional(c=>c.Produto)
-   //   .WillCascadeOnDelete();
-
-   //         modelBuilder.Entity<Produto>()
-   //.HasOptional(a => a.Estoque)
-   // .WithRequired(c => c.Produto)
-   //.WillCascadeOnDelete(true);
-
-        }
     }
 }

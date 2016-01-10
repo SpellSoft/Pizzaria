@@ -55,17 +55,26 @@ namespace Pizzaria.View.UI.ViewProduto
                         CarregarBorda();
                         CarregarCbbTipoCadastro();
                         GerenciarControl.EsconderOuMostrarGroupBox(gpbEstoque);
-                        GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));               
+                        GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
                         GerenciarControl.MudarTamanhoDoForm(this, new Size(752, 490));
                         GerenciarControl.DesabilitarOuHabilitarButton(btnCadastrar, true);
                         GerenciarControl.DesabilitarOuHabilitarButton(btnCadastrar, true);
                         break;
                     case EnumTipoOperacao.Editar:
+                        GerenciarControl.MudarTextoDoForm(form: this, text: EnumTipoOperacao.Editar.ToString());
+                        GerenciarControl.MudarTextoDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Editar.ToString());
+                        GerenciarControl.MudarIConeDoButton(btn: btnCadastrar, operecao: EnumTipoOperacao.Editar, iconeName: EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
+                        GerenciarControl.MudarTextoDoGroupBox(gpb: gpbProduto, text: "Editar Produto");
+                        PersonalizarButton();
+                        PopularTextBox();
+                        GerenciarControl.DesabilitarOuHabilitarButton(btnCadastrar, true);
+                        GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(new List<GroupBox> { gpbBorda, gpbCategoria, gpbEstoque, gpbPrecoVenda, gpbProduto, gpbSabor }, true);
+                        FocarNoTxt(txtNome);
                         break;
                     case EnumTipoOperacao.Deletar:
-                        GerenciarControl.MudarTextoDoForm(form: this, text: "Deletar");
+                        GerenciarControl.MudarTextoDoForm(form: this, text: EnumTipoOperacao.Deletar.ToString());
                         GerenciarControl.MudarTextoDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Deletar.ToString());
-                        GerenciarControl.MudarIConeDoButton(btn: btnCadastrar, operecao: EnumTipoOperacao.Deletar, iconeName: "delte.ico");
+                        GerenciarControl.MudarIConeDoButton(btn: btnCadastrar, operecao: EnumTipoOperacao.Deletar, iconeName: EnumTipoIconCrud.Deletar.SetIcon(EnumExtensao.ico));
                         GerenciarControl.MudarTextoDoGroupBox(gpb: gpbProduto, text: "Deletar Produto");
                         PersonalizarButton();
                         PopularTextBox();
@@ -75,9 +84,9 @@ namespace Pizzaria.View.UI.ViewProduto
                     case EnumTipoOperacao.Sair:
                         break;
                     case EnumTipoOperacao.Detalhes:
-                        GerenciarControl.MudarTextoDoForm(form: this, text: "Detalhes");
+                        GerenciarControl.MudarTextoDoForm(form: this, text: EnumTipoOperacao.Detalhes.ToString());
                         GerenciarControl.MudarTextoDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Sair.ToString());
-                        GerenciarControl.MudarIConeDoButton(btn: btnCadastrar, operecao: EnumTipoOperacao.Detalhes, iconeName: "exit.ico");
+                        GerenciarControl.MudarIConeDoButton(btn: btnCadastrar, operecao: EnumTipoOperacao.Detalhes, iconeName: EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
                         GerenciarControl.MudarTextoDoGroupBox(gpb: gpbProduto, text: "Detalhes do Produto");
                         PersonalizarButton();
                         PopularTextBox();
@@ -127,8 +136,18 @@ namespace Pizzaria.View.UI.ViewProduto
             txtDescricao.Text = _produto.Descricao;
 
             HabilitarNormalCaseNoTxtDePrecos();
-            txtPrecoCompra.Text = _produto.PrecoCompra.Value.ToString("C2");
-            txtPrecoVenda.Text = _produto.PrecoVenda.ToString("C2");
+
+            if (_enumTipoOperacao == EnumTipoOperacao.Editar)
+            {
+                txtPrecoCompra.Text = _produto.PrecoCompra.Value.ToString("N2");
+                txtPrecoVenda.Text = _produto.PrecoVenda.ToString("N2");
+            }
+            else
+            {
+                txtPrecoCompra.Text = _produto.PrecoCompra.Value.ToString("C2");
+                txtPrecoVenda.Text = _produto.PrecoVenda.ToString("C2");
+            }
+            
 
             txtQtd.Text = _produto.Estoque?.Quantidade.ToString();
             txtQtdMax.Text = _produto.Estoque?.QuantidadeMaxima.ToString();
@@ -163,6 +182,8 @@ namespace Pizzaria.View.UI.ViewProduto
                         }
                         break;
                     case EnumTipoOperacao.Editar:
+                        ValidandoTxt(PopularProduto());
+
                         break;
                     case EnumTipoOperacao.Deletar:
                         if (_produtoRepositorio.Deletar(_produto.ProdutoID))
@@ -224,6 +245,7 @@ namespace Pizzaria.View.UI.ViewProduto
                 InsBordaRep();
                 return new Produto
                 {
+                    ProdutoID = _produto == null ? 0 :_produto.ProdutoID,
                     TipoProduto = GetHashCodeDoEnumTipoProduto(GetTextCbbTipoProduto()),
                     Nome = txtNome.Text.Trim().Length > 0 ? txtNome.Text.UpperCaseOnlyFirst().Trim() : "",
                     Codigo = txtCodigo.Text.Trim(),
@@ -231,11 +253,13 @@ namespace Pizzaria.View.UI.ViewProduto
                     Descricao = txtDescricao.Text.Trim().Length > 0 ? txtDescricao.Text.UpperCaseOnlyFirst().Trim() : null,
                     Estoque = ckbGerenciar.Checked ? new Estoque
                     {
+                        ProdutoID = _produto == null ? 0 : _produto.ProdutoID,
                         Gerenciar = ckbGerenciar.Checked,
                         Quantidade = Convert.ToInt32(txtQtd.Text.Trim() == "" ? "0" : txtQtd.Text),
                         QuantidadeMinima = Convert.ToInt32(txtQtdMin.Text.Trim() == "" ? "0" : txtQtdMin.Text),
                         QuantidadeMaxima = Convert.ToInt32(txtQtdMax.Text.Trim() == "" ? "0" : txtQtdMax.Text)
-                    } : null,
+                         
+                    } : null,                    
                     PrecoCompra = Convert.ToDecimal(txtPrecoCompra.Text.Trim() == "" ? null : txtPrecoCompra.Text),
                     PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text.Trim() == "" ? "0" : txtPrecoVenda.Text),
                     SaborID = GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) == true
@@ -283,7 +307,7 @@ namespace Pizzaria.View.UI.ViewProduto
                 TextBox txt = ValidaCampos.Validar(prod, GetAllTextBox());
                 if (txt == null)
                 {
-                    if (GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza))
+                    if (GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) && GetTipoOperacao()==EnumTipoOperacao.Novo)
                     {
                         if (CustomMessage.MessageFullQuestion("Deseja adicionar um complemento?", "Aviso") == DialogResult.Yes)
                         {
@@ -307,9 +331,9 @@ namespace Pizzaria.View.UI.ViewProduto
                         }
                     }
                     InsProdutodRep();
-                    if (_produtoRepositorio.Salvar(prod))
+                    if (_enumTipoOperacao == EnumTipoOperacao.Novo ? _produtoRepositorio.Salvar(prod) : _produtoRepositorio.Editar(prod))
                     {
-                        CustomMessage.MessageFullComButtonOkIconeDeInformacao("Produto cadastrado com sucesso!", "Aviso");
+                        CustomMessage.MessageFullComButtonOkIconeDeInformacao(_enumTipoOperacao == EnumTipoOperacao.Novo? "Produto Cadastrado com sucesso!" : "Produto Alterado com sucesso!", "Aviso");
                         this.DialogResult = DialogResult.Yes;
                     }
                     else
@@ -332,7 +356,10 @@ namespace Pizzaria.View.UI.ViewProduto
 
         }
 
-
+        private EnumTipoOperacao GetTipoOperacao()
+        {
+            return _enumTipoOperacao;
+        }
 
         public void FocarNoTxt(TextBox txt)
                     => this.FocoNoTxt(txt);

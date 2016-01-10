@@ -9,15 +9,7 @@ namespace Pizzaria.Controller.Repository
 {
     public class CategoriaRepositorio : DefaultRepositorio<Categoria>
     {
-        public override List<Categoria> Listar()
-        {
-            return base.Listar();
-        }
-        public override bool Salvar(Categoria entities)
-        {
-           
-            return base.Salvar(entities);
-        }
+     
         public int GetIDCategoriaPorNome(string nome)
         {
             var result = entities.FirstOrDefault(c => c.Nome == nome);

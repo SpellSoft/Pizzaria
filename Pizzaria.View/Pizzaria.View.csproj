@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerador\CoresEnum.cs" />
+    <Compile Include="Enumerador\EnumExtensao.cs" />
+    <Compile Include="Enumerador\EnumTipoIconCrud.cs" />
     <Compile Include="Enumerador\EnumTipoOperacao.cs" />
     <Compile Include="Enumerador\EnumTipoProduto.cs" />
     <Compile Include="Program.cs" />
@@ -192,10 +194,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Source\Img\Crud\delte.ico" />
-    <Content Include="Source\Img\Crud\edit.ico" />
-    <Content Include="Source\Img\Crud\exit.ico" />
-    <Content Include="Source\Img\Crud\new.ico" />
     <Content Include="Source\Img\Espera\Running snake.gif" />
     <Content Include="Source\Img\Global\add1.png" />
     <Content Include="Source\Img\Global\icone.ico" />
@@ -204,6 +202,10 @@
     <Content Include="Source\Img\Menu\personal.png" />
     <Content Include="Source\Img\Menu\product.png" />
     <Content Include="Source\Img\Global\yahoo_widget_engine.ico" />
+    <Content Include="Source\Img\Operacao\Deletar.ico" />
+    <Content Include="Source\Img\Operacao\Editar.ico" />
+    <Content Include="Source\Img\Operacao\Novo.ico" />
+    <Content Include="Source\Img\Operacao\Sair.ico" />
     <Content Include="Source\Img\Produto\category.png" />
     <Content Include="Source\Img\Produto\codebar.png" />
     <Content Include="Source\Img\Produto\add1.png" />

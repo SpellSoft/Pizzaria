@@ -34,12 +34,6 @@ namespace Pizzaria.View.Utilities
             {
                 if (dgv.Rows.Count > 0)
                 {
-                    //if (dgv.SelectedRows[0]?.State == DataGridViewElementStates.Selected)
-                    //{
-                    //    dgv.AreAllCellsSelected(false);
-                    //    //dgv.SelectedRows[0].Selected = false;
-                    //}
-                    //dgv.SelectedRows[0].Selected = false;
                     dgv.ClearSelection();
                 }
             }
@@ -58,6 +52,14 @@ namespace Pizzaria.View.Utilities
                 result = dgv.SelectedRows[0].Cells[coluna].Value.ToString();
             }
             return result;
+        }
+        public static string SetIcon(this EnumTipoIconCrud icone,EnumExtensao extensao)
+        {
+            return icone +"."+ extensao;
+        }
+        public static string LimparDigitos(this string valor,int digitos)
+        {
+            return valor = valor.Substring(digitos, valor.Length - digitos).Trim();
         }
     }
 }

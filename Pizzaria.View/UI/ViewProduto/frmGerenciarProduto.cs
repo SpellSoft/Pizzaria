@@ -35,7 +35,7 @@ namespace Pizzaria.View.UI.ViewProduto
                 CarregarGrid();
                 FocarNotxt();
                 TirarFocoDoDgv();
-               
+
             }
             catch (CustomException error)
             {
@@ -54,7 +54,7 @@ namespace Pizzaria.View.UI.ViewProduto
             {
                 dgvPesquisarProduto.LimparSelecao();
             }
-          
+
         }
         private void FocarNotxt()
         {
@@ -179,7 +179,7 @@ namespace Pizzaria.View.UI.ViewProduto
 
                     break;
                 case Keys.Enter:
-                   
+
                     break;
                 case Keys.Up:
                     MoverDgvParaCima();
@@ -190,7 +190,7 @@ namespace Pizzaria.View.UI.ViewProduto
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-        
+
         private Produto GetProdutoSelecionadoNoDgv()
         {
             InsProdutoRep();
@@ -230,8 +230,18 @@ namespace Pizzaria.View.UI.ViewProduto
         private Produto GetProdutoAtualNoDgv()
         {
             InsProdutoRep();
-            string codigo = dgvPesquisarProduto.CurrentRow.Cells[nameof(ProdutoPesquisaViewModel.Código)].Value.ToString();
-            return _produtoRepositorio.GetPeloCodigo(codigo);
+            Produto produto = null;
+            if (DgvPossuiResgistro())
+            {
+                string codigo = dgvPesquisarProduto.CurrentRow.Cells[nameof(ProdutoPesquisaViewModel.Código)].Value.ToString();
+                produto = _produtoRepositorio.GetPeloCodigo(codigo);
+            }
+            return produto;
+        }
+
+        private bool DgvPossuiResgistro()
+        {
+            return dgvPesquisarProduto.Rows.Count > 0;
         }
 
         private void dgvPesquisarProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -242,6 +252,18 @@ namespace Pizzaria.View.UI.ViewProduto
                 if (produto != null)
                 {
                     OpenMdiForm.OpenForWithShowDialog(new frmCadastrarProduto(EnumTipoOperacao.Detalhes, produto));
+                }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Produto produto = GetProdutoAtualNoDgv();
+            if (produto != null)
+            {
+                if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarProduto(EnumTipoOperacao.Editar, produto)) == DialogResult.Yes)
+                {
+                    CarregarGrid();
                 }
             }
         }

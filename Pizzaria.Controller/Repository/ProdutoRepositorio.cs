@@ -2,31 +2,15 @@
 using Pizzaria.Model.ModelView;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using System.Data.Entity;
+
 namespace Pizzaria.Controller.Repository
 {
     public class ProdutoRepositorio : DefaultRepositorio<Produto>
     {
-        public override bool Salvar(Produto entities)
-        {
-            return base.Salvar(entities);
-        }
-        public override Produto GetPeloID(int id)
-        {
-            return base.GetPeloID(id);
-        }
-        public override bool Editar(Produto entities)
-        {
-            return base.Editar(entities);
-        }
-        public override List<Produto> Listar()
-        {
-            return base.Listar();
-        }
         public override bool Deletar(int id)
         {
-            var produto = entities.Include(c => c.Complemento).Include(c=>c.Estoque).FirstOrDefault(c=>c.ProdutoID == id);
+            var produto = entities.Include(c => c.Complemento).Include(c => c.Estoque).FirstOrDefault(c => c.ProdutoID == id);
             entities.Remove(produto);
             return Confirmar();
         }

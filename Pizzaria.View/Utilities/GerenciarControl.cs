@@ -58,7 +58,8 @@ namespace Pizzaria.View.Utilities
 
         public static void MudarIConeDoButton(Button btn, EnumTipoOperacao operecao,string iconeName)
         {
-            btn.Image = Image.FromFile(iconeName.GetFullPath());
+            var path = iconeName.GetFullPath();
+            btn.Image = Image.FromFile(path);
         }
 
         public static void MudarTextoDoButton(Button btn, string text)
