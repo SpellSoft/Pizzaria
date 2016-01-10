@@ -4,22 +4,21 @@ using Pizzaria.Model.Data;
 using System.Data.Entity;
 using Mike.Utilities.Desktop;
 using System;
-
 namespace Pizzaria.Controller.Repository
 {
     public class DefaultRepositorio<T> where T : class
     {
         private _DbContext banco;
-        protected DbSet<T> entity { private set; get; }
+        protected DbSet<T> entities { private set; get; }
         protected DefaultRepositorio()
         {
-            entity = (banco = new _DbContext()).Set<T>();
+            entities = (banco = new _DbContext()).Set<T>();
         }
         public virtual List<T> Listar()
         {
             try
             {
-                return entity.ToList();
+                return entities.ToList();
             }
             catch (CustomException error)
             {
@@ -34,7 +33,7 @@ namespace Pizzaria.Controller.Repository
         {
             try
             {
-                return entity.Find(id);
+                return entities.Find(id);
             }
             catch (CustomException error)
             {
@@ -49,7 +48,7 @@ namespace Pizzaria.Controller.Repository
         {
             try
             {
-                entity.Add(entities);
+                this.entities.Add(entities);
                 return Confirmar();
             }
             catch (CustomException error)
@@ -81,7 +80,7 @@ namespace Pizzaria.Controller.Repository
         {
             try
             {
-                entity.Remove(this.GetPeloID(id));
+                entities.Remove(this.GetPeloID(id));
                 return Confirmar();
             }
             catch (CustomException error)
@@ -97,7 +96,7 @@ namespace Pizzaria.Controller.Repository
         {
             try
             {
-                return entity.Count();
+                return entities.Count();
             }
             catch (CustomException error)
             {
@@ -108,7 +107,7 @@ namespace Pizzaria.Controller.Repository
                 throw new Exception(error.Message);
             }
         }
-        private bool Confirmar()
+        protected bool Confirmar()
                 => (banco.SaveChanges() > 0);
       
 

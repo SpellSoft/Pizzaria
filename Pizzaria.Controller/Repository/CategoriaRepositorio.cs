@@ -20,12 +20,12 @@ namespace Pizzaria.Controller.Repository
         }
         public int GetIDCategoriaPorNome(string nome)
         {
-            var result = entity.FirstOrDefault(c => c.Nome == nome);
+            var result = entities.FirstOrDefault(c => c.Nome == nome);
             return result == null ? 0 : result.CategoriaID;
            
         }
 
         public string GetUltimoRegistro()
-               => entity.OrderByDescending(c => c.CategoriaID).FirstOrDefault()?.Nome;
+               => entities.OrderByDescending(c => c.CategoriaID).FirstOrDefault()?.Nome;
     }
 }

@@ -16,10 +16,10 @@ namespace Pizzaria.Controller.Repository
         }
         public int getIDPorNome(string nome)
         {
-          var result =  entity.FirstOrDefault(c => c.Nome == nome);
+          var result =  entities.FirstOrDefault(c => c.Nome == nome);
             return result == null ? 0 : result.BordaID;
         }
         public string GetUltimoRegistro()
-                      => entity.OrderByDescending(c => c.BordaID).FirstOrDefault()?.Nome;
+                      => entities.OrderByDescending(c => c.BordaID).FirstOrDefault()?.Nome;
     }
 }

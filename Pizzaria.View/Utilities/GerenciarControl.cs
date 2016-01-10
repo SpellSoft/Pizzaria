@@ -35,7 +35,7 @@ namespace Pizzaria.View.Utilities
         {
             GerenciarGroupBox.DesabilitarOuHabilitar(gpb, desabilitar);
         }
-        public static void DesabilitarButton(Button btn, bool habilitado = false)
+        public static void DesabilitarOuHabilitarButton(Button btn, bool habilitado = false)
         {
             GerenciarButton.DesabilitarOuHabilitar(btn, habilitado);
         }
@@ -70,5 +70,7 @@ namespace Pizzaria.View.Utilities
         {
             gpb.Text = text;
         }
+
+      
     }
 }

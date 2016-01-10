@@ -53,28 +53,38 @@ namespace Pizzaria.View.UI.ViewProduto
                         CarregarCategoria();
                         CarregarSabor();
                         CarregarBorda();
-                        GerenciarControl.EsconderOuMostrarGroupBox(gpbEstoque);
                         CarregarCbbTipoCadastro();
-                        GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));
+                        GerenciarControl.EsconderOuMostrarGroupBox(gpbEstoque);
+                        GerenciarControl.MudarPosicaoDoButton(btnCadastrar, new Point(12, 402));               
                         GerenciarControl.MudarTamanhoDoForm(this, new Size(752, 490));
+                        GerenciarControl.DesabilitarOuHabilitarButton(btnCadastrar, true);
+                        GerenciarControl.DesabilitarOuHabilitarButton(btnCadastrar, true);
                         break;
                     case EnumTipoOperacao.Editar:
                         break;
                     case EnumTipoOperacao.Deletar:
+                        GerenciarControl.MudarTextoDoForm(form: this, text: "Deletar");
+                        GerenciarControl.MudarTextoDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Deletar.ToString());
+                        GerenciarControl.MudarIConeDoButton(btn: btnCadastrar, operecao: EnumTipoOperacao.Deletar, iconeName: "delte.ico");
+                        GerenciarControl.MudarTextoDoGroupBox(gpb: gpbProduto, text: "Deletar Produto");
+                        PersonalizarButton();
+                        PopularTextBox();
+                        GerenciarControl.DesabilitarOuHabilitarButton(btnCadastrar, true);
+                        FocarNoButton(btnCadastrar);
                         break;
                     case EnumTipoOperacao.Sair:
                         break;
                     case EnumTipoOperacao.Detalhes:
-                        GerenciarControl.MudarTextoDoForm(form:this,text: "Detalhes");
-                        GerenciarControl.MudarTextoDoButton(btn:btnCadastrar,text:EnumTipoOperacao.Sair.ToString());
-                        GerenciarControl.MudarIConeDoButton(btn:btnCadastrar,operecao: EnumTipoOperacao.Detalhes,iconeName: "exit.ico");
-                        GerenciarControl.MudarTextoDoGroupBox(gpb: gpbProduto,text:"Detalhes do Produto");
-                        btnCadastrar.Padronizar();
+                        GerenciarControl.MudarTextoDoForm(form: this, text: "Detalhes");
+                        GerenciarControl.MudarTextoDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Sair.ToString());
+                        GerenciarControl.MudarIConeDoButton(btn: btnCadastrar, operecao: EnumTipoOperacao.Detalhes, iconeName: "exit.ico");
+                        GerenciarControl.MudarTextoDoGroupBox(gpb: gpbProduto, text: "Detalhes do Produto");
+                        PersonalizarButton();
                         PopularTextBox();
+                        GerenciarControl.DesabilitarOuHabilitarButton(btnCadastrar, true);
                         FocarNoButton(btnCadastrar);
                         break;
-                    default:
-                        break;
+
                 }
 
 
@@ -88,6 +98,11 @@ namespace Pizzaria.View.UI.ViewProduto
                 CustomMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message);
             }
 
+        }
+
+        private void PersonalizarButton()
+        {
+            btnCadastrar.Padronizar();
         }
 
         private void FocarNoButton(Button btn)
@@ -138,6 +153,7 @@ namespace Pizzaria.View.UI.ViewProduto
 
             try
             {
+                InsProdutodRep();
                 switch (_enumTipoOperacao)
                 {
                     case EnumTipoOperacao.Novo:
@@ -149,6 +165,10 @@ namespace Pizzaria.View.UI.ViewProduto
                     case EnumTipoOperacao.Editar:
                         break;
                     case EnumTipoOperacao.Deletar:
+                        if (_produtoRepositorio.Deletar(_produto.ProdutoID))
+                        {
+                            this.DialogResult = DialogResult.Yes;
+                        }
                         break;
                     case EnumTipoOperacao.Sair:
                         FecharForm();
@@ -159,7 +179,7 @@ namespace Pizzaria.View.UI.ViewProduto
                     default:
                         break;
                 }
-              
+
 
 
             }
@@ -463,27 +483,27 @@ namespace Pizzaria.View.UI.ViewProduto
                 case EnumTipoProduto.Pizza:
                     GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
                     GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);
-                    GerenciarControl.DesabilitarButton(btn: btnCadastrar, habilitado: true);
+                    GerenciarControl.DesabilitarOuHabilitarButton(btn: btnCadastrar, habilitado: true);
                     FocarNoTxt(txt: txtNome);
                     break;
                 case EnumTipoProduto.Pastel:
                     GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);
                     GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
                     DesabilitarPastel();
-                    GerenciarControl.DesabilitarButton(btn: btnCadastrar, habilitado: true);
+                    GerenciarControl.DesabilitarOuHabilitarButton(btn: btnCadastrar, habilitado: true);
                     FocarNoTxt(txt: txtNome);
                     break;
                 case EnumTipoProduto.Outros:
                     GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox(), mostrar: true);
                     GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar, habilitado: true);
                     DesabilitarOutros();
-                    GerenciarControl.DesabilitarButton(btn: btnCadastrar, habilitado: true);
+                    GerenciarControl.DesabilitarOuHabilitarButton(btn: btnCadastrar, habilitado: true);
                     FocarNoTxt(txt: txtNome);
                     break;
                 case EnumTipoProduto.Escolha:
                     GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(listGpb: ListarGroupBox());
                     GerenciarControl.DesabilitarOuHablitarCheckBox(ckb: ckbGerenciar);
-                    GerenciarControl.DesabilitarButton(btn: btnCadastrar);
+                    GerenciarControl.DesabilitarOuHabilitarButton(btn: btnCadastrar);
                     break;
 
             }

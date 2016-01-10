@@ -75,8 +75,8 @@
             this.dgvPesquisarProduto.Name = "dgvPesquisarProduto";
             this.dgvPesquisarProduto.Size = new System.Drawing.Size(590, 219);
             this.dgvPesquisarProduto.TabIndex = 1;
+            this.dgvPesquisarProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPesquisarProduto_CellDoubleClick);
             this.dgvPesquisarProduto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvPesquisarProduto_CellFormatting);
-           
             // 
             // txtNome
             // 
@@ -97,6 +97,7 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(102, 47);
             this.btnSair.TabIndex = 0;
+            this.btnSair.TabStop = false;
             this.btnSair.Text = "Sair";
             this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSair.UseVisualStyleBackColor = true;
@@ -109,9 +110,11 @@
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(102, 47);
             this.btnDeletar.TabIndex = 0;
+            this.btnDeletar.TabStop = false;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnEditar
             // 
@@ -121,6 +124,7 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(102, 47);
             this.btnEditar.TabIndex = 0;
+            this.btnEditar.TabStop = false;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -133,6 +137,7 @@
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(102, 47);
             this.btnNovo.TabIndex = 0;
+            this.btnNovo.TabStop = false;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;

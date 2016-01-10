@@ -27,6 +27,37 @@ namespace Pizzaria.View.Utilities
 
             }
         }
+        public static void LimparSelecao(this DataGridView dgv)
+        {
 
+            try
+            {
+                if (dgv.Rows.Count > 0)
+                {
+                    //if (dgv.SelectedRows[0]?.State == DataGridViewElementStates.Selected)
+                    //{
+                    //    dgv.AreAllCellsSelected(false);
+                    //    //dgv.SelectedRows[0].Selected = false;
+                    //}
+                    //dgv.SelectedRows[0].Selected = false;
+                    dgv.ClearSelection();
+                }
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+
+           
+        }
+        public static string GetLineSelectValue(this DataGridView dgv, string coluna)
+        {
+            string result = "";
+            if (dgv.SelectedRows.Count > 0)
+            {
+                result = dgv.SelectedRows[0].Cells[coluna].Value.ToString();
+            }
+            return result;
+        }
     }
 }

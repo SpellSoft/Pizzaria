@@ -3,14 +3,14 @@ using Pizzaria.Model.Entity;
 using Pizzaria.Model.Initializer;
 using System.Configuration;
 using System.Data.Entity;
-
+using System.Linq;
 namespace Pizzaria.Model.Data
 {
-    [DbConfigurationType(typeof(MySqlEFConfiguration))]    
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class _DbContext : DbContext
     {
-        public _DbContext(): base(ConfigurationManager.ConnectionStrings["Pizzaria"].ConnectionString)
-        {            
+        public _DbContext() : base(ConfigurationManager.ConnectionStrings["Pizzaria"].ConnectionString)
+        {
             Database.SetInitializer<_DbContext>(new DataInitializer());
         }
         public DbSet<Produto> Produto { get; set; }
@@ -24,5 +24,19 @@ namespace Pizzaria.Model.Data
         public DbSet<Logradouro> Logradouro { get; set; }
         public DbSet<Contato> Contato { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+   //         modelBuilder.Entity<Produto>()
+   //   .HasMany(a => a.Complemento)
+   //    .WithOptional(c=>c.Produto)
+   //   .WillCascadeOnDelete();
+
+   //         modelBuilder.Entity<Produto>()
+   //.HasOptional(a => a.Estoque)
+   // .WithRequired(c => c.Produto)
+   //.WillCascadeOnDelete(true);
+
+        }
     }
 }

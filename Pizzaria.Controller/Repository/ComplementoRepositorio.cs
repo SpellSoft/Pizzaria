@@ -11,7 +11,7 @@ namespace Pizzaria.Controller.Repository
         }
         public Complemento GetUltimoResgistro()
         {
-            return entity.OrderByDescending(c => c.ComplementoID).FirstOrDefault();
+            return entities.OrderByDescending(c => c.ComplementoID).FirstOrDefault();
         }
 
     }

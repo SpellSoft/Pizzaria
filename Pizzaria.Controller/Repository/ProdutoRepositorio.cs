@@ -24,6 +24,12 @@ namespace Pizzaria.Controller.Repository
         {
             return base.Listar();
         }
+        public override bool Deletar(int id)
+        {
+            var produto = entities.Include(c => c.Complemento).Include(c=>c.Estoque).FirstOrDefault(c=>c.ProdutoID == id);
+            entities.Remove(produto);
+            return Confirmar();
+        }
         public List<ProdutoPesquisaViewModel> ListarPesquisa(string nome = "")
         {
             return (from prod in Listar()
@@ -68,10 +74,11 @@ namespace Pizzaria.Controller.Repository
 
         public Produto GetPeloCodigo(string codigo)
         {
-            return entity.Include(c => c.Estoque)
+            return entities.Include(c => c.Estoque)
                                 .Include(c => c.Categoria)
                                 .Include(c => c.Borda)
-                                .Include(c => c.Sabor)                               
+                                .Include(c => c.Sabor).
+                                 Include(c=>c.Complemento)                            
                                 .FirstOrDefault(c => c.Codigo.ToLower()
                                 == codigo.ToLower());
         }

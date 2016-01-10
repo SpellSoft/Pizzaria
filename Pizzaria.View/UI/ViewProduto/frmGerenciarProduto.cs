@@ -28,11 +28,34 @@ namespace Pizzaria.View.UI.ViewProduto
 
         private void frmGerenciarProduto_Load(object sender, EventArgs e)
         {
-            Array.ForEach(GetAllButton(), c => c.Padronizar());
-            CarregarGrid();
-            FocarNotxt();
+
+            try
+            {
+                Array.ForEach(GetAllButton(), c => c.Padronizar());
+                CarregarGrid();
+                FocarNotxt();
+                TirarFocoDoDgv();
+               
+            }
+            catch (CustomException error)
+            {
+                CustomMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message, title: "Aviso");
+            }
+            catch (Exception error)
+            {
+                CustomMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message, title: "Aviso");
+            }
+
         }
 
+        private void TirarFocoDoDgv()
+        {
+            if (dgvPesquisarProduto.Rows.Count > 0)
+            {
+                dgvPesquisarProduto.LimparSelecao();
+            }
+          
+        }
         private void FocarNotxt()
         {
             this.FocoNoTxt(txtNome);
@@ -96,7 +119,10 @@ namespace Pizzaria.View.UI.ViewProduto
         {
             InsProdutoRep();
             if (SeExisteProduto())
+            {
                 ProdutoDgv = _produtoRepositorio.ListarPesquisa(txtNome.Text);
+                dgvPesquisarProduto.ClearSelection();
+            }
         }
 
         private bool SeExisteProduto()
@@ -153,17 +179,7 @@ namespace Pizzaria.View.UI.ViewProduto
 
                     break;
                 case Keys.Enter:
-                    if (SeDgvEstaValido())
-                    {
-                        //CancelarDelegateDeDgvKeyPress();
-                        Produto produto = GetProdutoSelecionado();
-                        if (OpenMdiForm.OpenForWithShowDialog(
-                            new frmCadastrarProduto(EnumTipoOperacao.Detalhes, produto))
-                            == DialogResult.Yes)
-                        {
-
-                        }
-                    }
+                   
                     break;
                 case Keys.Up:
                     MoverDgvParaCima();
@@ -174,13 +190,8 @@ namespace Pizzaria.View.UI.ViewProduto
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
-        //private void CancelarDelegateDeDgvKeyPress()
-        //{
-        //    dgvPesquisarProduto.KeyPress -= new KeyPressEventHandler(dgvPesquisarProduto_KeyPress);
-        //}
-
-        private Produto GetProdutoSelecionado()
+        
+        private Produto GetProdutoSelecionadoNoDgv()
         {
             InsProdutoRep();
             return _produtoRepositorio.GetPeloCodigo(GetCodidoSelecionado());
@@ -191,7 +202,9 @@ namespace Pizzaria.View.UI.ViewProduto
             dgvPesquisarProduto.MoveToDown();
         }
         private string GetCodidoSelecionado()
-                       => dgvPesquisarProduto.SelectedRows[0].Cells[nameof(ProdutoPesquisaViewModel.Código)].Value.ToString();
+        {
+            return dgvPesquisarProduto.GetLineSelectValue(nameof(ProdutoPesquisaViewModel.Código));
+        }
         private void MoverDgvParaCima()
         {
             dgvPesquisarProduto.MoveToUp();
@@ -200,16 +213,37 @@ namespace Pizzaria.View.UI.ViewProduto
         private bool SeDgvEstaValido()
                     => dgvPesquisarProduto.Rows.Count > 0 && InsProdutoRep().GetQuantidade() > 0;
 
-        //private void dgvPesquisarProduto_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if ((Keys)e.KeyChar == Keys.Enter && SeDgvEstaValido() && dgvPesquisarProduto.Focused)
-        //    {
-        //        Produto produto = GetProdutoSelecionado();
-        //        if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarProduto(EnumTipoOperacao.Select, produto)) == DialogResult.Yes)
-        //        {
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            Produto produto = GetProdutoSelecionadoNoDgv();
+            if (produto != null)
+            {
+                if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarProduto(EnumTipoOperacao.Deletar, produto)) == DialogResult.Yes)
+                {
+                    CustomMessage.MessageFullComButtonOkIconeDeInformacao($"Produto {produto.Nome} deletado com sucesso.");
+                    CarregarGrid();
+                }
+            }
 
-        //        }
-        //    }
-        //}
+        }
+
+        private Produto GetProdutoAtualNoDgv()
+        {
+            InsProdutoRep();
+            string codigo = dgvPesquisarProduto.CurrentRow.Cells[nameof(ProdutoPesquisaViewModel.Código)].Value.ToString();
+            return _produtoRepositorio.GetPeloCodigo(codigo);
+        }
+
+        private void dgvPesquisarProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Produto produto = GetProdutoAtualNoDgv();
+                if (produto != null)
+                {
+                    OpenMdiForm.OpenForWithShowDialog(new frmCadastrarProduto(EnumTipoOperacao.Detalhes, produto));
+                }
+            }
+        }
     }
 }
