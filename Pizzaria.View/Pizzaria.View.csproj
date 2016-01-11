@@ -66,10 +66,10 @@
     <Compile Include="Enumerador\EnumTipoProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\frmCadastrarCliente.cs">
+    <Compile Include="UI\ViewCliente\frmCadastrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmCadastrarCliente.Designer.cs">
+    <Compile Include="UI\ViewCliente\frmCadastrarCliente.Designer.cs">
       <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ViewBorda\frmCadastrarBorda.cs">
@@ -83,6 +83,12 @@
     </Compile>
     <Compile Include="UI\ViewCategoria\frmCadastrarCategoria.Designer.cs">
       <DependentUpon>frmCadastrarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ViewCliente\frmGerenciarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewCliente\frmGerenciarCliente.Designer.cs">
+      <DependentUpon>frmGerenciarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ViewComplemento\frmCadastrarComplemento.cs">
       <SubType>Form</SubType>
@@ -138,7 +144,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\frmCadastrarCliente.resx">
+    <EmbeddedResource Include="UI\ViewCliente\frmCadastrarCliente.resx">
       <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewBorda\frmCadastrarBorda.resx">
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewCategoria\frmCadastrarCategoria.resx">
       <DependentUpon>frmCadastrarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewCliente\frmGerenciarCliente.resx">
+      <DependentUpon>frmGerenciarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewComplemento\frmCadastrarComplemento.resx">
       <DependentUpon>frmCadastrarComplemento.cs</DependentUpon>

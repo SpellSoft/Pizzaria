@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Mike.Utilities.Desktop;
 using Pizzaria.View.UI.ViewProduto;
 using Pizzaria.View.UI.ViewEspera;
+using Pizzaria.View.UI.ViewCliente;
 
 namespace Pizzaria.View.UI.ViewMenu
 {
@@ -55,6 +56,14 @@ namespace Pizzaria.View.UI.ViewMenu
             InsControlsForTask();
             espere.Start(RunMessage);
             OpenMdiForm.LoadNewKeepAnother(this, new frmPesquisarProduto());
+            CancelarTask();
+        }
+
+        private void btnGerenciarClientes_Click(object sender, EventArgs e)
+        {
+            InsControlsForTask();
+            espere.Start(RunMessage);
+            OpenMdiForm.LoadNewKeepAnother(this, new frmGerenciarCliente());
             CancelarTask();
         }
     }

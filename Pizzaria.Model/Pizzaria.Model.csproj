@@ -78,6 +78,7 @@
     <Compile Include="Entity\Sabor.cs" />
     <Compile Include="Initializer\DataInitializer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelView\ClientePesquisaViewModel.cs" />
     <Compile Include="ModelView\ProdutoPesquisaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\ValidarCampos.cs" />

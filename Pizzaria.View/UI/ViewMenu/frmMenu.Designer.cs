@@ -97,6 +97,7 @@
             this.btnGerenciarClientes.Name = "btnGerenciarClientes";
             this.btnGerenciarClientes.Size = new System.Drawing.Size(153, 26);
             this.btnGerenciarClientes.Text = "Gerenciar";
+            this.btnGerenciarClientes.Click += new System.EventHandler(this.btnGerenciarClientes_Click);
             // 
             // btnPesquisarClientes
             // 
