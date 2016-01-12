@@ -66,6 +66,18 @@
     <Compile Include="Enumerador\EnumTipoProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ViewBairro\frmCadastrarBairro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewBairro\frmCadastrarBairro.Designer.cs">
+      <DependentUpon>frmCadastrarBairro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ViewCidade\frmCadastrarCidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewCidade\frmCadastrarCidade.Designer.cs">
+      <DependentUpon>frmCadastrarCidade.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewCliente\frmCadastrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +156,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\ViewBairro\frmCadastrarBairro.resx">
+      <DependentUpon>frmCadastrarBairro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewCidade\frmCadastrarCidade.resx">
+      <DependentUpon>frmCadastrarCidade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewCliente\frmCadastrarCliente.resx">
       <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
     </EmbeddedResource>

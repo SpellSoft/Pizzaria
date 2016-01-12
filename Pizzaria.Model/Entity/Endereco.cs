@@ -18,9 +18,9 @@ namespace Pizzaria.Model.Entity
         public int BairroID { get; set; }
         [ForeignKey(name: nameof(Cidade))]
         public int CidadeID { get; set; }
-        [ForeignKey(name:nameof(Logradouro))]
-        [MaxLength(10,ErrorMessage ="Número deve conter no máximo 10 caracteres")]
+        [MaxLength(10, ErrorMessage = "Número deve conter no máximo 10 caracteres")]
         public string Numero { get; set; }
+        [ForeignKey(name:nameof(Logradouro))]     
         public int LogradouroID { get; set; }
         public virtual Bairro Bairro { get; set; }
         public virtual Cidade Cidade { get; set; }

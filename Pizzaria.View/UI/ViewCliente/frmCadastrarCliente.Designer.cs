@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastrarCliente));
             this.gpbCadastrarCliente = new System.Windows.Forms.GroupBox();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
             this.gpbContatos = new System.Windows.Forms.GroupBox();
             this.mtbCelular = new System.Windows.Forms.MaskedTextBox();
@@ -38,9 +39,11 @@
             this.lblFixo = new System.Windows.Forms.Label();
             this.gpbEndereco = new System.Windows.Forms.GroupBox();
             this.btnAdicionarLogradouro = new System.Windows.Forms.Button();
+            this.lblNumero = new System.Windows.Forms.Label();
             this.btnAdicionarBairro = new System.Windows.Forms.Button();
             this.btnAdicionarCidade = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblRefrerencia = new System.Windows.Forms.Label();
             this.lblLogradouro = new System.Windows.Forms.Label();
             this.lblBairro = new System.Windows.Forms.Label();
@@ -49,9 +52,6 @@
             this.cbbBairro = new System.Windows.Forms.ComboBox();
             this.cbbCidade = new System.Windows.Forms.ComboBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lblNumero = new System.Windows.Forms.Label();
             this.gpbCadastrarCliente.SuspendLayout();
             this.gpbContatos.SuspendLayout();
             this.gpbEndereco.SuspendLayout();
@@ -71,6 +71,22 @@
             this.gpbCadastrarCliente.TabIndex = 0;
             this.gpbCadastrarCliente.TabStop = false;
             this.gpbCadastrarCliente.Text = "Cadastrar Cliente";
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
+            this.btnCadastrar.Location = new System.Drawing.Point(10, 513);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(403, 43);
+            this.btnCadastrar.TabIndex = 10;
+            this.btnCadastrar.Text = "Salvar";
+            this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // lblNome
             // 
@@ -161,6 +177,15 @@
             this.btnAdicionarLogradouro.TabIndex = 3;
             this.btnAdicionarLogradouro.UseVisualStyleBackColor = true;
             // 
+            // lblNumero
+            // 
+            this.lblNumero.AutoSize = true;
+            this.lblNumero.Location = new System.Drawing.Point(11, 208);
+            this.lblNumero.Name = "lblNumero";
+            this.lblNumero.Size = new System.Drawing.Size(65, 20);
+            this.lblNumero.TabIndex = 2;
+            this.lblNumero.Text = "Número";
+            // 
             // btnAdicionarBairro
             // 
             this.btnAdicionarBairro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdicionarBairro.BackgroundImage")));
@@ -171,6 +196,7 @@
             this.btnAdicionarBairro.Size = new System.Drawing.Size(58, 28);
             this.btnAdicionarBairro.TabIndex = 3;
             this.btnAdicionarBairro.UseVisualStyleBackColor = true;
+            this.btnAdicionarBairro.Click += new System.EventHandler(this.btnAdicionarBairro_Click);
             // 
             // btnAdicionarCidade
             // 
@@ -182,16 +208,28 @@
             this.btnAdicionarCidade.Size = new System.Drawing.Size(58, 28);
             this.btnAdicionarCidade.TabIndex = 3;
             this.btnAdicionarCidade.UseVisualStyleBackColor = true;
+            this.btnAdicionarCidade.Click += new System.EventHandler(this.btnAdicionarCidade_Click);
             // 
             // textBox1
             // 
             this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.textBox1.Location = new System.Drawing.Point(13, 273);
+            this.textBox1.MaxLength = 100;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(370, 64);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.textBox2.Location = new System.Drawing.Point(82, 206);
+            this.textBox2.MaxLength = 10;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(301, 26);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblRefrerencia
             // 
@@ -260,43 +298,11 @@
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Location = new System.Drawing.Point(83, 37);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(306, 26);
             this.txtNome.TabIndex = 0;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
-            this.btnCadastrar.Location = new System.Drawing.Point(10, 513);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(403, 43);
-            this.btnCadastrar.TabIndex = 10;
-            this.btnCadastrar.Text = "Salvar";
-            this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox2.Location = new System.Drawing.Point(82, 206);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(237, 26);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblNumero
-            // 
-            this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(11, 208);
-            this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(65, 20);
-            this.lblNumero.TabIndex = 2;
-            this.lblNumero.Text = "Número";
             // 
             // frmCadastrarCliente
             // 
