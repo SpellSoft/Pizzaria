@@ -42,8 +42,8 @@
             this.lblNumero = new System.Windows.Forms.Label();
             this.btnAdicionarBairro = new System.Windows.Forms.Button();
             this.btnAdicionarCidade = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPontoReferencia = new System.Windows.Forms.TextBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
             this.lblRefrerencia = new System.Windows.Forms.Label();
             this.lblLogradouro = new System.Windows.Forms.Label();
             this.lblBairro = new System.Windows.Forms.Label();
@@ -150,8 +150,8 @@
             this.gpbEndereco.Controls.Add(this.lblNumero);
             this.gpbEndereco.Controls.Add(this.btnAdicionarBairro);
             this.gpbEndereco.Controls.Add(this.btnAdicionarCidade);
-            this.gpbEndereco.Controls.Add(this.textBox1);
-            this.gpbEndereco.Controls.Add(this.textBox2);
+            this.gpbEndereco.Controls.Add(this.txtPontoReferencia);
+            this.gpbEndereco.Controls.Add(this.txtNumero);
             this.gpbEndereco.Controls.Add(this.lblRefrerencia);
             this.gpbEndereco.Controls.Add(this.lblLogradouro);
             this.gpbEndereco.Controls.Add(this.lblBairro);
@@ -176,6 +176,7 @@
             this.btnAdicionarLogradouro.Size = new System.Drawing.Size(58, 28);
             this.btnAdicionarLogradouro.TabIndex = 3;
             this.btnAdicionarLogradouro.UseVisualStyleBackColor = true;
+            this.btnAdicionarLogradouro.Click += new System.EventHandler(this.btnAdicionarLogradouro_Click);
             // 
             // lblNumero
             // 
@@ -210,26 +211,26 @@
             this.btnAdicionarCidade.UseVisualStyleBackColor = true;
             this.btnAdicionarCidade.Click += new System.EventHandler(this.btnAdicionarCidade_Click);
             // 
-            // textBox1
+            // txtPontoReferencia
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox1.Location = new System.Drawing.Point(13, 273);
-            this.textBox1.MaxLength = 100;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(370, 64);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPontoReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtPontoReferencia.Location = new System.Drawing.Point(13, 273);
+            this.txtPontoReferencia.MaxLength = 100;
+            this.txtPontoReferencia.Multiline = true;
+            this.txtPontoReferencia.Name = "txtPontoReferencia";
+            this.txtPontoReferencia.Size = new System.Drawing.Size(370, 64);
+            this.txtPontoReferencia.TabIndex = 0;
+            this.txtPontoReferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // txtNumero
             // 
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox2.Location = new System.Drawing.Point(82, 206);
-            this.textBox2.MaxLength = 10;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(301, 26);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtNumero.Location = new System.Drawing.Point(82, 206);
+            this.txtNumero.MaxLength = 10;
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(301, 26);
+            this.txtNumero.TabIndex = 0;
+            this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblRefrerencia
             // 
@@ -345,7 +346,7 @@
         private System.Windows.Forms.Label lblLogradouro;
         private System.Windows.Forms.ComboBox cbbLogradouro;
         private System.Windows.Forms.Button btnAdicionarLogradouro;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPontoReferencia;
         private System.Windows.Forms.Label lblRefrerencia;
         private System.Windows.Forms.MaskedTextBox mtbCelular;
         private System.Windows.Forms.MaskedTextBox mtbFixo;
@@ -353,6 +354,6 @@
         private System.Windows.Forms.Label lblFixo;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblNumero;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNumero;
     }
 }

@@ -114,6 +114,12 @@
     <Compile Include="UI\ViewEspera\frmAguarde.Designer.cs">
       <DependentUpon>frmAguarde.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewLogradouro\frmCadastrarLogradouro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewLogradouro\frmCadastrarLogradouro.Designer.cs">
+      <DependentUpon>frmCadastrarLogradouro.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewMenu\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewEspera\frmAguarde.resx">
       <DependentUpon>frmAguarde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewLogradouro\frmCadastrarLogradouro.resx">
+      <DependentUpon>frmCadastrarLogradouro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewMenu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

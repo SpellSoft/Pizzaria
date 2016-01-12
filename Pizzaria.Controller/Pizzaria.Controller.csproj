@@ -60,6 +60,7 @@
     <Compile Include="Repository\ClienteRepositorio.cs" />
     <Compile Include="Repository\ComplementoRepositorio.cs" />
     <Compile Include="Repository\DefaultRepositorio.cs" />
+    <Compile Include="Repository\LogradouroRepositorio.cs" />
     <Compile Include="Repository\ProdutoRepositorio.cs" />
     <Compile Include="Repository\SaborRepositorio.cs" />
   </ItemGroup>
