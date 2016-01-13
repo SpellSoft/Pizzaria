@@ -19,6 +19,7 @@ namespace Pizzaria.Model.Entity
         [ForeignKey(name: nameof(Cidade))]
         public int? CidadeID { get; set; }
         [MaxLength(10, ErrorMessage = "Número deve conter no máximo 10 caracteres")]
+        [Required(ErrorMessage ="Número é obrigatório.")]
         public string Numero { get; set; }
         [ForeignKey(name:nameof(Logradouro))]     
         public int? LogradouroID { get; set; }

@@ -1,9 +1,8 @@
 ﻿using Mike.Utilities.Desktop;
 using Pizzaria.Controller.Repository;
 using Pizzaria.Model.Entity;
-using Pizzaria.Model.Utilities;
+using Pizzaria.View.Utilities;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Pizzaria.View.UI.ViewSabor
@@ -26,7 +25,7 @@ namespace Pizzaria.View.UI.ViewSabor
         {
             var saborRepositorio = new SaborRepositorio();
             var sabor = new Sabor { Nome = txtNome.Text.Trim().UpperCaseOnlyFirst() };
-            var txt = ValidaCampos.Validar(sabor, GetAllTextBox());
+            var txt = ValidaCampos.ValidarTxt(sabor, GetAllTextBox());
             if (txt == null)
             {
                 if (saborRepositorio.Salvar(sabor))

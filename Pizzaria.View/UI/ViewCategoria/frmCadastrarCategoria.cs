@@ -1,9 +1,9 @@
 ﻿using Pizzaria.Controller.Repository;
 using Pizzaria.Model.Entity;
-using Pizzaria.Model.Utilities;
 using System;
 using System.Windows.Forms;
 using Mike.Utilities.Desktop;
+using Pizzaria.View.Utilities;
 
 namespace Pizzaria.View.UI.ViewCategoria
 {
@@ -18,7 +18,7 @@ namespace Pizzaria.View.UI.ViewCategoria
         {
             var categoriaRepositorio = new CategoriaRepositorio();
             var categoria = new Categoria { Nome = txtNome.Text.Trim().UpperCaseOnlyFirst() };
-            var txt = ValidaCampos.Validar(categoria, GetAllTextBox());
+            var txt = ValidaCampos.ValidarTxt(categoria, GetAllTextBox());
             if (txt == null)
             {
                 if (categoriaRepositorio.Salvar(categoria))

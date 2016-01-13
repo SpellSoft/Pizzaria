@@ -7,6 +7,7 @@ using Mike.Utilities.Desktop;
 using Pizzaria.View.UI.ViewCidade;
 using Pizzaria.View.UI.ViewBairro;
 using Pizzaria.View.UI.ViewLogradouro;
+using Pizzaria.View.Utilities;
 
 namespace Pizzaria.View.UI.ViewCliente
 {
@@ -39,14 +40,29 @@ namespace Pizzaria.View.UI.ViewCliente
 
         private void frmCadastrarCliente_Load(object sender, EventArgs e)
         {
-            InsBairroResp();
-            InsCidadeRep();
-            InsLogradouroRep();
-            InsClienteRep();
 
-            CarregarBairroLogradouro();
-            CarregarCidade();
-            CarregarBairro();
+            try
+            {
+                FocarNoTxt(txtNome);
+                InsBairroResp();
+                InsCidadeRep();
+                InsLogradouroRep();
+                InsClienteRep();
+
+                CarregarBairroLogradouro();
+                CarregarCidade();
+                CarregarBairro();
+            }
+            catch (CustomException error)
+            {
+                DialogMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message, title: "Aviso");
+            }
+            catch (Exception error)
+            {
+                SaveErroInTxt.RecordInTxt(error, this.GetType().Name);
+                DialogMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message, title: "Aviso");
+            }
+
         }
 
         private void CarregarBairro()
@@ -75,15 +91,15 @@ namespace Pizzaria.View.UI.ViewCliente
                 Contato = new Contato
                 {
                     ClienteID = _cliente == null ? 0 : _cliente.ClienteID,
-                    Celular = mtbCelular.Text.Trim(),
-                    Fixo = mtbFixo.Text.Trim()
+                    Celular = mtbCelular.GetMtbText().Trim(),
+                    Fixo = mtbFixo.GetMtbText().Trim()
 
                 },
                 Endereco = new Endereco
                 {
                     ClienteID = _cliente?.ClienteID,
                     BairroID = _bairroRepositorio.ListarIdPorNome(GetCbbBairroText()),
-                    CidadeID  = _cidadeRepositorio.ListarIdPorNome(GetCbbCidadeText()),
+                    CidadeID = _cidadeRepositorio.ListarIdPorNome(GetCbbCidadeText()),
                     LogradouroID = _logradouroRepositorio.ListarIdPorNome(GetCbbLogradourotext()),
                     Numero = txtNumero.Text,
                     Referencia = txtPontoReferencia.Text
@@ -109,8 +125,36 @@ namespace Pizzaria.View.UI.ViewCliente
 
         private void ValidandoCampos(Cliente cliente)
         {
-           
+            var txtCli = ValidaCampos.ValidarTxt(cliente, GetAllTxt());
+            if (txtCli != null)
+            {
+                FocarNoTxt(txtCli);
+                return;
+            }
+            var txtCon = ValidaCampos.ValidarTxt(cliente.Endereco, GetAllTxt());
+            if (txtCon != null)
+            {
+                FocarNoTxt(txtCon);
+                return;
+            }
+            var mtbEnd = ValidaCampos.ValidarMtb(cliente.Contato, GetAllMtb());
+            if (mtbEnd != null)
+            {
+                FocarNoMtb(mtbEnd);
+                return;
+            }
+
             var result = _clienteRepositorio.Salvar(cliente);
+
+
+        }
+
+        private void FocarNoMtb(MaskedTextBox mtbEnd)
+                     => this.ActiveControl = mtbEnd;
+
+        private void FocarNoTxt(TextBox txt)
+        {
+            this.FocoNoTxt(txt);
         }
 
         private void btnAdicionarCidade_Click(object sender, EventArgs e)
@@ -118,7 +162,8 @@ namespace Pizzaria.View.UI.ViewCliente
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade()) == DialogResult.Yes)
             {
                 CarregarCidade();
-                MessageBox.Show("Uma ciade foi cadastrada");
+                CustomMessage.
+                     MessageFullComButtonOkIconeDeInformacao("Cidade cadastrado com sucesso!");
             }
 
         }
@@ -128,7 +173,8 @@ namespace Pizzaria.View.UI.ViewCliente
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarBairro()) == DialogResult.Yes)
             {
                 CarregarBairro();
-                MessageBox.Show("Uma ciade foi cadastrada");
+                CustomMessage.
+                     MessageFullComButtonOkIconeDeInformacao("Bairro cadastrado com sucesso!");
             }
         }
 
@@ -137,7 +183,8 @@ namespace Pizzaria.View.UI.ViewCliente
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarLogradouro()) == DialogResult.Yes)
             {
                 CarregarBairroLogradouro();
-                MessageBox.Show("Uma logradouro foi cadastrada");
+                CustomMessage.
+                    MessageFullComButtonOkIconeDeInformacao("Logradouro cadastrado com sucesso!");
             }
         }
 
@@ -146,5 +193,9 @@ namespace Pizzaria.View.UI.ViewCliente
             cbbLogradouro.DisplayMember = nameof(Logradouro.Nome);
             cbbLogradouro.DataSource = _logradouroRepositorio.Listar();
         }
+        private TextBox[] GetAllTxt()
+                => new TextBox[] { txtNome, txtNumero, txtPontoReferencia };
+        private MaskedTextBox[] GetAllMtb()
+                => new MaskedTextBox[] { mtbCelular, mtbFixo };
     }
 }

@@ -42,7 +42,7 @@ namespace Pizzaria.View.Utilities
                 throw new Exception(error.Message);
             }
 
-           
+
         }
         public static string GetLineSelectValue(this DataGridView dgv, string coluna)
         {
@@ -53,13 +53,18 @@ namespace Pizzaria.View.Utilities
             }
             return result;
         }
-        public static string SetIcon(this EnumTipoIconCrud icone,EnumExtensao extensao)
+        public static string SetIcon(this EnumTipoIconCrud icone, EnumExtensao extensao)
         {
-            return icone +"."+ extensao;
+            return icone + "." + extensao;
         }
-        public static string LimparDigitos(this string valor,int digitos)
+        public static string LimparDigitos(this string valor, int digitos)
         {
             return valor = valor.Substring(digitos, valor.Length - digitos).Trim();
+        }
+        public static string GetMtbText(this MaskedTextBox mtb)
+        {
+            mtb.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            return mtb.Text;
         }
     }
 }

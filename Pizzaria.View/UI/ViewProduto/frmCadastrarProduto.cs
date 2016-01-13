@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Pizzaria.View.UI.ViewComplemento;
 using Pizzaria.View.UI.ViewBorda;
-using Pizzaria.Model.Utilities;
 using System.Drawing;
 using System.Linq;
 using Pizzaria.View.Enumerador;
@@ -304,7 +303,7 @@ namespace Pizzaria.View.UI.ViewProduto
             try
             {
 
-                TextBox txt = ValidaCampos.Validar(prod, GetAllTextBox());
+                TextBox txt = ValidaCampos.ValidarTxt(prod, GetAllTextBox().ToArray<TextBox>());
                 if (txt == null)
                 {
                     if (GetTipoProdutoNoCbbTipo(EnumTipoProduto.Pizza) && GetTipoOperacao()==EnumTipoOperacao.Novo)

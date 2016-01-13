@@ -153,6 +153,7 @@
     <Compile Include="Utilities\GerenciarControl.cs" />
     <Compile Include="Utilities\InjectionMethods.cs" />
     <Compile Include="Utilities\Message.cs" />
+    <Compile Include="Utilities\ValidarCampos.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

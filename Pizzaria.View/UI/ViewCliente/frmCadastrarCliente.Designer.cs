@@ -81,7 +81,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(10, 513);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(403, 43);
-            this.btnCadastrar.TabIndex = 10;
+            this.btnCadastrar.TabIndex = 6;
             this.btnCadastrar.Text = "Salvar";
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -106,30 +106,31 @@
             this.gpbContatos.Location = new System.Drawing.Point(6, 417);
             this.gpbContatos.Name = "gpbContatos";
             this.gpbContatos.Size = new System.Drawing.Size(409, 90);
-            this.gpbContatos.TabIndex = 1;
+            this.gpbContatos.TabIndex = 4;
             this.gpbContatos.TabStop = false;
             this.gpbContatos.Text = "Telefone";
             // 
             // mtbCelular
             // 
-            this.mtbCelular.Location = new System.Drawing.Point(277, 37);
-            this.mtbCelular.Mask = "(99) 000-0000";
+            this.mtbCelular.BackColor = System.Drawing.Color.Yellow;
+            this.mtbCelular.Location = new System.Drawing.Point(271, 37);
+            this.mtbCelular.Mask = "(99) 00000-0000";
             this.mtbCelular.Name = "mtbCelular";
-            this.mtbCelular.Size = new System.Drawing.Size(112, 26);
+            this.mtbCelular.Size = new System.Drawing.Size(125, 26);
             this.mtbCelular.TabIndex = 5;
             // 
             // mtbFixo
             // 
             this.mtbFixo.Location = new System.Drawing.Point(55, 37);
-            this.mtbFixo.Mask = "(99) 000-0000";
+            this.mtbFixo.Mask = "(99) 0000-0000";
             this.mtbFixo.Name = "mtbFixo";
-            this.mtbFixo.Size = new System.Drawing.Size(112, 26);
-            this.mtbFixo.TabIndex = 5;
+            this.mtbFixo.Size = new System.Drawing.Size(117, 26);
+            this.mtbFixo.TabIndex = 4;
             // 
             // lblCelular
             // 
             this.lblCelular.AutoSize = true;
-            this.lblCelular.Location = new System.Drawing.Point(213, 40);
+            this.lblCelular.Location = new System.Drawing.Point(208, 40);
             this.lblCelular.Name = "lblCelular";
             this.lblCelular.Size = new System.Drawing.Size(58, 20);
             this.lblCelular.TabIndex = 4;
@@ -162,7 +163,7 @@
             this.gpbEndereco.Location = new System.Drawing.Point(12, 69);
             this.gpbEndereco.Name = "gpbEndereco";
             this.gpbEndereco.Size = new System.Drawing.Size(396, 346);
-            this.gpbEndereco.TabIndex = 1;
+            this.gpbEndereco.TabIndex = 2;
             this.gpbEndereco.TabStop = false;
             this.gpbEndereco.Text = "Endereço";
             // 
@@ -175,6 +176,7 @@
             this.btnAdicionarLogradouro.Name = "btnAdicionarLogradouro";
             this.btnAdicionarLogradouro.Size = new System.Drawing.Size(58, 28);
             this.btnAdicionarLogradouro.TabIndex = 3;
+            this.btnAdicionarLogradouro.TabStop = false;
             this.btnAdicionarLogradouro.UseVisualStyleBackColor = true;
             this.btnAdicionarLogradouro.Click += new System.EventHandler(this.btnAdicionarLogradouro_Click);
             // 
@@ -196,6 +198,7 @@
             this.btnAdicionarBairro.Name = "btnAdicionarBairro";
             this.btnAdicionarBairro.Size = new System.Drawing.Size(58, 28);
             this.btnAdicionarBairro.TabIndex = 3;
+            this.btnAdicionarBairro.TabStop = false;
             this.btnAdicionarBairro.UseVisualStyleBackColor = true;
             this.btnAdicionarBairro.Click += new System.EventHandler(this.btnAdicionarBairro_Click);
             // 
@@ -208,6 +211,7 @@
             this.btnAdicionarCidade.Name = "btnAdicionarCidade";
             this.btnAdicionarCidade.Size = new System.Drawing.Size(58, 28);
             this.btnAdicionarCidade.TabIndex = 3;
+            this.btnAdicionarCidade.TabStop = false;
             this.btnAdicionarCidade.UseVisualStyleBackColor = true;
             this.btnAdicionarCidade.Click += new System.EventHandler(this.btnAdicionarCidade_Click);
             // 
@@ -219,17 +223,18 @@
             this.txtPontoReferencia.Multiline = true;
             this.txtPontoReferencia.Name = "txtPontoReferencia";
             this.txtPontoReferencia.Size = new System.Drawing.Size(370, 64);
-            this.txtPontoReferencia.TabIndex = 0;
+            this.txtPontoReferencia.TabIndex = 3;
             this.txtPontoReferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumero
             // 
+            this.txtNumero.BackColor = System.Drawing.Color.Yellow;
             this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNumero.Location = new System.Drawing.Point(82, 206);
             this.txtNumero.MaxLength = 10;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(301, 26);
-            this.txtNumero.TabIndex = 0;
+            this.txtNumero.TabIndex = 2;
             this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblRefrerencia
@@ -276,6 +281,7 @@
             this.cbbLogradouro.Name = "cbbLogradouro";
             this.cbbLogradouro.Size = new System.Drawing.Size(304, 28);
             this.cbbLogradouro.TabIndex = 0;
+            this.cbbLogradouro.TabStop = false;
             // 
             // cbbBairro
             // 
@@ -285,6 +291,7 @@
             this.cbbBairro.Name = "cbbBairro";
             this.cbbBairro.Size = new System.Drawing.Size(242, 28);
             this.cbbBairro.TabIndex = 0;
+            this.cbbBairro.TabStop = false;
             // 
             // cbbCidade
             // 
@@ -294,15 +301,17 @@
             this.cbbCidade.Name = "cbbCidade";
             this.cbbCidade.Size = new System.Drawing.Size(242, 28);
             this.cbbCidade.TabIndex = 0;
+            this.cbbCidade.TabStop = false;
             // 
             // txtNome
             // 
+            this.txtNome.BackColor = System.Drawing.Color.Yellow;
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNome.Location = new System.Drawing.Point(83, 37);
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(306, 26);
-            this.txtNome.TabIndex = 0;
+            this.txtNome.TabIndex = 1;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmCadastrarCliente

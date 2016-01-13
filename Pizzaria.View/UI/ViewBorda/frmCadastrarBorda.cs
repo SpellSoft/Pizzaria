@@ -3,7 +3,7 @@ using Pizzaria.Model.Entity;
 using System;
 using System.Windows.Forms;
 using Mike.Utilities.Desktop;
-using Pizzaria.Model.Utilities;
+using Pizzaria.View.Utilities;
 
 namespace Pizzaria.View.UI.ViewBorda
 {
@@ -22,13 +22,13 @@ namespace Pizzaria.View.UI.ViewBorda
                 Preco = txtPrecoComplemento.Text.Trim().Length > 0 ? Convert.ToDecimal(txtPrecoComplemento.Text.Trim()) : 0,
                 Descricao = txtDescricaoComplemento.Text.Trim().UpperCaseOnlyFirst()
             };
-            var txt = ValidaCampos.Validar(borda, GetAllTextBox());
+            var txt = ValidaCampos.ValidarTxt(borda, GetAllTextBox());
             if (txt == null)
             {
                 DialogResult = new BordaRepositorio().Salvar(borda) == true ? DialogResult.Yes : DialogResult.No;
             }
             else
-                FocarNoTxt(txt:txt);
+                FocarNoTxt(txt:txt as TextBox);
 
         }
 
