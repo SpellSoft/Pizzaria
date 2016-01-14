@@ -52,6 +52,26 @@ namespace Pizzaria.View.UI.ViewCliente
                 CarregarBairroLogradouro();
                 CarregarCidade();
                 CarregarBairro();
+
+
+                switch (_enumTipoOperacao)
+                {
+                    case EnumTipoOperacao.Novo:
+                        break;
+                    case EnumTipoOperacao.Editar:
+                        MudarTextDoButton(btn:btnCadastrar,text:"Editar");
+                        MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Editar,EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
+                        PadronizarButton();
+                        break;
+                    case EnumTipoOperacao.Deletar:
+                        break;
+                    case EnumTipoOperacao.Sair:
+                        break;
+                    case EnumTipoOperacao.Detalhes:
+                        break;
+                    
+                }
+               
             }
             catch (CustomException error)
             {
@@ -65,6 +85,16 @@ namespace Pizzaria.View.UI.ViewCliente
 
         }
 
+        private void MudarIconeDoButton(Button btn,EnumTipoOperacao tipo,string iconName)
+        {
+            GerenciarControl.MudarIConeDoButton(btn, tipo, iconeName: iconName);
+        }
+
+        private void MudarTextDoButton(Button btn, string text)
+                => GerenciarControl.MudarTextoDoButton(btn, text);
+
+        private void PadronizarButton()
+                => btnCadastrar.Padronizar();
         private void CarregarBairro()
         {
             cbbBairro.DisplayMember = nameof(Bairro.Nome);
@@ -143,10 +173,18 @@ namespace Pizzaria.View.UI.ViewCliente
                 FocarNoMtb(mtbEnd);
                 return;
             }
+            CadastrarCliente(cliente);
 
-            var result = _clienteRepositorio.Salvar(cliente);
+        }
 
-
+        private void CadastrarCliente(Cliente cliente)
+        {
+            if (_clienteRepositorio.Salvar(cliente))
+            {
+                CustomMessage
+                    .MessageFullComButtonOkIconeDeInformacao($"Cliente {cliente.Nome.ToUpper()} cadastrado com sucesso!");
+                this.DialogResult = DialogResult.Yes;
+            }
         }
 
         private void FocarNoMtb(MaskedTextBox mtbEnd)
