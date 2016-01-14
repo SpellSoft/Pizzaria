@@ -59,15 +59,32 @@ namespace Pizzaria.View.UI.ViewCliente
                     case EnumTipoOperacao.Novo:
                         break;
                     case EnumTipoOperacao.Editar:
-                        MudarTextDoButton(btn:btnCadastrar,text:"Editar");
+                       
+                        MudarTextDoButton(btn:btnCadastrar,text:EnumTipoOperacao.Editar.ToString());
                         MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Editar,EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
+                        PopularTxt();
                         break;
                     case EnumTipoOperacao.Deletar:
+                        
+                        MudarTextDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Deletar.ToString());
+                        MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Deletar, EnumTipoIconCrud.Deletar.SetIcon(EnumExtensao.ico));
+                        PadronizarButton();
+                        PopularTxt();
                         break;
                     case EnumTipoOperacao.Sair:
+                       
+                        MudarTextDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Sair.ToString());
+                        MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                        PadronizarButton();
+                        PopularTxt();
                         break;
                     case EnumTipoOperacao.Detalhes:
+                       
+                        MudarTextDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Sair.ToString());
+                        MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                        PadronizarButton();
+                        PopularTxt();
                         break;
                     
                 }
@@ -83,6 +100,18 @@ namespace Pizzaria.View.UI.ViewCliente
                 DialogMessage.MessageFullComButtonOkIconeDeInformacao(message: error.Message, title: "Aviso");
             }
 
+        }
+
+        private void PopularTxt()
+        {
+            txtNome.Text = _cliente.Nome;
+            txtNumero.Text = _cliente.Endereco.Numero;
+            txtPontoReferencia.Text = _cliente.Endereco.Referencia;
+            cbbBairro.Text = _bairroRepositorio.GetPeloID(_cliente.Endereco?.BairroID)?.Nome;
+            cbbCidade.Text = _cidadeRepositorio.GetPeloID(_cliente.Endereco?.CidadeID)?.Nome;
+            cbbLogradouro.Text = _logradouroRepositorio.GetPeloID(_cliente.Endereco?.LogradouroID)?.Nome;
+            mtbCelular.Text = _cliente.Contato.Celular;
+            mtbFixo.Text = _cliente.Contato.Fixo;
         }
 
         private void MudarIconeDoButton(Button btn,EnumTipoOperacao tipo,string iconName)

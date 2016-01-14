@@ -29,7 +29,7 @@ namespace Pizzaria.Controller.Repository
                 throw new Exception(error.Message);
             }
         }
-        public virtual T GetPeloID(int id)
+        public virtual T GetPeloID(int? id)
         {
             try
             {
