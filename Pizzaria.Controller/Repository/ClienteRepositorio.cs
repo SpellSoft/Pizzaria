@@ -1,10 +1,7 @@
 ﻿using Pizzaria.Model.Entity;
 using Pizzaria.Model.ModelView;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 namespace Pizzaria.Controller.Repository
 {
@@ -33,5 +30,6 @@ namespace Pizzaria.Controller.Repository
                Telefone = cli.Contato.Celular == null ? cli.Contato.Fixo : cli.Contato.Celular
            }).Where(c => c.Nome.Contains(txt)).ToList();
         }
+     
     }
 }

@@ -3,7 +3,6 @@ using Pizzaria.Model.Entity;
 using Pizzaria.Model.Initializer;
 using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
 namespace Pizzaria.Model.Data
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
@@ -24,6 +23,7 @@ namespace Pizzaria.Model.Data
         public DbSet<Logradouro> Logradouro { get; set; }
         public DbSet<Contato> Contato { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Endereco> Endereco { get; set; }
 
     }
 }

@@ -19,7 +19,12 @@ namespace Pizzaria.View.UI.ViewCliente
         private ClienteRepositorio _clienteRepositorio;
         private BairroRepositorio _bairroRepositorio;
         private LogradouroRepositorio _logradouroRepositorio;
-
+        private EnderecoRepositorio _enderecoRepositorio;
+        private ContatoRepositorio _contatoRepositorio;
+        private ContatoRepositorio InsContatoRep()
+                => _contatoRepositorio = new ContatoRepositorio();
+        private EnderecoRepositorio InsEnderecoRep()
+                => _enderecoRepositorio = new EnderecoRepositorio();
         private LogradouroRepositorio InsLogradouroRep()
                 => _logradouroRepositorio = new LogradouroRepositorio();
         private BairroRepositorio InsBairroResp()
@@ -48,6 +53,8 @@ namespace Pizzaria.View.UI.ViewCliente
                 InsCidadeRep();
                 InsLogradouroRep();
                 InsClienteRep();
+                InsEnderecoRep();
+                InsContatoRep();
 
                 CarregarBairroLogradouro();
                 CarregarCidade();
@@ -59,36 +66,36 @@ namespace Pizzaria.View.UI.ViewCliente
                     case EnumTipoOperacao.Novo:
                         break;
                     case EnumTipoOperacao.Editar:
-                       
-                        MudarTextDoButton(btn:btnCadastrar,text:EnumTipoOperacao.Editar.ToString());
-                        MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Editar,EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
+
+                        MudarTextDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Editar.ToString());
+                        MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Editar, EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
                         PopularTxt();
                         break;
                     case EnumTipoOperacao.Deletar:
-                        
+
                         MudarTextDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Deletar.ToString());
                         MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Deletar, EnumTipoIconCrud.Deletar.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
                         PopularTxt();
                         break;
                     case EnumTipoOperacao.Sair:
-                       
+
                         MudarTextDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Sair.ToString());
                         MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
                         PopularTxt();
                         break;
                     case EnumTipoOperacao.Detalhes:
-                       
+
                         MudarTextDoButton(btn: btnCadastrar, text: EnumTipoOperacao.Sair.ToString());
                         MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
                         PopularTxt();
                         break;
-                    
+
                 }
-               
+
             }
             catch (CustomException error)
             {
@@ -114,7 +121,7 @@ namespace Pizzaria.View.UI.ViewCliente
             mtbFixo.Text = _cliente.Contato.Fixo;
         }
 
-        private void MudarIconeDoButton(Button btn,EnumTipoOperacao tipo,string iconName)
+        private void MudarIconeDoButton(Button btn, EnumTipoOperacao tipo, string iconName)
         {
             GerenciarControl.MudarIConeDoButton(btn, tipo, iconeName: iconName);
         }
@@ -138,7 +145,53 @@ namespace Pizzaria.View.UI.ViewCliente
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            ValidandoCampos(PopularCliente());
+            Cliente cliente = PopularCliente();
+            switch (_enumTipoOperacao)
+            {
+                case EnumTipoOperacao.Novo:
+                    
+                    if (ValidandoCampos(cliente))
+                    {
+                        CadastrarCliente(cliente);
+                    }
+                    else
+                        CustomMessage
+                            .MessageFullComButtonOkIconeDeInformacao("Houve um erro ao cadastrar um cliente, tente novamente");
+                   
+                    break;
+                case EnumTipoOperacao.Editar:
+                    if (ValidandoCampos(cliente))
+                    {
+                        EditarCliente(cliente);
+                    }
+                    else
+                        CustomMessage
+                            .MessageFullComButtonOkIconeDeInformacao("Houve um erro ao cadastrar um cliente, tente novamente");
+                    break;
+                case EnumTipoOperacao.Deletar:
+                    break;
+                case EnumTipoOperacao.Sair:
+                    break;
+                case EnumTipoOperacao.Detalhes:
+                    break;
+
+            }
+
+        }
+
+        private void EditarCliente(Cliente cliente)
+        {
+            if (_clienteRepositorio.Editar(cliente))
+            {
+                _contatoRepositorio.Editar(cliente.Contato);
+                _enderecoRepositorio.Editar(cliente.Endereco);
+                CustomMessage
+                    .MessageFullComButtonOkIconeDeInformacao($"Cliente {cliente.Nome.ToUpper()} foi editado com sucesso!");
+                this.DialogResult = DialogResult.Yes;
+            }
+            else
+                CustomMessage
+                    .MessageFullComButtonOkIconeDeInformacao("Houve um erro ao editar o cliente, tente novamente.");
         }
 
         private Cliente PopularCliente()
@@ -149,14 +202,14 @@ namespace Pizzaria.View.UI.ViewCliente
                 Nome = txtNome.Text.UpperCaseOnlyFirst().Trim(),
                 Contato = new Contato
                 {
-                    ClienteID = _cliente == null ? 0 : _cliente.ClienteID,
+                    ClienteID = _cliente?.ClienteID ?? 0,
                     Celular = mtbCelular.GetMtbText().Trim(),
                     Fixo = mtbFixo.GetMtbText().Trim()
 
                 },
                 Endereco = new Endereco
                 {
-                    ClienteID = _cliente?.ClienteID,
+                    ClienteID = _cliente?.ClienteID ?? 0,
                     BairroID = _bairroRepositorio.ListarIdPorNome(GetCbbBairroText()),
                     CidadeID = _cidadeRepositorio.ListarIdPorNome(GetCbbCidadeText()),
                     LogradouroID = _logradouroRepositorio.ListarIdPorNome(GetCbbLogradourotext()),
@@ -182,27 +235,28 @@ namespace Pizzaria.View.UI.ViewCliente
             return cbbBairro.Text;
         }
 
-        private void ValidandoCampos(Cliente cliente)
+        private bool ValidandoCampos(Cliente cliente)
         {
             var txtCli = ValidaCampos.ValidarTxt(cliente, GetAllTxt());
             if (txtCli != null)
             {
                 FocarNoTxt(txtCli);
-                return;
+                return false;
+                
             }
             var txtCon = ValidaCampos.ValidarTxt(cliente.Endereco, GetAllTxt());
             if (txtCon != null)
             {
                 FocarNoTxt(txtCon);
-                return;
+                return false;
             }
             var mtbEnd = ValidaCampos.ValidarMtb(cliente.Contato, GetAllMtb());
             if (mtbEnd != null)
             {
                 FocarNoMtb(mtbEnd);
-                return;
+                return false;
             }
-            CadastrarCliente(cliente);
+            return true;
 
         }
 
@@ -211,7 +265,7 @@ namespace Pizzaria.View.UI.ViewCliente
             if (_clienteRepositorio.Salvar(cliente))
             {
                 CustomMessage
-                    .MessageFullComButtonOkIconeDeInformacao($"Cliente {cliente.Nome.ToUpper()} cadastrado com sucesso!");
+                    .MessageFullComButtonOkIconeDeInformacao($"Cliente {cliente.Nome.ToUpper()} foi cadastrado com sucesso!");
                 this.DialogResult = DialogResult.Yes;
             }
         }
