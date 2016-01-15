@@ -25,5 +25,14 @@ namespace Pizzaria.Model.Data
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente>().HasRequired(c => c.Contato)
+                .WithRequiredPrincipal().WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Cliente>().HasRequired(c => c.Endereco)
+              .WithRequiredPrincipal().WillCascadeOnDelete(true);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

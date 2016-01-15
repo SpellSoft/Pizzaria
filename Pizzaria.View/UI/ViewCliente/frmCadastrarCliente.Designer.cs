@@ -59,7 +59,6 @@
             // 
             // gpbCadastrarCliente
             // 
-            this.gpbCadastrarCliente.Controls.Add(this.btnCadastrar);
             this.gpbCadastrarCliente.Controls.Add(this.lblNome);
             this.gpbCadastrarCliente.Controls.Add(this.gpbContatos);
             this.gpbCadastrarCliente.Controls.Add(this.gpbEndereco);
@@ -67,7 +66,7 @@
             this.gpbCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbCadastrarCliente.Location = new System.Drawing.Point(12, 12);
             this.gpbCadastrarCliente.Name = "gpbCadastrarCliente";
-            this.gpbCadastrarCliente.Size = new System.Drawing.Size(421, 564);
+            this.gpbCadastrarCliente.Size = new System.Drawing.Size(421, 511);
             this.gpbCadastrarCliente.TabIndex = 0;
             this.gpbCadastrarCliente.TabStop = false;
             this.gpbCadastrarCliente.Text = "Cadastrar Cliente";
@@ -78,7 +77,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
-            this.btnCadastrar.Location = new System.Drawing.Point(10, 513);
+            this.btnCadastrar.Location = new System.Drawing.Point(20, 529);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(403, 43);
             this.btnCadastrar.TabIndex = 6;
@@ -320,6 +319,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(445, 581);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.gpbCadastrarCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

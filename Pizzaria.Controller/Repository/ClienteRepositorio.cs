@@ -30,6 +30,12 @@ namespace Pizzaria.Controller.Repository
                Telefone = cli.Contato.Celular == null ? cli.Contato.Fixo : cli.Contato.Celular
            }).Where(c => c.Nome.Contains(txt)).ToList();
         }
-     
+        public override bool Deletar(int? id)
+        {
+            Cliente cliente = entities.Include(c => c.Contato).Include(c=>c.Endereco).FirstOrDefault(c => c.ClienteID == id);
+            entities.Remove(cliente);
+            return Confirmar();
+        }
+
     }
 }

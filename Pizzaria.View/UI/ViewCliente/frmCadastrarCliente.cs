@@ -8,7 +8,7 @@ using Pizzaria.View.UI.ViewCidade;
 using Pizzaria.View.UI.ViewBairro;
 using Pizzaria.View.UI.ViewLogradouro;
 using Pizzaria.View.Utilities;
-
+using System.Linq;
 namespace Pizzaria.View.UI.ViewCliente
 {
 
@@ -78,6 +78,7 @@ namespace Pizzaria.View.UI.ViewCliente
                         MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Deletar, EnumTipoIconCrud.Deletar.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
                         PopularTxt();
+                        EnableOrDisableGroupBox(gpbList: GetAllComboBox());
                         break;
                     case EnumTipoOperacao.Sair:
 
@@ -85,6 +86,7 @@ namespace Pizzaria.View.UI.ViewCliente
                         MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
                         PopularTxt();
+                        EnableOrDisableGroupBox(gpbList: GetAllComboBox());
                         break;
                     case EnumTipoOperacao.Detalhes:
 
@@ -92,6 +94,7 @@ namespace Pizzaria.View.UI.ViewCliente
                         MudarIconeDoButton(btnCadastrar, EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
                         PadronizarButton();
                         PopularTxt();
+                        EnableOrDisableGroupBox(gpbList:GetAllComboBox());
                         break;
 
                 }
@@ -109,6 +112,15 @@ namespace Pizzaria.View.UI.ViewCliente
 
         }
 
+        private void EnableOrDisableGroupBox(GroupBox[] gpbList,bool habitar = false)
+        {
+            GerenciarControl.DesabilitarOuHabilitarMuitosGroupBox(gpbList.ToList(), habitar);
+        }
+
+        private GroupBox[] GetAllComboBox()
+        {
+            return new GroupBox[] {gpbContatos,gpbEndereco,gpbCadastrarCliente};
+        }
         private void PopularTxt()
         {
             txtNome.Text = _cliente.Nome;
@@ -169,6 +181,9 @@ namespace Pizzaria.View.UI.ViewCliente
                             .MessageFullComButtonOkIconeDeInformacao("Houve um erro ao cadastrar um cliente, tente novamente");
                     break;
                 case EnumTipoOperacao.Deletar:
+                 
+                        DeletarCliente();
+                    
                     break;
                 case EnumTipoOperacao.Sair:
                     break;
@@ -177,6 +192,19 @@ namespace Pizzaria.View.UI.ViewCliente
 
             }
 
+        }
+
+        private void DeletarCliente()
+        {
+            if (_clienteRepositorio.Deletar(_cliente?.ClienteID))
+            {
+                CustomMessage
+                    .MessageFullComButtonOkIconeDeInformacao($"Cliente {_cliente.Nome.ToUpper()} foi Deletado com sucesso!");
+                this.DialogResult = DialogResult.Yes;
+            }
+            else
+                CustomMessage
+                    .MessageFullComButtonOkIconeDeInformacao("Houve um erro ao deletar o cliente, tente novamente.");
         }
 
         private void EditarCliente(Cliente cliente)

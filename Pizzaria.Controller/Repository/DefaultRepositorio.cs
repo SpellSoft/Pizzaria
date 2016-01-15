@@ -76,11 +76,12 @@ namespace Pizzaria.Controller.Repository
                 throw new Exception(error.Message);
             }
         }
-        public virtual bool Deletar(int id)
+        public virtual bool Deletar(int? id)
         {
             try
             {
-                entities.Remove(this.GetPeloID(id));
+                var TEntity = this.GetPeloID(id);
+                entities.Remove(TEntity);
                 return Confirmar();
             }
             catch (CustomException error)

@@ -8,7 +8,7 @@ namespace Pizzaria.Controller.Repository
 {
     public class ProdutoRepositorio : DefaultRepositorio<Produto>
     {
-        public override bool Deletar(int id)
+        public override bool Deletar(int? id)
         {
             var produto = entities.Include(c => c.Complemento).Include(c => c.Estoque).FirstOrDefault(c => c.ProdutoID == id);
             entities.Remove(produto);
