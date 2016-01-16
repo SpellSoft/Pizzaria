@@ -308,7 +308,7 @@ namespace Pizzaria.View.UI.ViewCliente
 
         private void btnAdicionarCidade_Click(object sender, EventArgs e)
         {
-            if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade()) == DialogResult.Yes)
+            if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade(null, EnumTipoOperacao.Novo)) == DialogResult.Yes)
             {
                 CarregarCidade();
                 CustomMessage.
