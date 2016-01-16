@@ -13,5 +13,8 @@ namespace Pizzaria.Controller.Repository
         {
             return entities.FirstOrDefault(c=>c.Nome == text)?.LogradouroID;
         }
+
+        public string GetUltimoRegistro()
+               => entities.OrderByDescending(c => c.LogradouroID).FirstOrDefault()?.Nome;
     }
 }

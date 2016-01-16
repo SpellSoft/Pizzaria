@@ -10,15 +10,9 @@ namespace Pizzaria.Model.Entity
         [Key]
         [ForeignKey(nameof(Cliente))]
         public int ClienteID { get; set; }
-        [Display(Name = "Telefone Fixo")]
-        [Description(description: "Telefone Fixo")]
-        [DisplayName("Telefone Fixo")]
         [MaxLength(13, ErrorMessage = "Telefone do Cliente deve conter no máximo 12 caracteres {0} {1}")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Telefone Fixo esta em um formato incorreto")]
-        public string Fixo { get; set; }
-        [Display(Name = "Telefone Celular")]
-        [Description(description: "Telefone Celular")]
-        [DisplayName("Telefone Celular")]
+        public string Fixo { get; set; }    
         [MaxLength(13, ErrorMessage = "Telefone do Cliente deve conter no máximo 13 caracteres {0} {1}")]
         [DataType(DataType.PhoneNumber,ErrorMessage ="Telefone Celular esta em um formato incorreto")]
         [Required(ErrorMessage ="Celular é obrigatório")]

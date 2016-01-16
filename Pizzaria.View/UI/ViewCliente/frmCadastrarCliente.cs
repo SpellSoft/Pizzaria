@@ -342,6 +342,7 @@ namespace Pizzaria.View.UI.ViewCliente
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarLogradouro()) == DialogResult.Yes)
             {
                 CarregarBairroLogradouro();
+                cbbLogradouro.Text = _logradouroRepositorio.GetUltimoRegistro();
                 CustomMessage.
                     MessageFullComButtonOkIconeDeInformacao("Logradouro cadastrado com sucesso!");
             }

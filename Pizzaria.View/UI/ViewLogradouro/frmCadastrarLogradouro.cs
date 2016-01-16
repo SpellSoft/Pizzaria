@@ -2,6 +2,8 @@
 using Pizzaria.Model.Entity;
 using System;
 using System.Windows.Forms;
+using Mike.Utilities.Desktop;
+using Pizzaria.View.Utilities;
 
 namespace Pizzaria.View.UI.ViewLogradouro
 {
@@ -17,20 +19,45 @@ namespace Pizzaria.View.UI.ViewLogradouro
                 => _logradouroRepositorio = new LogradouroRepositorio();
         private void btnCadastrarCidade_Click(object sender, EventArgs e)
         {
-            if (_logradouroRepositorio.Salvar(new Logradouro
+            var txt = ValidaCampos.ValidarTxt(PopularLogradouro(),GetAllTxt());
+            if (txt == null)
             {
-                 Nome = txtNomeLogradouro.Text
-            }))
-            {
-                this.DialogResult = DialogResult.Yes;
+                if (_logradouroRepositorio.Salvar(PopularLogradouro()))
+                {
+                    this.DialogResult = DialogResult.Yes;
+                }
+                else
+                    CustomMessage
+                        .MessageFullComButtonOkIconeDeInformacao("Houve um problema, tente novamente");
             }
+
             else
-                MessageBox.Show("Houve Um erro");
+                FocarNoTxt(txtNomeLogradouro);
+        }
+
+        private TextBox[] GetAllTxt()
+                => new TextBox[] { txtNomeLogradouro };
+        private Logradouro PopularLogradouro()
+        {
+            return new Logradouro
+            {
+                Nome = txtNomeLogradouro.Text.Trim().UpperCaseOnlyFirst()
+            };
         }
 
         private void frmCadastrarLogradouro_Load(object sender, EventArgs e)
         {
             InsLogradouroRep();
+            FocarNoTxt(txt:txtNomeLogradouro);
+        }
+
+        private void FocarNoTxt(TextBox txt)
+                => this.FocoNoTxt(txt);
+
+        private void txtNomeLogradouro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+            ValidatorField.IntegerAndLetter(e);
         }
     }
 }
