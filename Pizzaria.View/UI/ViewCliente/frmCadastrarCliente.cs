@@ -326,14 +326,17 @@ namespace Pizzaria.View.UI.ViewCliente
 
         private void btnAdicionarBairro_Click(object sender, EventArgs e)
         {
-            if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarBairro()) == DialogResult.Yes)
+            if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarBairro(null,EnumTipoOperacao.Novo)) == DialogResult.Yes)
             {
                 CarregarBairro();
+                cbbBairro.Text =  GetUltimoRegistroBairro();
                 CustomMessage.
                      MessageFullComButtonOkIconeDeInformacao("Bairro cadastrado com sucesso!");
             }
         }
 
+        private string GetUltimoRegistroBairro()
+                => _bairroRepositorio.GetUltimoRegistro();
         private void btnAdicionarLogradouro_Click(object sender, EventArgs e)
         {
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarLogradouro()) == DialogResult.Yes)
