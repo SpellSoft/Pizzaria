@@ -311,10 +311,17 @@ namespace Pizzaria.View.UI.ViewCliente
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade(null, EnumTipoOperacao.Novo)) == DialogResult.Yes)
             {
                 CarregarCidade();
+                GetUltimoRegistroCidade();
                 CustomMessage.
                      MessageFullComButtonOkIconeDeInformacao("Cidade cadastrado com sucesso!");
             }
 
+        }
+
+        private void GetUltimoRegistroCidade()
+        {
+            string cidadeNome = _cidadeRepositorio.GetUltimoRegistro();
+            cbbCidade.Text = cidadeNome;
         }
 
         private void btnAdicionarBairro_Click(object sender, EventArgs e)

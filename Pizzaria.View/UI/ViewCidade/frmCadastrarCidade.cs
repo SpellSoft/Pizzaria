@@ -27,7 +27,6 @@ namespace Pizzaria.View.UI.ViewCidade
             {
                 case EnumTipoOperacao.Novo:
                     CadastrarCliente();
-                    PadronizarButton();
                     break;
                 case EnumTipoOperacao.Editar:
                     break;
@@ -82,6 +81,12 @@ namespace Pizzaria.View.UI.ViewCidade
         private void frmCadastrarCidade_Load(object sender, EventArgs e)
         {
             InsCidadeRep();
+        }
+
+        private void txtNomeCidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+            ValidatorField.IntegerAndLetter(e);
         }
     }
 }

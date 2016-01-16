@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastrarCidade));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCadastrarCidade = new System.Windows.Forms.Button();
             this.lblNomeCidade = new System.Windows.Forms.Label();
             this.txtNomeCidade = new System.Windows.Forms.TextBox();
+            this.btnCadastrarCidade = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastrar Cidade";
             // 
+            // lblNomeCidade
+            // 
+            this.lblNomeCidade.AutoSize = true;
+            this.lblNomeCidade.Location = new System.Drawing.Point(17, 38);
+            this.lblNomeCidade.Name = "lblNomeCidade";
+            this.lblNomeCidade.Size = new System.Drawing.Size(51, 20);
+            this.lblNomeCidade.TabIndex = 4;
+            this.lblNomeCidade.Text = "Nome";
+            // 
+            // txtNomeCidade
+            // 
+            this.txtNomeCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtNomeCidade.Location = new System.Drawing.Point(83, 35);
+            this.txtNomeCidade.MaxLength = 50;
+            this.txtNomeCidade.Name = "txtNomeCidade";
+            this.txtNomeCidade.Size = new System.Drawing.Size(260, 26);
+            this.txtNomeCidade.TabIndex = 3;
+            this.txtNomeCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNomeCidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeCidade_KeyPress);
+            // 
             // btnCadastrarCidade
             // 
             this.btnCadastrarCidade.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
@@ -61,23 +81,7 @@
             this.btnCadastrarCidade.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrarCidade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrarCidade.UseVisualStyleBackColor = true;
-            // 
-            // lblNomeCidade
-            // 
-            this.lblNomeCidade.AutoSize = true;
-            this.lblNomeCidade.Location = new System.Drawing.Point(17, 38);
-            this.lblNomeCidade.Name = "lblNomeCidade";
-            this.lblNomeCidade.Size = new System.Drawing.Size(51, 20);
-            this.lblNomeCidade.TabIndex = 4;
-            this.lblNomeCidade.Text = "Nome";
-            // 
-            // txtNomeCidade
-            // 
-            this.txtNomeCidade.Location = new System.Drawing.Point(83, 35);
-            this.txtNomeCidade.MaxLength = 50;
-            this.txtNomeCidade.Name = "txtNomeCidade";
-            this.txtNomeCidade.Size = new System.Drawing.Size(260, 26);
-            this.txtNomeCidade.TabIndex = 3;
+            this.btnCadastrarCidade.Click += new System.EventHandler(this.btnCadastrarCidade_Click);
             // 
             // frmCadastrarCidade
             // 
