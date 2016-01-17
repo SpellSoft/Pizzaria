@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisarCliente));
             this.gpbPesquisarCliente = new System.Windows.Forms.GroupBox();
             this.ckbNome = new System.Windows.Forms.CheckBox();
-            this.ckbBairro = new System.Windows.Forms.CheckBox();
+            this.ckbCidade = new System.Windows.Forms.CheckBox();
             this.ckbTelefone = new System.Windows.Forms.CheckBox();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
@@ -42,7 +42,7 @@
             // gpbPesquisarCliente
             // 
             this.gpbPesquisarCliente.Controls.Add(this.ckbNome);
-            this.gpbPesquisarCliente.Controls.Add(this.ckbBairro);
+            this.gpbPesquisarCliente.Controls.Add(this.ckbCidade);
             this.gpbPesquisarCliente.Controls.Add(this.ckbTelefone);
             this.gpbPesquisarCliente.Controls.Add(this.txtPesquisa);
             this.gpbPesquisarCliente.Controls.Add(this.dgvCliente);
@@ -68,19 +68,19 @@
             this.ckbNome.UseVisualStyleBackColor = true;
             this.ckbNome.CheckedChanged += new System.EventHandler(this.ckbNome_CheckedChanged);
             // 
-            // ckbBairro
+            // ckbCidade
             // 
-            this.ckbBairro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
-            this.ckbBairro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ckbBairro.Image = ((System.Drawing.Image)(resources.GetObject("ckbBairro.Image")));
-            this.ckbBairro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ckbBairro.Location = new System.Drawing.Point(409, 25);
-            this.ckbBairro.Name = "ckbBairro";
-            this.ckbBairro.Size = new System.Drawing.Size(180, 67);
-            this.ckbBairro.TabIndex = 2;
-            this.ckbBairro.Text = "Bairro";
-            this.ckbBairro.UseVisualStyleBackColor = true;
-            this.ckbBairro.CheckedChanged += new System.EventHandler(this.ckbBairro_CheckedChanged);
+            this.ckbCidade.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.ckbCidade.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ckbCidade.Image = ((System.Drawing.Image)(resources.GetObject("ckbCidade.Image")));
+            this.ckbCidade.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ckbCidade.Location = new System.Drawing.Point(409, 25);
+            this.ckbCidade.Name = "ckbCidade";
+            this.ckbCidade.Size = new System.Drawing.Size(180, 67);
+            this.ckbCidade.TabIndex = 2;
+            this.ckbCidade.Text = "Bairro";
+            this.ckbCidade.UseVisualStyleBackColor = true;
+            this.ckbCidade.CheckedChanged += new System.EventHandler(this.ckbCidade_CheckedChanged);
             // 
             // ckbTelefone
             // 
@@ -106,6 +106,7 @@
             this.txtPesquisa.Size = new System.Drawing.Size(577, 29);
             this.txtPesquisa.TabIndex = 1;
             this.txtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // dgvCliente
             // 
@@ -141,7 +142,7 @@
 
         private System.Windows.Forms.GroupBox gpbPesquisarCliente;
         private System.Windows.Forms.CheckBox ckbNome;
-        private System.Windows.Forms.CheckBox ckbBairro;
+        private System.Windows.Forms.CheckBox ckbCidade;
         private System.Windows.Forms.CheckBox ckbTelefone;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.DataGridView dgvCliente;

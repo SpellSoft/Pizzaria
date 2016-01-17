@@ -22,28 +22,32 @@ namespace Pizzaria.View.UI.ViewCliente
         private void ckbNome_CheckedChanged(object sender, EventArgs e)
         {
             ChecarCkb(sender);
+            FocarNoTxt(txtPesquisa);
         }
         private void ckbTelefone_CheckedChanged(object sender, EventArgs e)
         {
             ChecarCkb(sender);
+            FocarNoTxt(txtPesquisa);
         }
-        private void ckbBairro_CheckedChanged(object sender, EventArgs e)
+
+        private void FocarNoTxt(TextBox txt)
+                => this.FocoNoTxt(txt);
+        private void ckbCidade_CheckedChanged(object sender, EventArgs e)
         {
             ChecarCkb(sender);
+            FocarNoTxt(txtPesquisa);
         }
         private void ChecarCkb(object sender)
         {
             foreach (CheckBox ckb in GetAllCheckBox().Where(c => c != (sender as CheckBox)))
             {
                 if (GetAllCheckBox().Where(c => c.Checked == true).Count() > 1)
-                {
                     ckb.Checked = false;
-                }
             }
         }
 
         private CheckBox[] GetAllCheckBox()
-                => new CheckBox[] { ckbBairro, ckbNome, ckbTelefone };
+                => new CheckBox[] { ckbCidade, ckbNome, ckbTelefone };
 
         private void frmPesquisarCliente_Load(object sender, EventArgs e)
         {
@@ -60,7 +64,7 @@ namespace Pizzaria.View.UI.ViewCliente
         }
 
         private void AjustarTamanhoDoGrid()
-        {            
+        {
             dgvCliente.AjustartamanhoDoDataGridView
             (
                new List<TamanhoGrid>
@@ -80,6 +84,56 @@ namespace Pizzaria.View.UI.ViewCliente
         private void PadronizarGrid()
         {
             dgvCliente.PadronizarGrid();
+        }
+        private CheckBox GetCheckBoxSelecionado()
+        {
+            return GetAllCheckBox().FirstOrDefault(c => c.Checked == true);
+        }
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            CheckBox ckb = GetCheckBoxSelecionado();
+            InsClienteRep();
+            if (SeExisteClienteNoBanco())
+            {
+                switch (ckb?.Name)
+                {
+                    case nameof(ckbNome):
+                        PesquisarPorNome();
+                        break;
+                    case nameof(ckbTelefone):
+                        PesquisarPorTelefone();
+                        break;
+                    case nameof(ckbCidade):
+                        PesquisarPorCidade();
+                        break;
+                }
+            }
+
+        }
+
+        private void PesquisarPorCidade()
+        {
+            dgvCliente.DataSource = _clienteRepositorio.PesquisaPorCidade(GetTextPesquisa());
+        }
+
+        private void PesquisarPorTelefone()
+        {
+            dgvCliente.DataSource = _clienteRepositorio.PesquisaPorTelefone(GetTextPesquisa());
+        }
+
+        private void PesquisarPorNome()
+        {
+            dgvCliente.DataSource = _clienteRepositorio.PesquisaPorNome(GetTextPesquisa());
+        }
+
+        private string GetTextPesquisa()
+        {
+            return txtPesquisa.Text.Trim();
+        }
+
+        private bool SeExisteClienteNoBanco()
+        {
+            return _clienteRepositorio.GetQuantidade() > 0;
         }
     }
 }

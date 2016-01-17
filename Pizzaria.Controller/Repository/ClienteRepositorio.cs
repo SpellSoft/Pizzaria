@@ -34,11 +34,33 @@ namespace Pizzaria.Controller.Repository
         }
         public override bool Deletar(int? id)
         {
-            Cliente cliente = entities.Include(c => c.Contato).Include(c=>c.Endereco).FirstOrDefault(c => c.ClienteID == id);
+            Cliente cliente = entities.Include(c => c.Contato).Include(c => c.Endereco).FirstOrDefault(c => c.ClienteID == id);
             entities.Remove(cliente);
             return Confirmar();
         }
 
-      
+        public List<ClientePesquisaViewModel> PesquisaPorTelefone(string text)
+        {
+            return entities.Select(cli =>
+                 new ClientePesquisaViewModel
+                 {
+                     ClienteID = cli.ClienteID,
+                     Nome = cli.Nome,
+                     Cidade = cli.Endereco.Cidade.Nome,
+                     Telefone = cli.Contato.Celular == null ? cli.Contato.Fixo : cli.Contato.Celular
+                 }).Where(c => c.Telefone.Contains(text)).ToList();
+        }
+
+        public object PesquisaPorCidade(string text)
+        {
+            return entities.Select(cli =>
+                 new ClientePesquisaViewModel
+                 {
+                     ClienteID = cli.ClienteID,
+                     Nome = cli.Nome,
+                     Cidade = cli.Endereco.Cidade.Nome,
+                     Telefone = cli.Contato.Celular == null ? cli.Contato.Fixo : cli.Contato.Celular
+                 }).Where(c => c.Cidade.Contains(text)).ToList();
+        }
     }
 }
