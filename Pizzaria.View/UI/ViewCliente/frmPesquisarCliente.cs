@@ -135,5 +135,57 @@ namespace Pizzaria.View.UI.ViewCliente
         {
             return _clienteRepositorio.GetQuantidade() > 0;
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+
+                case Keys.F1:
+
+                    break;
+                case Keys.F2:
+
+                    break;
+                case Keys.F3:
+
+                    break;
+                case Keys.F4:
+
+                    break;
+                case Keys.F5:
+
+                    break;
+                case Keys.F6:
+
+                    break;
+                case Keys.F7:
+
+                    break;
+                case Keys.F8:
+
+                    break;
+                case Keys.F9:
+                    break;
+                case Keys.F10:
+                    break;
+                case Keys.F11:
+                    break;
+                case Keys.F12:
+
+                    break;
+                case Keys.Escape:
+
+                    break;
+                case Keys.Up:
+                    dgvCliente.MoveToUp();
+                    break;
+                case Keys.Down:
+                    dgvCliente.MoveToDown();
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
     }
 }

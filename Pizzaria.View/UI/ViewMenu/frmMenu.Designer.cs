@@ -36,6 +36,8 @@
             this.menuClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGerenciarClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPesquisarClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBairro = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGerenciarBairro = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +47,8 @@
             this.menu.BackColor = System.Drawing.Color.Yellow;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuProduto,
-            this.menuClientes});
+            this.menuClientes,
+            this.menuBairro});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(742, 50);
@@ -107,6 +110,24 @@
             this.btnPesquisarClientes.Text = "Pesquisar";
             this.btnPesquisarClientes.Click += new System.EventHandler(this.btnPesquisarClientes_Click);
             // 
+            // menuBairro
+            // 
+            this.menuBairro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGerenciarBairro});
+            this.menuBairro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuBairro.Image = ((System.Drawing.Image)(resources.GetObject("menuBairro.Image")));
+            this.menuBairro.Name = "menuBairro";
+            this.menuBairro.Size = new System.Drawing.Size(84, 46);
+            this.menuBairro.Text = "Bairro";
+            // 
+            // btnGerenciarBairro
+            // 
+            this.btnGerenciarBairro.Image = ((System.Drawing.Image)(resources.GetObject("btnGerenciarBairro.Image")));
+            this.btnGerenciarBairro.Name = "btnGerenciarBairro";
+            this.btnGerenciarBairro.Size = new System.Drawing.Size(153, 26);
+            this.btnGerenciarBairro.Text = "Gerenciar";
+            this.btnGerenciarBairro.Click += new System.EventHandler(this.btnGerenciarBairro_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,5 +162,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuClientes;
         private System.Windows.Forms.ToolStripMenuItem btnGerenciarClientes;
         private System.Windows.Forms.ToolStripMenuItem btnPesquisarClientes;
+        private System.Windows.Forms.ToolStripMenuItem menuBairro;
+        private System.Windows.Forms.ToolStripMenuItem btnGerenciarBairro;
     }
 }

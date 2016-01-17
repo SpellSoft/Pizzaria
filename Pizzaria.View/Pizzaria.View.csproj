@@ -72,6 +72,12 @@
     <Compile Include="UI\ViewBairro\frmCadastrarBairro.Designer.cs">
       <DependentUpon>frmCadastrarBairro.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewBairro\frmGerenciarBairro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewBairro\frmGerenciarBairro.Designer.cs">
+      <DependentUpon>frmGerenciarBairro.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewCidade\frmCadastrarCidade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="UI\ViewBairro\frmCadastrarBairro.resx">
       <DependentUpon>frmCadastrarBairro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewBairro\frmGerenciarBairro.resx">
+      <DependentUpon>frmGerenciarBairro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewCidade\frmCadastrarCidade.resx">
       <DependentUpon>frmCadastrarCidade.cs</DependentUpon>
