@@ -105,6 +105,7 @@
             this.btnPesquisarClientes.Name = "btnPesquisarClientes";
             this.btnPesquisarClientes.Size = new System.Drawing.Size(153, 26);
             this.btnPesquisarClientes.Text = "Pesquisar";
+            this.btnPesquisarClientes.Click += new System.EventHandler(this.btnPesquisarClientes_Click);
             // 
             // frmMenu
             // 

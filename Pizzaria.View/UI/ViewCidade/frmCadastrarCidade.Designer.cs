@@ -59,6 +59,7 @@
             // 
             // txtNomeCidade
             // 
+            this.txtNomeCidade.BackColor = System.Drawing.Color.Yellow;
             this.txtNomeCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNomeCidade.Location = new System.Drawing.Point(83, 35);
             this.txtNomeCidade.MaxLength = 50;

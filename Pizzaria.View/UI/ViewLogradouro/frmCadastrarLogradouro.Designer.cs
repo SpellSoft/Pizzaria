@@ -62,6 +62,7 @@
             // 
             // txtNomeLogradouro
             // 
+            this.txtNomeLogradouro.BackColor = System.Drawing.Color.Yellow;
             this.txtNomeLogradouro.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtNomeLogradouro.Location = new System.Drawing.Point(63, 36);
             this.txtNomeLogradouro.MaxLength = 50;

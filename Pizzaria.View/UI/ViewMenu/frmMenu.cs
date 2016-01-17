@@ -18,9 +18,9 @@ namespace Pizzaria.View.UI.ViewMenu
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
-        {          
+        {
 
-            
+
         }
 
         private void btnGerenciarProduto_Click(object sender, EventArgs e)
@@ -64,6 +64,14 @@ namespace Pizzaria.View.UI.ViewMenu
             InsControlsForTask();
             espere.Start(RunMessage);
             OpenMdiForm.LoadNewKeepAnother(this, new frmGerenciarCliente());
+            CancelarTask();
+        }
+
+        private void btnPesquisarClientes_Click(object sender, EventArgs e)
+        {
+            InsControlsForTask();
+            espere.Start(RunMessage);
+            OpenMdiForm.LoadNewKeepAnother(this, new frmPesquisarCliente());
             CancelarTask();
         }
     }

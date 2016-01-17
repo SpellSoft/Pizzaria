@@ -166,9 +166,8 @@ namespace Pizzaria.View.UI.ViewCliente
                     {
                         CadastrarCliente(cliente);
                     }
-                    else
-                        CustomMessage
-                            .MessageFullComButtonOkIconeDeInformacao("Houve um erro ao cadastrar um cliente, tente novamente");
+                   
+
                    
                     break;
                 case EnumTipoOperacao.Editar:
@@ -176,9 +175,7 @@ namespace Pizzaria.View.UI.ViewCliente
                     {
                         EditarCliente(cliente);
                     }
-                    else
-                        CustomMessage
-                            .MessageFullComButtonOkIconeDeInformacao("Houve um erro ao cadastrar um cliente, tente novamente");
+                   
                     break;
                 case EnumTipoOperacao.Deletar:
                  

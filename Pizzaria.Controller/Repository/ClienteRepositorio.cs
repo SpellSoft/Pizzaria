@@ -3,6 +3,8 @@ using Pizzaria.Model.ModelView;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using System;
+
 namespace Pizzaria.Controller.Repository
 {
     public class ClienteRepositorio : DefaultRepositorio<Cliente>
@@ -37,5 +39,6 @@ namespace Pizzaria.Controller.Repository
             return Confirmar();
         }
 
+      
     }
 }

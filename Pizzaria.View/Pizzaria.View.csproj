@@ -102,6 +102,12 @@
     <Compile Include="UI\ViewCliente\frmGerenciarCliente.Designer.cs">
       <DependentUpon>frmGerenciarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewCliente\frmPesquisarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewCliente\frmPesquisarCliente.Designer.cs">
+      <DependentUpon>frmPesquisarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewComplemento\frmCadastrarComplemento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     <EmbeddedResource Include="UI\ViewCliente\frmGerenciarCliente.resx">
       <DependentUpon>frmGerenciarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewCliente\frmPesquisarCliente.resx">
+      <DependentUpon>frmPesquisarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewComplemento\frmCadastrarComplemento.resx">
       <DependentUpon>frmCadastrarComplemento.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +240,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Source\Img\Cliente\city.png" />
+    <Content Include="Source\Img\Cliente\cityMaior.png" />
+    <Content Include="Source\Img\Cliente\phone.ico" />
     <Content Include="Source\Img\Espera\Running snake.gif" />
     <Content Include="Source\Img\Global\add1.png" />
     <Content Include="Source\Img\Global\icone.ico" />
