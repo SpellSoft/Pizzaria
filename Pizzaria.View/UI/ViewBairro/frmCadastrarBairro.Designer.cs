@@ -45,7 +45,7 @@
             this.btnCadastrarBairro.Name = "btnCadastrarBairro";
             this.btnCadastrarBairro.Size = new System.Drawing.Size(313, 62);
             this.btnCadastrarBairro.TabIndex = 5;
-            this.btnCadastrarBairro.Text = "Bairro";
+            this.btnCadastrarBairro.Text = "Salvar";
             this.btnCadastrarBairro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrarBairro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrarBairro.UseVisualStyleBackColor = true;

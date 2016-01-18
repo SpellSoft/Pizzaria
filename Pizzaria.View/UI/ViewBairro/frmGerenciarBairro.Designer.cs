@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerenciarBairro));
             this.gpbGerenciarBairro = new System.Windows.Forms.GroupBox();
+            this.gpbPesquisarBairro = new System.Windows.Forms.GroupBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.dgvBairro = new System.Windows.Forms.DataGridView();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.gpbPesquisarBairro = new System.Windows.Forms.GroupBox();
-            this.dgvBairro = new System.Windows.Forms.DataGridView();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.gpbGerenciarBairro.SuspendLayout();
             this.gpbPesquisarBairro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBairro)).BeginInit();
@@ -57,6 +57,32 @@
             this.gpbGerenciarBairro.TabStop = false;
             this.gpbGerenciarBairro.Text = "Gerenciar Bairro";
             // 
+            // gpbPesquisarBairro
+            // 
+            this.gpbPesquisarBairro.Controls.Add(this.txtPesquisa);
+            this.gpbPesquisarBairro.Controls.Add(this.dgvBairro);
+            this.gpbPesquisarBairro.Location = new System.Drawing.Point(6, 78);
+            this.gpbPesquisarBairro.Name = "gpbPesquisarBairro";
+            this.gpbPesquisarBairro.Size = new System.Drawing.Size(411, 190);
+            this.gpbPesquisarBairro.TabIndex = 5;
+            this.gpbPesquisarBairro.TabStop = false;
+            this.gpbPesquisarBairro.Text = "Pesquisar Bairro";
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(24, 26);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(370, 26);
+            this.txtPesquisa.TabIndex = 1;
+            // 
+            // dgvBairro
+            // 
+            this.dgvBairro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBairro.Location = new System.Drawing.Point(0, 65);
+            this.dgvBairro.Name = "dgvBairro";
+            this.dgvBairro.Size = new System.Drawing.Size(411, 125);
+            this.dgvBairro.TabIndex = 0;
+            // 
             // btnSair
             // 
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
@@ -68,6 +94,7 @@
             this.btnSair.Text = "Sair";
             this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnDeletar
             // 
@@ -80,6 +107,7 @@
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnEditar
             // 
@@ -93,6 +121,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNovo
             // 
@@ -106,32 +135,7 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
-            // 
-            // gpbPesquisarBairro
-            // 
-            this.gpbPesquisarBairro.Controls.Add(this.txtPesquisa);
-            this.gpbPesquisarBairro.Controls.Add(this.dgvBairro);
-            this.gpbPesquisarBairro.Location = new System.Drawing.Point(6, 78);
-            this.gpbPesquisarBairro.Name = "gpbPesquisarBairro";
-            this.gpbPesquisarBairro.Size = new System.Drawing.Size(411, 190);
-            this.gpbPesquisarBairro.TabIndex = 5;
-            this.gpbPesquisarBairro.TabStop = false;
-            this.gpbPesquisarBairro.Text = "Pesquisar Bairro";
-            // 
-            // dgvBairro
-            // 
-            this.dgvBairro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBairro.Location = new System.Drawing.Point(0, 65);
-            this.dgvBairro.Name = "dgvBairro";
-            this.dgvBairro.Size = new System.Drawing.Size(411, 125);
-            this.dgvBairro.TabIndex = 0;
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Location = new System.Drawing.Point(24, 26);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(370, 26);
-            this.txtPesquisa.TabIndex = 1;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // frmGerenciarBairro
             // 

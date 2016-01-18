@@ -25,10 +25,11 @@ namespace Pizzaria.View.UI.ViewBairro
 
         private void btnCadastrarBairro_Click(object sender, EventArgs e)
         {
+            var txt = ValidaCampos.ValidarTxt(PopularBairro(), GetAllTextBox());
             switch (_enumTipoOperacao)
             {
                 case EnumTipoOperacao.Novo:
-                    var txt = ValidaCampos.ValidarTxt(PopularBairro(), GetAllTextBox());
+                  
                     if (txt == null)
                     {
                         if (_bairroRepositorio.Salvar(PopularBairro()))
@@ -44,17 +45,52 @@ namespace Pizzaria.View.UI.ViewBairro
                         FocarNoTxt(txt:txtNomeBairro);
                     break;
                 case EnumTipoOperacao.Editar:
+                    
+                    if (txt == null)
+                    {
+                        if (_bairroRepositorio.Editar(PopularBairro()))
+                        {
+                            this.DialogResult = DialogResult.Yes;
+
+                        }
+                        else
+                            CustomMessage
+                                .MessageFullComButtonOkIconeDeInformacao("Houve um erro, tente novamente");
+                    }
+                    else
+                        FocarNoTxt(txt: txtNomeBairro);
+
                     break;
                 case EnumTipoOperacao.Deletar:
+                    if (_bairroRepositorio.Deletar(PopularBairro().BairroID))
+                    {
+                        this.DialogResult = DialogResult.Yes;
+
+                    }
+                    else
+                        CustomMessage
+                            .MessageFullComButtonOkIconeDeInformacao("Houve um erro, tente novamente");
+
                     break;
                 case EnumTipoOperacao.Sair:
+                   
                     break;
                 case EnumTipoOperacao.Detalhes:
+                  
                     break;
-                default:
-                    break;
+               
             }
 
+        }
+
+        private void PupularTextBox()
+        {
+            txtNomeBairro.Text = _bairro.Nome;
+        }
+
+        private void DesabilitarTxt()
+        {
+            Array.ForEach(GetAllTextBox(), c => c.Enabled = false);
         }
 
         private void FocarNoTxt(TextBox txt)
@@ -65,6 +101,7 @@ namespace Pizzaria.View.UI.ViewBairro
         {
             return new Bairro
             {
+                BairroID = _bairro.BairroID ?? 0,
                 Nome = txtNomeBairro.Text.Trim().UpperCaseOnlyFirst()
             };
         }
@@ -73,7 +110,53 @@ namespace Pizzaria.View.UI.ViewBairro
         {
             InsBairroRep();
             FocarNoTxt(txtNomeBairro);
+            
+            switch (_enumTipoOperacao)
+            {
+                case EnumTipoOperacao.Novo:
+                    break;
+                case EnumTipoOperacao.Editar:
+                    MudarNomeDoButton(EnumTipoOperacao.Editar.ToString());
+                    PadronizarButton();
+                    MudarIConeDoButton(btnCadastrarBairro, EnumTipoOperacao.Editar, EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
+                    PupularTextBox();
+                    break;
+                case EnumTipoOperacao.Deletar:
+                    DesabilitarTxt();
+                    MudarNomeDoButton(EnumTipoOperacao.Deletar.ToString());
+                    PadronizarButton();
+                    MudarIConeDoButton(btnCadastrarBairro, EnumTipoOperacao.Deletar, EnumTipoIconCrud.Deletar.SetIcon(EnumExtensao.ico));
+                    PupularTextBox();
+                    break;
+                case EnumTipoOperacao.Sair:
+                    DesabilitarTxt();
+                    MudarNomeDoButton(EnumTipoOperacao.Sair.ToString());
+                    PadronizarButton();
+                    MudarIConeDoButton(btnCadastrarBairro, EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                    PupularTextBox();
+                    break;
+                case EnumTipoOperacao.Detalhes:
+                    DesabilitarTxt();
+                    MudarNomeDoButton(EnumTipoOperacao.Detalhes.ToString());
+                    PadronizarButton();
+                    MudarIConeDoButton(btnCadastrarBairro, EnumTipoOperacao.Detalhes, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                    PupularTextBox();
+                    break;
+            }
         }
+
+        private void MudarIConeDoButton(Button btn, EnumTipoOperacao enumOperacao, string nomeIcone)
+        {
+            GerenciarControl.MudarIConeDoButton(btn,enumOperacao,nomeIcone);
+        }
+
+        private void MudarNomeDoButton(string texto)
+        {
+            GerenciarControl.MudarTextoDoButton(btnCadastrarBairro, texto);
+        }
+
+        private void PadronizarButton()
+                => btnCadastrarBairro.Padronizar();
 
         private void txtNomeBairro_KeyPress(object sender, KeyPressEventArgs e)
         {
