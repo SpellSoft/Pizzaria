@@ -101,7 +101,7 @@ namespace Pizzaria.View.UI.ViewBairro
         {
             return new Bairro
             {
-                BairroID = _bairro.BairroID ?? 0,
+                BairroID = _bairro?.BairroID ?? 0,
                 Nome = txtNomeBairro.Text.Trim().UpperCaseOnlyFirst()
             };
         }

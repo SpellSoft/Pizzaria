@@ -84,6 +84,12 @@
     <Compile Include="UI\ViewCidade\frmCadastrarCidade.Designer.cs">
       <DependentUpon>frmCadastrarCidade.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewCidade\frmGerenciarCidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewCidade\frmGerenciarCidade.Designer.cs">
+      <DependentUpon>frmGerenciarCidade.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewCliente\frmCadastrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="UI\ViewCidade\frmCadastrarCidade.resx">
       <DependentUpon>frmCadastrarCidade.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewCidade\frmGerenciarCidade.resx">
+      <DependentUpon>frmGerenciarCidade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewCliente\frmCadastrarCliente.resx">
       <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +258,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Source\Img\Cidade\city.png" />
     <Content Include="Source\Img\Cliente\city.png" />
     <Content Include="Source\Img\Cliente\cityMaior.png" />
     <Content Include="Source\Img\Cliente\phone.ico" />

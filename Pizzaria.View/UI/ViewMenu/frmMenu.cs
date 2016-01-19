@@ -5,6 +5,7 @@ using Pizzaria.View.UI.ViewProduto;
 using Pizzaria.View.UI.ViewEspera;
 using Pizzaria.View.UI.ViewCliente;
 using Pizzaria.View.UI.ViewBairro;
+using Pizzaria.View.UI.ViewCidade;
 
 namespace Pizzaria.View.UI.ViewMenu
 {
@@ -81,6 +82,14 @@ namespace Pizzaria.View.UI.ViewMenu
             InsControlsForTask();
             espere.Start(RunMessage);
             OpenMdiForm.LoadNewKeepAnother(this, new frmGerenciarBairro());
+            CancelarTask();
+        }
+
+        private void btnGerenciarCidade_Click(object sender, EventArgs e)
+        {
+            InsControlsForTask();
+            espere.Start(RunMessage);
+            OpenMdiForm.LoadNewKeepAnother(this, new frmGerenciarCidade());
             CancelarTask();
         }
     }

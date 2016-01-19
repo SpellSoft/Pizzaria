@@ -38,6 +38,8 @@
             this.btnPesquisarClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBairro = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGerenciarBairro = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCidade = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGerenciarCidade = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +50,8 @@
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuProduto,
             this.menuClientes,
-            this.menuBairro});
+            this.menuBairro,
+            this.menuCidade});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(742, 50);
@@ -128,6 +131,24 @@
             this.btnGerenciarBairro.Text = "Gerenciar";
             this.btnGerenciarBairro.Click += new System.EventHandler(this.btnGerenciarBairro_Click);
             // 
+            // menuCidade
+            // 
+            this.menuCidade.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGerenciarCidade});
+            this.menuCidade.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuCidade.Image = ((System.Drawing.Image)(resources.GetObject("menuCidade.Image")));
+            this.menuCidade.Name = "menuCidade";
+            this.menuCidade.Size = new System.Drawing.Size(91, 46);
+            this.menuCidade.Text = "Cidade";
+            // 
+            // btnGerenciarCidade
+            // 
+            this.btnGerenciarCidade.Image = ((System.Drawing.Image)(resources.GetObject("btnGerenciarCidade.Image")));
+            this.btnGerenciarCidade.Name = "btnGerenciarCidade";
+            this.btnGerenciarCidade.Size = new System.Drawing.Size(153, 26);
+            this.btnGerenciarCidade.Text = "Gerenciar";
+            this.btnGerenciarCidade.Click += new System.EventHandler(this.btnGerenciarCidade_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,5 +185,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnPesquisarClientes;
         private System.Windows.Forms.ToolStripMenuItem menuBairro;
         private System.Windows.Forms.ToolStripMenuItem btnGerenciarBairro;
+        private System.Windows.Forms.ToolStripMenuItem menuCidade;
+        private System.Windows.Forms.ToolStripMenuItem btnGerenciarCidade;
     }
 }
