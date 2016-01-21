@@ -1,17 +1,10 @@
 ﻿using Pizzaria.Controller.Repository;
 using Pizzaria.Model.Entity;
-using Pizzaria.View.Enumerador;
 using Pizzaria.View.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mike.Utilities.Desktop;
+using Pizzaria.View.Enumerador;
 
 namespace Pizzaria.View.UI.ViewCidade
 {
@@ -19,25 +12,30 @@ namespace Pizzaria.View.UI.ViewCidade
     {
 
         private CidadeRepositorio _cidadeRepositorio;
+        private Cidade _cidade;
+        private EnumTipoOperacao _tipoOperacao;
         private CidadeRepositorio InsCidadeRep()
         {
             return _cidadeRepositorio = new CidadeRepositorio();
         }
-        public frmGerenciarCidade()
+        public frmGerenciarCidade(Cidade cidade,EnumTipoOperacao tipoOperacao)
         {
+            this._cidade = cidade;
+            this._tipoOperacao = tipoOperacao;
             InitializeComponent();
         }
 
         private void frmGerenciarCidade_Load(object sender, EventArgs e)
         {
-            InsCidadeRep();
+          
+          
+            CarregarCidade();            
             PadronizarButton();
-            CarregarCidade();
-
         }
 
         private void CarregarCidade()
         {
+            InsCidadeRep();
             dgvCidade.DataSource = _cidadeRepositorio.Listar();
             PadronizarGrid();
             EsconderColuna();
@@ -60,7 +58,7 @@ namespace Pizzaria.View.UI.ViewCidade
         }
 
         private Button[] GetAllButton()
-                => new Button[] {btnSair,btnNovo,btnEditar,btnDeletar };
+                => new Button[] { btnSair, btnNovo, btnEditar, btnDeletar };
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -70,6 +68,114 @@ namespace Pizzaria.View.UI.ViewCidade
         private void FecharForm()
         {
             this.Close();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+
+                case Keys.F1:
+
+                    break;
+                case Keys.F2:
+
+                    break;
+                case Keys.F3:
+
+                    break;
+                case Keys.F4:
+
+                    break;
+                case Keys.F5:
+
+                    break;
+                case Keys.F6:
+
+                    break;
+                case Keys.F7:
+
+                    break;
+                case Keys.F8:
+
+                    break;
+                case Keys.F9:
+                    break;
+                case Keys.F10:
+                    break;
+                case Keys.F11:
+                    break;
+                case Keys.F12:
+
+                    break;
+                case Keys.Escape:
+                    FecharForm();
+                    break;
+                case Keys.Up:
+                    MoveToUpDgv();
+                    break;
+                case Keys.Down:
+                    MoveToDownDgv();
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void MoveToDownDgv()
+        {
+            dgvCidade.MoveToDown();
+        }
+
+        private void MoveToUpDgv()
+        {
+            dgvCidade.MoveToUp();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Cidade cidade;
+            if ((cidade = _cidadeRepositorio.GetPeloID(GetLinhaSelecionada())) != null)
+            {
+                if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade(cidade, EnumTipoOperacao.Editar)) == DialogResult.Yes)
+                {
+                    CustomMessage
+                        .MessageFullComButtonOkIconeDeInformacao("Cidade editada com sucesso!");
+                    CarregarCidade();
+                }
+            }
+        }
+        private int GetLinhaSelecionada()
+        {
+            if (ExisteCidadeCadastrada())
+            {
+                return (int)dgvCidade.SelectedRows[0].Cells[0].Value;
+            }
+            return 0;
+        }
+
+        private bool ExisteCidadeCadastrada()
+        {
+            return _cidadeRepositorio.GetQuantidade() > 0;
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            Cidade cidade;
+            if ((cidade = _cidadeRepositorio.GetPeloID(GetLinhaSelecionada())) != null)
+            {
+                if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade(cidade, EnumTipoOperacao.Deletar)) == DialogResult.Yes)
+                {
+
+                }
+            }
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade(new Cidade(), EnumTipoOperacao.Novo)) == DialogResult.Yes)
+            {
+
+            }
         }
     }
 }

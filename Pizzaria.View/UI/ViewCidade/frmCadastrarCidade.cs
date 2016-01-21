@@ -20,25 +20,66 @@ namespace Pizzaria.View.UI.ViewCidade
             this._enumTipoOperacao = tipoOPeracao;
             InitializeComponent();
         }
-        
+
         private void btnCadastrarCidade_Click(object sender, EventArgs e)
         {
             switch (_enumTipoOperacao)
             {
                 case EnumTipoOperacao.Novo:
-                    CadastrarCliente();
+                    CadastrarCidade();
                     break;
                 case EnumTipoOperacao.Editar:
+                    EditarCidade();
                     break;
                 case EnumTipoOperacao.Deletar:
+                
                     break;
                 case EnumTipoOperacao.Sair:
+                   
                     break;
                 case EnumTipoOperacao.Detalhes:
+                  
                     break;
-             
+
             }
 
+        }
+
+        private void EditarCidade()
+        {
+            Cidade cidade = PupulaCidade();
+            var txt = ValidaCampos.ValidarTxt(cidade, GetAllTxt());
+            if (txt == null)
+            {
+                if (_cidadeRepositorio.Editar(cidade))
+                {
+                    this.DialogResult = DialogResult.Yes;
+                }
+                else
+                    MessageBox.Show("houve um errro");
+            }
+            else
+                FocarNoTxt(txt: txtNomeCidade);
+        }
+
+        private void MudarIconeDoButton(EnumTipoOperacao tipo, string nameIco)
+        {
+            GerenciarControl.MudarIConeDoButton(btn: btnCadastrarCidade, operecao: tipo, iconeName: nameIco);
+        }
+
+        private void MudarTextoDoButton(string texto)
+        {
+            btnCadastrarCidade.Text = texto;
+        }
+
+        private void DesabilitarOuHabilitarTextBox(TextBox txt, bool mostrar = false)
+        {
+            GerenciarControl.DesabilitarOuHabilitarTextBox(txt, mostrar);
+        }
+
+        private void PopularTextBox()
+        {
+            txtNomeCidade.Text = _cidade.Nome;
         }
 
         private void PadronizarButton()
@@ -46,7 +87,7 @@ namespace Pizzaria.View.UI.ViewCidade
             btnCadastrarCidade.Padronizar();
         }
 
-        private void CadastrarCliente()
+        private void CadastrarCidade()
         {
             Cidade cidade = PupulaCidade();
             var txt = ValidaCampos.ValidarTxt(cidade, GetAllTxt());
@@ -67,6 +108,7 @@ namespace Pizzaria.View.UI.ViewCidade
         {
             return new Cidade
             {
+                CidadeID = _cidade.CidadeID,
                 Nome = txtNomeCidade.Text.Trim().UpperCaseOnlyFirst()
             };
         }
@@ -81,6 +123,41 @@ namespace Pizzaria.View.UI.ViewCidade
         private void frmCadastrarCidade_Load(object sender, EventArgs e)
         {
             InsCidadeRep();
+            switch (_enumTipoOperacao)
+            {
+                case EnumTipoOperacao.Novo:
+                    break;
+                case EnumTipoOperacao.Editar:
+                    PopularTextBox();
+                    MudarTextoDoButton(EnumTipoOperacao.Editar.ToString());
+                    MudarIconeDoButton(EnumTipoOperacao.Editar, EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
+                    break;
+                case EnumTipoOperacao.Deletar:
+                    PopularTextBox();
+                    DesabilitarOuHabilitarTextBox(txt: txtNomeCidade);
+                    MudarTextoDoButton(EnumTipoOperacao.Deletar.ToString());
+                    MudarIconeDoButton(EnumTipoOperacao.Deletar, EnumTipoIconCrud.Deletar.SetIcon(EnumExtensao.ico));
+                    break;
+                case EnumTipoOperacao.Sair:
+                    DesabilitarOuHabilitarTextBox(txt: txtNomeCidade);
+                    PopularTextBox();
+                    MudarTextoDoButton(EnumTipoOperacao.Sair.ToString());
+                    MudarIconeDoButton(EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                    break;
+                case EnumTipoOperacao.Detalhes:
+                    DesabilitarOuHabilitarTextBox(txt: txtNomeCidade);
+                    PopularTextBox();
+                    MudarTextoDoButton(EnumTipoOperacao.Detalhes.ToString());
+                    MudarIconeDoButton(EnumTipoOperacao.Detalhes, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                    break;
+
+            }
+            PadronizarGrid();
+        }
+
+        private void PadronizarGrid()
+        {
+            btnCadastrarCidade.Padronizar();
         }
 
         private void txtNomeCidade_KeyPress(object sender, KeyPressEventArgs e)

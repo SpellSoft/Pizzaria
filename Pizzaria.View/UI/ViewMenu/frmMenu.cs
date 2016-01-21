@@ -6,6 +6,8 @@ using Pizzaria.View.UI.ViewEspera;
 using Pizzaria.View.UI.ViewCliente;
 using Pizzaria.View.UI.ViewBairro;
 using Pizzaria.View.UI.ViewCidade;
+using Pizzaria.Model.Entity;
+using Pizzaria.View.Enumerador;
 
 namespace Pizzaria.View.UI.ViewMenu
 {
@@ -89,7 +91,7 @@ namespace Pizzaria.View.UI.ViewMenu
         {
             InsControlsForTask();
             espere.Start(RunMessage);
-            OpenMdiForm.LoadNewKeepAnother(this, new frmGerenciarCidade());
+            OpenMdiForm.LoadNewKeepAnother(this, new frmGerenciarCidade(new Cidade(), EnumTipoOperacao.Novo));
             CancelarTask();
         }
     }

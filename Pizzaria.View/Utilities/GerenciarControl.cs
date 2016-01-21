@@ -22,6 +22,10 @@ namespace Pizzaria.View.Utilities
         {
             GerenciarGroupBox.DesabilitarOuHabilitarMuitos(listGpb, mostrar);
         }
+        public static void DesabilitarOuHabilitarTextBox(TextBox txt, bool mostrar = false)
+        {
+            GerenciarTextBox.DesabilitarOuHabilitar(txt, mostrar);
+        }
         public static void EsconderOuMostrarGroupBox(GroupBox gpb, bool mostrar = false)
         {
             GerenciarGroupBox.EsconderOuMostrar(gpb, mostrar);
