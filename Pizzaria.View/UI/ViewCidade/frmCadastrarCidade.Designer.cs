@@ -44,7 +44,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 85);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastrar Cidade";
             // 
@@ -65,7 +65,7 @@
             this.txtNomeCidade.MaxLength = 50;
             this.txtNomeCidade.Name = "txtNomeCidade";
             this.txtNomeCidade.Size = new System.Drawing.Size(260, 26);
-            this.txtNomeCidade.TabIndex = 3;
+            this.txtNomeCidade.TabIndex = 1;
             this.txtNomeCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNomeCidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeCidade_KeyPress);
             // 
@@ -77,7 +77,7 @@
             this.btnCadastrarCidade.Location = new System.Drawing.Point(12, 103);
             this.btnCadastrarCidade.Name = "btnCadastrarCidade";
             this.btnCadastrarCidade.Size = new System.Drawing.Size(360, 62);
-            this.btnCadastrarCidade.TabIndex = 5;
+            this.btnCadastrarCidade.TabIndex = 2;
             this.btnCadastrarCidade.Text = "Salvar";
             this.btnCadastrarCidade.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrarCidade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

@@ -70,10 +70,15 @@
             // 
             // txtPesquisa
             // 
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtPesquisa.Location = new System.Drawing.Point(24, 26);
+            this.txtPesquisa.MaxLength = 50;
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(370, 26);
             this.txtPesquisa.TabIndex = 1;
+            this.txtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
+            this.txtPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisa_KeyPress);
             // 
             // dgvCidade
             // 

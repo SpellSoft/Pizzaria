@@ -181,5 +181,24 @@ namespace Pizzaria.View.UI.ViewCidade
                 CarregarCidade();
             }
         }
+
+        private void txtPesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidatorField.AllowOneSpaceTogether(e, sender);
+            ValidatorField.IntegerAndLetter(e);
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            if (ExisteCidadeCadastrada())
+            {
+                dgvCidade.DataSource = _cidadeRepositorio.PesquisarPorNome(GetTextDoTxt());
+            }
+        }
+
+        private string GetTextDoTxt()
+        {
+            return txtPesquisa.Text.ToLower().Trim();
+        }
     }
 }

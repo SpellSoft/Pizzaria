@@ -138,39 +138,46 @@ namespace Pizzaria.View.UI.ViewCidade
             switch (_enumTipoOperacao)
             {
                 case EnumTipoOperacao.Novo:
+                    FocarNoTxt(txtNomeCidade);
                     break;
                 case EnumTipoOperacao.Editar:
                     PopularTextBox();
                     MudarTextoDoButton(EnumTipoOperacao.Editar.ToString());
                     MudarIconeDoButton(EnumTipoOperacao.Editar, EnumTipoIconCrud.Editar.SetIcon(EnumExtensao.ico));
+                    PadronizarButton();
+                    FocarNoTxt(txtNomeCidade);
                     break;
                 case EnumTipoOperacao.Deletar:
                     PopularTextBox();
                     DesabilitarOuHabilitarTextBox(txt: txtNomeCidade);
                     MudarTextoDoButton(EnumTipoOperacao.Deletar.ToString());
                     MudarIconeDoButton(EnumTipoOperacao.Deletar, EnumTipoIconCrud.Deletar.SetIcon(EnumExtensao.ico));
+                    PadronizarButton();
+
+                    FocarNoTxt(txtNomeCidade);
                     break;
                 case EnumTipoOperacao.Sair:
                     DesabilitarOuHabilitarTextBox(txt: txtNomeCidade);
                     PopularTextBox();
                     MudarTextoDoButton(EnumTipoOperacao.Sair.ToString());
                     MudarIconeDoButton(EnumTipoOperacao.Sair, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                    PadronizarButton();
+                    FocarNoTxt(txtNomeCidade);
                     break;
                 case EnumTipoOperacao.Detalhes:
                     DesabilitarOuHabilitarTextBox(txt: txtNomeCidade);
                     PopularTextBox();
                     MudarTextoDoButton(EnumTipoOperacao.Detalhes.ToString());
                     MudarIconeDoButton(EnumTipoOperacao.Detalhes, EnumTipoIconCrud.Sair.SetIcon(EnumExtensao.ico));
+                    PadronizarButton();
+                    FocarNoTxt(txtNomeCidade);
                     break;
 
             }
-            PadronizarGrid();
+          
         }
 
-        private void PadronizarGrid()
-        {
-            btnCadastrarCidade.Padronizar();
-        }
+      
 
         private void txtNomeCidade_KeyPress(object sender, KeyPressEventArgs e)
         {
