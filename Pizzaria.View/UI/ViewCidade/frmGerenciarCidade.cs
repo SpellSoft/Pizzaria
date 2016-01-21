@@ -165,7 +165,9 @@ namespace Pizzaria.View.UI.ViewCidade
             {
                 if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade(cidade, EnumTipoOperacao.Deletar)) == DialogResult.Yes)
                 {
-
+                    CustomMessage
+                       .MessageFullComButtonOkIconeDeInformacao("Cidade deletada com sucesso!");
+                    CarregarCidade();
                 }
             }
         }
@@ -174,7 +176,9 @@ namespace Pizzaria.View.UI.ViewCidade
         {
             if (OpenMdiForm.OpenForWithShowDialog(new frmCadastrarCidade(new Cidade(), EnumTipoOperacao.Novo)) == DialogResult.Yes)
             {
-
+                CustomMessage
+                     .MessageFullComButtonOkIconeDeInformacao("Cidade cadastrado com sucesso!");
+                CarregarCidade();
             }
         }
     }

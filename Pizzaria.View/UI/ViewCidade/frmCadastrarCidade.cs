@@ -32,7 +32,7 @@ namespace Pizzaria.View.UI.ViewCidade
                     EditarCidade();
                     break;
                 case EnumTipoOperacao.Deletar:
-                
+                    DeletarCliente();
                     break;
                 case EnumTipoOperacao.Sair:
                    
@@ -42,6 +42,18 @@ namespace Pizzaria.View.UI.ViewCidade
                     break;
 
             }
+
+        }
+
+        private void DeletarCliente()
+        {
+            Cidade cidade = PupulaCidade();
+            if (_cidadeRepositorio.Deletar(cidade.CidadeID))
+            {
+                this.DialogResult = DialogResult.Yes;
+            }
+            else
+                MessageBox.Show("houve um errro");
 
         }
 
