@@ -138,6 +138,12 @@
     <Compile Include="UI\ViewLogradouro\frmCadastrarLogradouro.Designer.cs">
       <DependentUpon>frmCadastrarLogradouro.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewLogradouro\frmGerenciarLogradouro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewLogradouro\frmGerenciarLogradouro.Designer.cs">
+      <DependentUpon>frmGerenciarLogradouro.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewMenu\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewLogradouro\frmCadastrarLogradouro.resx">
       <DependentUpon>frmCadastrarLogradouro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewLogradouro\frmGerenciarLogradouro.resx">
+      <DependentUpon>frmGerenciarLogradouro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ViewMenu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
